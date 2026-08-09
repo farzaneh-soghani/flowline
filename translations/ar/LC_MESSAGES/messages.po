@@ -1,0 +1,482 @@
+# Arabic translations for FlowLine.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FlowLine 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-09 20:49+0200\n"
+"PO-Revision-Date: 2026-08-09 20:00+0200\n"
+"Last-Translator: FlowLine Team\n"
+"Language: ar\n"
+"Language-Team: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : "
+"n%100>=3 && n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app.py:126
+msgid "k.A."
+msgstr "غير محدد"
+
+#: app.py:143
+msgid "❌ Bitte E-Mail und Passwort eingeben!"
+msgstr "❌ يرجى إدخال البريد الإلكتروني وكلمة المرور!"
+
+#: app.py:147 app.py:231
+msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
+msgstr "❌ يجب أن تتكون كلمة المرور من 8 أحرف على الأقل!"
+
+#: app.py:151
+msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
+msgstr "❌ البريد الإلكتروني هذا مسجل بالفعل!"
+
+#: app.py:162
+msgid "❌ Registrierung fehlgeschlagen."
+msgstr "❌ فشل التسجيل."
+
+#: app.py:179
+msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
+msgstr "❌ البريد الإلكتروني أو كلمة المرور غير صحيحة!"
+
+#: app.py:201
+msgid "Passwort zurücksetzen - FlowLine"
+msgstr "إعادة تعيين كلمة المرور - FlowLine"
+
+#: app.py:202
+#, python-format
+msgid ""
+"Hallo,\n"
+"\n"
+"Sie haben eine Anfrage zum Zurücksetzen Ihres Passworts für FlowLine "
+"gestellt.\n"
+"Klicken Sie auf den folgenden Link, um ein neues Passwort zu vergeben:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Dieser Link ist 1 Stunde lang gültig.\n"
+"Wenn Sie diese Anfrage nicht gestellt haben, können Sie diese E-Mail "
+"einfach ignorieren.\n"
+"\n"
+"Viele Grüße\n"
+"Ihr FlowLine Team"
+msgstr ""
+"مرحبًا،\n"
+"\n"
+"لقد أرسلت طلبًا لإعادة تعيين كلمة المرور الخاصة بك في FlowLine.\n"
+"انقر على الرابط التالي لتعيين كلمة مرور جديدة:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"هذا الرابط صالحة لمدة ساعة واحدة فقط.\n"
+"إذا لم تقم بتقديم هذا الطلب، يمكنك تجاهل هذه الرسالة.\n"
+"\n"
+"مع تحياتنا،\n"
+"فريق FlowLine"
+
+#: app.py:209
+msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
+msgstr "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني."
+
+#: app.py:212
+msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
+msgstr "❌ خطأ في إرسال البريد الإلكتروني. يرجى المحاولة لاحقًا."
+
+#: app.py:216
+msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
+msgstr "❌ لم يتم العثور على عنوان البريد الإلكتروني هذا."
+
+#: app.py:225
+msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
+msgstr "❌ الرابط غير صالح أو منتهي الصلاحية أو تم استخدامه بالفعل."
+
+#: app.py:237
+msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
+msgstr "✅ تم تغيير كلمة المرور بنجاح! يمكنك تسجيل الدخول الآن."
+
+#: app.py:241
+msgid "❌ Fehler beim Speichern des Passworts."
+msgstr "❌ خطأ في حفظ كلمة المرور."
+
+#: app.py:263
+msgid "❌ Firma und Position sind Pflichtfelder!"
+msgstr "❌ اسم الشركة والمسمى الوظيفي حقلان إجباريان!"
+
+#: app.py:279 app.py:463
+msgid "❌ Fehler beim Speichern!"
+msgstr "❌ خطأ أثناء الحفظ!"
+
+#: app.py:311
+#, python-format
+msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
+msgstr "تنبيه: هناك %(num)d طلب(ات) تتطلب المتابعة أو موعد مقابلة!"
+
+#: app.py:358
+msgid "Bewerbungsübersicht"
+msgstr "ملخص طلبات التوظيف"
+
+#: app.py:361
+msgid "Firma"
+msgstr "الشركة"
+
+#: app.py:361
+msgid "Position"
+msgstr "المسمى الوظيفي"
+
+#: app.py:361 templates/index.html:51
+msgid "Datum"
+msgstr "التاريخ"
+
+#: app.py:361
+msgid "Erinnerung"
+msgstr "تذكير"
+
+#: app.py:361 templates/index.html:47
+msgid "Status"
+msgstr "الحالة"
+
+#: app.py:417
+msgid "🗑️ Bewerbung gelöscht!"
+msgstr "🗑️ تم حذف طلب التوظيف!"
+
+#: app.py:420
+msgid "❌ Fehler beim Löschen!"
+msgstr "❌ خطأ في الحذف!"
+
+#: app.py:435
+msgid "❌ Pflichtfelder ausfüllen!"
+msgstr "❌ يرجى ملء الحقول الإجبارية!"
+
+#: app.py:447
+msgid "❌ Fehler beim Aktualisieren!"
+msgstr "❌ خطأ في التحديث!"
+
+#: templates/base.html:462
+msgid "Abmelden"
+msgstr "تسجيل الخروج"
+
+#: templates/base.html:488 templates/impressum.html:5
+msgid "Impressum"
+msgstr "الإشعار القانوني"
+
+#: templates/base.html:489
+msgid "Datenschutz"
+msgstr "سياسة الخصوصية"
+
+#: templates/datenschutzerklaerung.html:5 templates/register.html:21
+msgid "Datenschutzerklärung"
+msgstr "سياسة الخصوصية"
+
+#: templates/datenschutzerklaerung.html:8
+msgid "1. Datenschutz auf einen Blick"
+msgstr "1. نظرة عامة على حماية البيانات"
+
+#: templates/datenschutzerklaerung.html:10
+msgid ""
+"Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit "
+"Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. "
+"Personenbezogene Daten sind alle Daten, mit denen Sie persönlich "
+"identifiziert werden können."
+msgstr ""
+"تقدم المعلومات التالية نظرة عامة بسيطة عما يحدث لبياناتك الشخصية عند "
+"زيارة هذا الموقع."
+
+#: templates/datenschutzerklaerung.html:13
+msgid "2. Verantwortliche Stelle"
+msgstr "2. الجهة المسؤولة"
+
+#: templates/datenschutzerklaerung.html:21
+msgid "3. Datenerfassung auf dieser Website"
+msgstr "3. جمع البيانات على هذا الموقع"
+
+#: templates/datenschutzerklaerung.html:22
+msgid "Registrierung und Benutzerkonto"
+msgstr "التسجيل وحساب المستخدم"
+
+#: templates/datenschutzerklaerung.html:24
+msgid ""
+"Wenn Sie sich auf unserer Website registrieren, erheben wir Ihre E-Mail-"
+"Adresse sowie ein verschlüsseltes Passwort (Password-Hash). Diese Daten "
+"werden ausschließlich zur Bereitstellung Ihres Benutzerkontos und zur "
+"Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO)."
+msgstr ""
+"عند التسجيل في موقعنا، نجمع عنوان بريدك الإلكتروني وكلمة المرور المشفرة "
+"لتوفير الحساب والتحقق من الهوية."
+
+#: templates/datenschutzerklaerung.html:27
+msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
+msgstr "معالجة بيانات طلبات التوظيف (FlowLine)"
+
+#: templates/datenschutzerklaerung.html:29
+msgid ""
+"Die von Ihnen im FlowLine eingegebenen Daten (z. B. Firmennamen, "
+"Stellenbezeichnungen, Bewerbungsstatus und Notizen) werden in unserer "
+"Datenbank gespeichert, um Ihnen die Verwaltung Ihrer Bewerbungen zu "
+"ermöglichen."
+msgstr ""
+"يتم تخزين البيانات التي تدخلها في FlowLine في قاعدة بياناتنا لتمكينك من "
+"إدارة طلباتك."
+
+#: templates/datenschutzerklaerung.html:32
+msgid "4. Ihre Rechte"
+msgstr "4. حقوقك"
+
+#: templates/datenschutzerklaerung.html:34
+msgid ""
+"Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu "
+"erhalten (Art. 15 DSGVO)."
+msgstr "الحصول على معلومات حول بياناتك الشخصية المخزنة لدينا (المادة 15 من GDPR)."
+
+#: templates/datenschutzerklaerung.html:35
+msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
+msgstr "طلب تصحيح البيانات غير الصحيحة (المادة 16 من GDPR)."
+
+#: templates/datenschutzerklaerung.html:36
+msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
+msgstr "طلب حذف بياناتك (المادة 17 من GDPR)."
+
+#: templates/edit.html:12
+msgid "Bewerbung bearbeiten"
+msgstr "تعديل طلب التوظيف"
+
+#: templates/edit.html:19 templates/index.html:11
+msgid "Firmenname eingeben"
+msgstr "أدخل اسم الشركة"
+
+#: templates/edit.html:22 templates/index.html:12
+msgid "Jobtitel eingeben"
+msgstr "أدخل المسمى الوظيفي"
+
+#: templates/edit.html:27 templates/stats.html:21
+msgid "Offen"
+msgstr "قيد الانتظار"
+
+#: templates/edit.html:28
+msgid "Einladung"
+msgstr "دعوة لمقابلة"
+
+#: templates/edit.html:29
+msgid "Zusage"
+msgstr "تم القبول"
+
+#: templates/edit.html:30
+msgid "Absage"
+msgstr "مرفوض"
+
+#: templates/edit.html:44
+msgid "Termin für Nachfassen"
+msgstr "تاريخ المتابعة"
+
+#: templates/edit.html:52 templates/notes.html:24
+msgid "Speichern"
+msgstr "حفظ"
+
+#: templates/impressum.html:8
+msgid "Angaben gemäß § 5 DDG"
+msgstr "المعلومات وفقًا للمادة 5 من قانون DDG"
+
+#: templates/impressum.html:16
+msgid "Kontakt"
+msgstr "الاتصال"
+
+#: templates/impressum.html:18
+msgid "E-Mail"
+msgstr "البريد الإلكتروني"
+
+#: templates/impressum.html:21
+msgid "Redaktionell verantwortlich"
+msgstr "المسؤول عن المحتوى"
+
+#: templates/impressum.html:28
+msgid "Haftungsausschluss (Disclaimer)"
+msgstr "إخلاء المسؤولية"
+
+#: templates/impressum.html:29
+msgid "Haftung für Inhalte"
+msgstr "المسؤولية عن المحتوى"
+
+#: templates/impressum.html:31
+msgid ""
+"Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf "
+"diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis"
+" 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, "
+"übermittelte oder gespeicherte fremde Informationen zu überwachen oder "
+"nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit "
+"hinweisen."
+msgstr "بصفتنا مزود خدمة، نحن مسؤولون عن محتوانا الخاص في هذه الصفحات..."
+
+#: templates/impressum.html:34
+msgid "Haftung für Links"
+msgstr "المسؤولية عن الروابط"
+
+#: templates/impressum.html:36
+msgid ""
+"Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
+"Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
+"Inhalte auch keine Gewähr übernehmen."
+msgstr "يحتوي موقعنا على روابط لم مواقع خارجية..."
+
+#: templates/index.html:7
+msgid "Neue Bewerbung"
+msgstr "طلب توظيف جديد"
+
+#: templates/index.html:14
+msgid "Hinzufügen"
+msgstr "إضافة"
+
+#: templates/index.html:21
+msgid "Bewerbungen"
+msgstr "طلبات التوظيف"
+
+#: templates/index.html:29
+msgid "Suchen..."
+msgstr "بحث..."
+
+#: templates/index.html:60
+msgid "Erinnerung umschalten"
+msgstr "تبديل التذكير"
+
+#: templates/index.html:90
+msgid "Nachfassen"
+msgstr "متابعة"
+
+#: templates/index.html:101 templates/notes.html:8
+msgid "Notizen"
+msgstr "ملاحظات"
+
+#: templates/index.html:110
+msgid "Bearbeiten"
+msgstr "تعديل"
+
+#: templates/index.html:117
+msgid "Löschen"
+msgstr "حذف"
+
+#: templates/index.html:129
+#, python-format
+msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
+msgstr "لم يتم العثور على طلبات توظيف لـ \"%(query)s\"."
+
+#: templates/index.html:143
+msgid "Keine Bewerbungen vorhanden."
+msgstr "لا توجد طلبات توظيف حالية."
+
+#: templates/index.html:157
+msgid "Statistik"
+msgstr "الإحصائيات"
+
+#: templates/index.html:168
+msgid "PDF-Export"
+msgstr "تصدير PDF"
+
+#: templates/login.html:8
+msgid "Anmelden"
+msgstr "تسجيل الدخول"
+
+#: templates/login.html:15 templates/register.html:13
+msgid "E-Mail-Adresse"
+msgstr "عنوان البريد الإلكتروني"
+
+#: templates/login.html:18
+msgid "Passwort"
+msgstr "كلمة المرور"
+
+#: templates/login.html:22
+msgid "Einloggen"
+msgstr "تسجيل الدخول"
+
+#: templates/login.html:30
+msgid "Noch kein Konto?"
+msgstr "ليس لديك حساب بعد؟"
+
+#: templates/login.html:30
+msgid "Hier registrieren"
+msgstr "سجل هنا"
+
+#: templates/login.html:33
+msgid "Passwort vergessen?"
+msgstr "نسيت كلمة المرور؟"
+
+#: templates/notes.html:19
+msgid "Notizen, Telefonate, nächste Schritte..."
+msgstr "الملاحظات، المكالمات الهاتفية، الخطوات التالية..."
+
+#: templates/register.html:7
+msgid "Registrieren"
+msgstr "إنشاء حساب"
+
+#: templates/register.html:15
+msgid "Passwort (mind. 8 Zeichen)"
+msgstr "كلمة المرور (8 أحرف على الأقل)"
+
+#: templates/register.html:21
+msgid "Ich habe die"
+msgstr "لقد قرأت"
+
+#: templates/register.html:21
+msgid "gelesen und akzeptiere sie."
+msgstr "وأوافق عليها."
+
+#: templates/register.html:26
+msgid "Konto erstellen"
+msgstr "إنشاء حساب"
+
+#: templates/register.html:32
+msgid "Bereits ein Konto?"
+msgstr "لديك حساب بالفعل؟"
+
+#: templates/register.html:32
+msgid "Hier anmelden"
+msgstr "سجل الدخول هنا"
+
+#: templates/reset_password.html:7
+msgid "Neues Passwort eingeben"
+msgstr "أدخل كلمة المرور الجديدة"
+
+#: templates/reset_password.html:11
+msgid "Bitte geben Sie Ihr neues Passwort ein (mindestens 8 Zeichen)."
+msgstr "يرجى إدخال كلمة المرور الجديدة (8 أحرف على الأقل)."
+
+#: templates/reset_password.html:17
+msgid "Neues Passwort"
+msgstr "كلمة المرور الجديدة"
+
+#: templates/reset_password.html:20
+msgid "Passwort speichern"
+msgstr "حفظ كلمة المرور"
+
+#: templates/reset_password.html:28 templates/reset_request.html:33
+msgid "Zurück zum Login"
+msgstr "العودة لتسجيل الدخول"
+
+#: templates/reset_request.html:8
+msgid "Passwort zurücksetzen"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: templates/reset_request.html:13
+msgid ""
+"Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zum "
+"Zurücksetzen Ihres Passworts."
+msgstr "أدخل عنوان بريدك الإلكتروني. سنرسل لك رابطًا لإعادة تعيين كلمة المرور."
+
+#: templates/reset_request.html:20
+msgid "E-Mail-Adresse eingeben"
+msgstr "إدخال البريد الإلكتروني"
+
+#: templates/reset_request.html:24
+msgid "Link anfordern"
+msgstr "طلب الرابط"
+
+#: templates/stats.html:7
+msgid "Statistiken"
+msgstr "الإحصائيات"
+
+#: templates/stats.html:15
+msgid "Gesamt Bewerbungen"
+msgstr "إجمالي طلبات التوظيف"
+
+#: templates/index.html:117
+msgid "Wirklich löschen?"
+msgstr "هل انت متاكد من الحذف؟"

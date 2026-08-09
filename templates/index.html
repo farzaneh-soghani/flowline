@@ -1,44 +1,173 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container"> 
-<h1>💼 Job-Tracker</h1>
-<h2>📝 Bewerbungen hinzufügen</h2>
-<form method="POST">
-    <div class="form-row">
-        <input name="firma" placeholder="Firmenname eingeben" required>
-        <input name="position" placeholder="Jobtitel eingeben" required>
-        <select name="status">
-            <option value="offen">offen</option>
-            <option value="interview">interview</option>
-            <option value="zusage">zusage</option>
-            <option value="abgelehnt">abgelehnt</option>
-        </select>
-        <button type="submit">➕ Hinzufügen</button>
-    </div>
-</form>
 
-<h3>Deine Bewerbungen:</h3>
-{% if jobs %}
-{% for job in jobs %}
-<div class="job">
-    <div class="job-top">
-        <div class="job-title">
-            <strong>{{ job.firma }}</strong> | {{ job.position }}
-        </div>
-        <div class="job-buttons">
-            <a href="{{ url_for('notes', index=loop.index0) }}" class="btn-notes">📝</a>
-            <a href="{{ url_for('edit_job', index=jobs.index(job)) }}" class="btn-edit">✏️</a>
-            <a href="{{ url_for('delete_job', index=jobs.index(job)) }}" class="btn-delete" onclick="return confirm('Wirklich löschen?')">🗑️</a>
-        </div>
+    <!-- عنوان بخش افزودن -->
+    <h2 style="font-size: 1.4em; font-weight: 600; color: #0f172a; margin-bottom: 15px;">
+        {{ _('Neue Bewerbung') }}
+    </h2>
+
+    <form method="POST" style="display: flex; gap: 12px; align-items: center; margin-bottom: 30px;">
+        <input name="firma" class="inset-input" placeholder="{{ _('Firmenname eingeben') }}" required>
+        <input name="position" class="inset-input" placeholder="{{ _('Jobtitel eingeben') }}" required>
+        <button type="submit" class="btn-primary">
+            <span class="plus-icon">+</span> {{ _('Hinzufügen') }}
+        </button>
+    </form>
+
+    <!-- عنوان لیست و فیلد جستجو -->
+    <div style="display: flex; align-items: center; gap: 16px; margin-top: 35px; margin-bottom: 15px;">
+        <h3 style="font-size: 1.1em; font-weight: 600; color: #0f172a; margin: 0; white-space: nowrap;">
+            {{ _('Bewerbungen') }}
+        </h3>
+
+        <form action="{{ url_for('index') }}" method="GET" style="margin: 0;">
+            <div style="position: relative; display: flex; align-items: center;">
+                <svg style="position: absolute; left: 10px; width: 14px; height: 14px; fill: #94a3b8;" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+                <input type="text" name="q" value="{{ request.args.get('q', '') }}" placeholder="{{ _('Suchen...') }}"
+                style="height: 30px; padding: 0 12px 0 32px; font-size: 0.85em; width: 170px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; box-sizing: border-box; color: #0f172a; box-shadow: none;" 
+                onfocus="this.style.borderColor='#0284c7';" onblur="this.style.borderColor='#cbd5e1';">
+            </div>
+        </form>
     </div>
-    <div class="job-info">
-        📋 {{ job.status }} | {{ job.datum }}
+
+    <!-- نمایش لیست شغل‌ها یا پیام عدم وجود -->
+    {% if jobs %}
+        {% for job in jobs %}
+            <div class="job">
+                <div class="job-content">
+                    <div style="font-size: 1.05em; color: #0f172a; font-weight: 500;">
+                        {{ job.firma }} <span style="color: #94a3b8; margin: 0 4px;">|</span> {{ job.position }}
+                    </div>
+                    
+                    <div class="job-info" style="display: flex; gap: 12px; align-items: center; font-size: 0.88em; color: #64748b; margin-top: 4px;">
+                        <span>
+                            {{ _('Status') }}: <span style="color: #1e293b; font-weight: 500;">{{ _(job.status.capitalize()) }}</span>
+                        </span>
+                        <span>&bull;</span>
+                        <span>
+                            {{ _('Datum') }}: <span style="color: #1e293b; font-weight: 500;">{{ job.datum | german_date }}</span></span>
+                        </span>
+
+                        <!-- ➕ این بخش جدید جایگزین زنگوله قبلی می‌شود -->
+                        {% if job.status.lower() not in ['zusage', 'absage'] %}
+                            <span>&bull;</span>
+                            <span style="display: inline-flex; align-items: center; gap: 6px;">
+                                
+                                <!-- دکمه کلیک روی زنگوله برای خاموش/روشن کردن -->
+                                <a href="{{ url_for('toggle_nachgefasst', job_id=job.id) }}" style="text-decoration: none; display: flex; align-items: center;" title="{{ _('Erinnerung umschalten') }}">
+                                    {% if job.nachgefasst %}
+                                        <!-- زنگوله خاموش / خط‌خورده -->
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                            <path d="M18.63 13A17.89 17.89 0 0 1 18 8"></path>
+                                            <path d="M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14"></path>
+                                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                                        </svg>
+                                    {% else %}
+                                        {% if job.is_due %}
+                                            <!-- زنگوله قرمز (هنگام سررسید) -->
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="icon-due" style="color: #ef4444;">
+                                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                            </svg>
+                                        {% else %}
+                                            <!-- زنگوله عادی / خاکستری -->
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                style="color: #64748b;">
+                                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                            </svg>
+                                        {% endif %}
+                                    {% endif %}
+                                </a>
+
+                                <!-- کلمه Nachfassen و تاریخ -->
+                                <span class="{{ 'text-due' if (job.is_due and not job.nachgefasst) }}">
+                                    {{ _('Nachfassen') }}: 
+                                    <span style="color: #1e293b; font-weight: 500;">
+                                        {{ job.follow_up_datum | german_date }}
+                                    </span>
+                                </span>
+                            </span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="job-buttons">
+                    <a href="{{ url_for('notes', id=job.id) }}" class="btn-notes" title="{{ _('Notizen') }}">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                    </a>
+
+                    <a href="{{ url_for('edit_job', id=job.id) }}" class="btn-edit" title="{{ _('Bearbeiten') }}">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </a>
+
+                    <a href="{{ url_for('delete_job', id=job.id) }}" class="btn-delete" data-confirm="{{ _('Wirklich löschen?') }}" onclick="return confirm(this.dataset.confirm)" title="{{ _('Löschen') }}">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        {% if request.args.get('q') %}
+            <p style="text-align: left; color: #c2410c; font-size: 15px; margin: 20px 0;">
+                {{ _('Keine Bewerbungen für "%(query)s" gefunden.', query=request.args.get('q')) | safe }}
+            </p>
+        {% else %}
+            <!-- Empty State Container -->
+            <div style="text-align: center; padding: 40px 20px; margin: 20px 0;">
+                <!-- آیکون پوشه SVG اختصاصی هماهنگ با بقیه آیکون‌های پروژه -->
+                <div style="margin-bottom: 12px; opacity: 0.4;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                
+                <!-- متن اصلی با رنگ خاکستری ملایم -->
+                <p style="color: #64748b; font-size: 0.95em; margin: 0;">
+                    {{ _('Keine Bewerbungen vorhanden.') }}
+                </p>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <!-- دکمه‌های پایین (Statistik و PDF Export) همیشه بیرون از شرط و کاملاً ثابت هستند -->
+    <div style="display: flex; gap: 10px; margin-top: 25px;">
+        <a href="{{ url_for('stats') }}" class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            {{ _('Statistik') }}
+        </a>
+
+        <a href="{{ url_for('export_pdf') }}" class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            {{ _('PDF-Export') }}
+        </a>
     </div>
-</div>
-{% endfor %}
-{% else %}
-<p>📋 Noch keine hinzugefügt!</p>
-{% endif %}
-<a href="{{ url_for('stats') }}"><button>📊 Statistik</button></a>
+
 </div>
 {% endblock %}

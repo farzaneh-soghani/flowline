@@ -1,225 +1,505 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ current_lang }}" dir="{{ 'rtl' if current_lang in ['fa', 'ar'] else 'ltr' }}">
 
 <head>
-    <title>💼 Job-Tracker</title>
+    <meta charset="UTF-8">
+    <title>FlowLine</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/FlowLine_icon.svg') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {% block styles %}
     <style>
-        html {
-            height: 100%;
-            margin: 0;
-            overflow-x: hidden;
+        /* ==========================================
+           1. BASE & RESET STYLES
+           ========================================== */
+        :root {
+            --primary-blue: #378ADD;
+            --primary-hover: #1D9E75;
+            --border-color: #cbd5e1;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --danger-color: #dc2626; 
+        }
+
+        *, *::before, *::after {
             box-sizing: border-box;
         }
 
-        body {
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh;
-                background: #95a9c0;
-                font-family: Arial;
-                margin: 0;
-                padding: 15px 15px;       
-                width: 100%;
-                overflow-x: hidden;          
-            }
-
-        .container {
-                max-width: 1000px;
-                width: 100%;
-                margin: 0 auto;
-                padding: 10px 15px;
-                box-sizing: border-box;
-            }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 10px 10px !important;  
-                overflow-x: hidden !important;
-                box-sizing: border-box !important;
-            }
-
-            .container {
-                padding: 10px 10px 20px 10px !important;
-                max-width: 100% !important;
-                box-sizing: border-box !important;
-            }           
-            
-            .form-row {
-                flex-direction: column !important;
-                gap: 15px;
-            }
-            
-            .form-row button {
-                width: 100%;  
-            }
-            
-            input, select, button {
-                width: 100% !important;
-                font-size: 16px;     
-                padding: 15px;
-                box-sizing: border-box;   
-            }
-
-            footer {
-                padding: 10px 10px 20px 10px !important; 
-                font-size: 0.8em !important;    
-                width: 100% !important;
-                box-sizing: border-box;              
-            }
-        }    
-
-        .job {
-            background: #ecf6f9;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
+        html {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+            /* اضافه کردن background-attachment: fixed برای تثبیت گرادیانت */
+            background: linear-gradient(135deg, #b2dfdb 0%, #bae6fd 100%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 10px 15px;
+        }
+
+        /* ==========================================
+           2. HEADER & NAVBAR
+           ========================================== */
+        header {
+            padding: 15px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a.logo-link {
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lang-select {
+            height: 32px !important;
+            padding: 0 8px !important;
+            font-size: 0.85em !important;
+            font-weight: 500;
+            color: var(--text-main);
+            background: #ffffff;
+            border: 1.5px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .lang-select:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .user-email {
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+
+        .btn-logout {
+            color: var(--danger-color);
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 6px 12px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-logout:hover {
+            background: var(--danger-color);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        /* ==========================================
+           3. FORM INPUTS & BUTTONS (UNIFIED)
+           ========================================== */
         .form-row {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
             margin: 20px 0;
+            align-items: center;
         }
 
-        input,
-        select {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgb(111, 107, 114);
-            transition: box-shadow 0.2s ease;
+        /* استایل پایه ورودی‌ها */
+        input, select {
+            width: 100%;
+            height: 42px;
+            padding: 0 16px;
+            font-size: 0.95em;
+            color: var(--text-main);
+            background: #ffffff;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.2s ease;
         }
 
-        button {
-            background: #c0b7c5;
-            color: rgb(0, 0, 0);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
+        input:focus, select:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(55, 138, 221, 0.15);
+        }
+
+        /* استایل اختصاصی فرورفته (Inset style) */
+        .inset-input {
+            background: #f1f6f9;
+            box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.06), 
+                        inset -1px -1px 3px rgba(255, 255, 255, 0.8);
+        }
+
+        .inset-input:focus, textarea.inset-input:focus {
+            background: #ffffff !important;
+            border-color: var(--primary-blue) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+            outline: none !important;
+        }
+
+        .form-row .inset-input,
+        .form-row input,
+        .form-row select {
+            flex: 1;
+            width: auto;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            padding: 0;
+            margin-top: 3px;
             cursor: pointer;
-            box-shadow: 0 2px 4px rgb(111, 107, 114);
-            transition: box-shadow 0.2s ease;
+            accent-color: var(--primary-blue);
         }
 
-        .flash {
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 4px;
-            margin: 10px 0;
+        /* دکمه اصلی (Hinzufügen / Speichern) */
+        .btn-primary, button[type="submit"] {
+            height: 42px !important;
+            display: inline-flex;
+            line-height: 1 !important;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            background: #ffffff;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            border-radius: 8px;
+            padding: 0 20px;
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            margin-right: 2px;
         }
 
-        .stats {
-            background: #ecf6f9;
-            padding: 30px;
+        .btn-primary .plus-icon {
+            font-size: 1.35em;
+            font-weight: 700;
+            line-height: 1;
+            margin-right: 2px;
+        }
+
+        .btn-primary:hover, button[type="submit"]:hover {
+            background: linear-gradient(90deg, var(--primary-hover), var(--primary-blue));
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(55, 138, 221, 0.25);
+        }
+
+        /* دکمه‌های ثانویه (Statistik / PDF-Export) */
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            height: 38px;
+            padding: 0 16px;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: var(--text-main);
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none !important;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-secondary:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ==========================================
+           4. CARDS & ACTION BUTTONS
+           ========================================== */
+        .job {
+            background: #f1f6f9;
+            border: 1.5px solid var(--border-color);
+            padding: 16px 18px;
+            margin: 12px 0;
             border-radius: 12px;
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .stat-number {
-            font-size: 2.0em;
-            color: #007bff;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .stat-label {
-            font-size: 1.2em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .job-top {
+            box-shadow: inset 1px 4px 10px rgba(0, 0, 0, 0.05), 
+                        inset -1px -1px 3px rgba(255, 255, 255, 0.8);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            transition: all 0.2s ease;
         }
 
-        .job-title {
-            font-size: 1.1em;
-            flex-grow: 1;
+        .job:hover {
+            background: #ffffff;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            border-color: #94a3b8;
+            transform: translateY(-1px);
+        }
+
+        .job-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .job-info {
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+
+        /* استایل‌های سررسید (DUE) با هماهنگی کامل متغیر --danger-color */
+        .icon-due {
+            stroke: var(--danger-color) !important;
+            stroke-width: 2.5px !important;
+        }
+
+        .text-due {
+            color: var(--danger-color) !important;
+        }
+
+        .date-due {
+            font-weight: 700 !important;
         }
 
         .job-buttons {
             display: flex;
-            gap: 5px;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .btn-notes,
-        .btn-edit,
-        .btn-delete {
+
+        .btn-notes, .btn-edit, .btn-delete {
             text-decoration: none;
-            padding: 4px 8px;
-            border-radius: 4px;
-            width: 32px;
-            height: 32px;
-            text-align: center;
-            line-height: 24px;
-            display: inline-block;
-            background: #c0b7c5;
-            box-shadow: 0 2px 4px rgb(111, 107, 114);
-            transition: box-shadow 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            padding: 0;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            color: #475569;
+            transition: all 0.2s ease;
         }
 
-        button:hover {
-            background: #007bff;
-        }
-
-        .btn-notes:hover {
-            background: #007bff;
-        }
-
-        .btn-edit:hover {
-            background: #007bff;
+        .btn-notes:hover, .btn-edit:hover {
+            background: #ffffff;
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
         }
 
         .btn-delete:hover {
-            background: #df5858;
+            background: #fef2f2;
+            border-color: #fca5a5;
+            color: var(--danger-color);
         }
 
-        .job-info {
-            color: #2e2e2e;
-            font-size: 0.9em;
+        /* ==========================================
+           5. FLASH MESSAGES & FOOTER
+           ========================================== */
+        .flash {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border: 1px solid #c3e6cb;
         }
 
         footer {
-            margin-top: 50px;
+            margin-top: auto;
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
             text-align: center;
-            color: #303030;
-            font-size: 0.8em;
-            padding: 25px 0;
-            border-top: 1px solid #ecf6f9;
+            color: var(--text-muted);
+            font-size: 0.85em;
+            padding: 20px 10px;
+        }
+
+        footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 5px;
+            transition: all 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px 10px 20px 10px !important;
+                max-width: 100% !important;
+            }
+
+            .form-row {
+                flex-direction: column !important;
+                gap: 15px;
+            }
+
+            .form-row button {
+                width: 100%;
+            }
+
+            input, select, button {
+                width: 100% !important;
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+
+        /* افکت کلیک دکمه‌ها */
+        button:active, 
+        [class^="btn-"]:active {
+            transform: translateY(1px) !important;
         }
     </style>
     {% endblock %}
-
 </head>
 
 <body>
 
+    <!-- Header -->
+    <header>
+        <a href="{{ url_for('index') }}" class="logo-link">
+            <div style="display:flex; flex-direction:row; align-items:center; gap:8px;">
+                <svg width="38" height="38" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg" style="display:block; flex-shrink:0;">
+                    <defs>
+                        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1D9E75"/>
+                            <stop offset="100%" style="stop-color:#378ADD"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="0" y="0" width="130" height="130" rx="28" fill="url(#g2)"/>
+                    <line x1="20" y1="72" x2="110" y2="72" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
+                    <circle cx="36" cy="72" r="9" fill="white" opacity="0.4"/>
+                    <circle cx="65" cy="72" r="9" fill="white" opacity="0.65"/>
+                    <circle cx="94" cy="72" r="12" fill="white"/>
+                    <polyline points="88,70 94,78 102,66" fill="none" stroke="url(#g2)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="36" y="56" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.6">Applied</text>
+                    <text x="65" y="56" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.8">Interview</text>
+                    <text x="94" y="56" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">Offer</text>
+                </svg>
+
+                <div style="display:flex; flex-direction:column; align-items:flex-start; gap:2px;">
+                    <div style="font-family:system-ui,sans-serif; font-size:22px; font-weight:700; letter-spacing:-0.5px; line-height:1;">
+                        <span style="color:#2C2C2A;">Flow</span><span style="background:linear-gradient(90deg,#1D9E75,#378ADD); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">Line</span>
+                    </div>
+                    <div style="font-family:system-ui,sans-serif; font-size:7px; color:#64748b; letter-spacing:0.7px; line-height:1; text-align:left;">
+                        APPLICATIONS IN FLOW
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <nav>
+        {% if current_user.is_authenticated %}
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <span class="user-email">{{ current_user.email }}</span>
+            
+            <!-- سوئیچر زبان بین‌المللی شیک با عکس پرچم (پشتیبانی کامل در ویندوز) -->
+            <div x-data="{ open: false }" style="position: relative; display: inline-block;">
+                <button @click="open = !open" @click.outside="open = false" type="button"
+                        style="border-radius: 8px; background: white; padding: 6px 12px; border: 1px solid #cbd5e1; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #334155;">
+                    {% if current_lang == 'fa' %}
+                        <img src="https://flagcdn.com/w20/ir.png" width="20" alt="FA"> فارسی
+                    {% elif current_lang == 'en' %}
+                        <img src="https://flagcdn.com/w20/gb.png" width="20" alt="EN"> English
+                    {% elif current_lang == 'ar' %}
+                        <img src="https://flagcdn.com/w20/sa.png" width="20" alt="AR"> العربية
+                    {% elif current_lang == 'tr' %}
+                        <img src="https://flagcdn.com/w20/tr.png" width="20" alt="TR"> Türkçe
+                    {% else %}
+                        <img src="https://flagcdn.com/w20/de.png" width="20" alt="DE"> Deutsch
+                    {% endif %}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+
+                <div x-show="open" x-transition 
+                    style="position: absolute; right: 0; top: 110%; background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; min-width: 140px; overflow: hidden; display: none;">
+                    <a href="{{ url_for('set_language', lang='de') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/de.png" width="20"> Deutsch</a>
+                    <a href="{{ url_for('set_language', lang='en') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/gb.png" width="20"> English</a>
+                    <a href="{{ url_for('set_language', lang='fa') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/ir.png" width="20"> فارسی</a>
+                    <a href="{{ url_for('set_language', lang='ar') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/sa.png" width="20"> العربية</a>
+                    <a href="{{ url_for('set_language', lang='tr') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/tr.png" width="20"> Türkçe</a>
+                </div>
+            </div>
+
+            <a href="{{ url_for('logout') }}" class="btn-logout">{{ _('Abmelden') }}</a>
+        </div>
+        {% endif %}
+    </nav>
+    </header>
+
+    <!-- Flash Messages -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
-    {% for message in messages %}
     <div class="container">
-        <div class="flash">{{ message }}</div>
+        {% for message in messages %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
     </div>
-    {% endfor %}
     {% endif %}
     {% endwith %}
 
+    <!-- Main Content -->
     <main style="flex: 1;">
         {% block content %}{% endblock %}
     </main>
 
+    <!-- Footer -->
     <footer>
-        © 2026 Farzaneh Soghani | Job-Tracker (Flask · Python · Jinja2) |
-        <a href="https://www.linkedin.com/in/farzaneh-soghani/" style="color: #007bff;">LinkedIn</a>
+        <p style="margin: 0;">
+            © 2026 Farzaneh Soghani &bull; FlowLine &bull; 
+            <a href="{{ url_for('impressum') }}">{{ _('Impressum') }}</a> &bull; 
+            <a href="{{ url_for('datenschutz') }}">{{ _('Datenschutz') }}</a>
+        </p>
     </footer>
+
+    <script>
+        setTimeout(function() {
+            let flashMessages = document.querySelectorAll('.flash');
+            flashMessages.forEach(function(msg) {
+                msg.style.transition = "opacity 0.5s ease";
+                msg.style.opacity = "0";
+                setTimeout(() => msg.remove(), 500); 
+            });
+        }, 3000); 
+    </script>
 
 </body>
 

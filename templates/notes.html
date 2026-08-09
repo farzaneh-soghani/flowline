@@ -1,15 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-    <h2 style="margin-top: 80px; font-size: 25px;">📝 Notizen: {{ job.firma }} - {{ job.position }}</h2>
-    <form method="POST">
-        <textarea name="notes" placeholder="Notizen, Telefonate, nächste Schritte..." 
-                  style="width:100%; height:250px; padding:20px; box-sizing: border-box; font-size:16px; border-radius: 4px;">{{ job.notes or '' }}
-        </textarea>
-    <div class="form-row">
-        <button type="submit">Speichern</button>
-        <a href="{{ url_for('index') }}"><button>← Zurück</button></a>
+<div class="container" style="max-width: 500px; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto;">
+    
+    <!-- هدر متمرکز (Notizen و مشخصات کنار هم) -->
+    <div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <h2 style="font-size: 1.3em; font-weight: 600; color: #0f172a; margin: 0;">
+            {{ _('Notizen') }}
+        </h2>
+        <span style="font-size: 0.85em; color: #475569; background: #f1f5f9; padding: 4px 10px; border-radius: 6px; border: 1px solid #cbd5e1; font-weight: 500;">
+            {{ job.firma }} — {{ job.position }}
+        </span>
     </div>
+
+    <form method="POST">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            
+            <!-- کادر یادداشت فقط با کلاس inset-input -->
+            <textarea name="notes" placeholder="{{ _('Notizen, Telefonate, nächste Schritte...') }}" class="inset-input" 
+                style="width: 100%; height: 220px; padding: 14px; font-family: inherit; resize: vertical; box-sizing: border-box; display: block; border-radius: 8px;">{{ job.notes or '' }}</textarea>
+
+            <!-- دکمه ذخیره -->
+            <button type="submit" class="btn-primary" style="width: 100%; height: 42px; font-size: 0.95em; font-weight: 500; cursor: pointer;">
+                {{ _('Speichern') }}
+            </button>
+
+        </div>
     </form>
+
 </div>
 {% endblock %}
