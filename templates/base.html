@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>FlowLine</title>
+    <!-- ۱. برای تمام مرورگرهای مدرن (دسکتاپ و اندروید) -->
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/FlowLine_icon.svg') }}">
+
+    <!-- ۲. برای آیفون و آیپد (iOS حتما PNG می‌خواهد) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {% block styles %}
@@ -396,25 +401,43 @@
     <!-- Header -->
     <header>
         <a href="{{ url_for('index') }}" class="logo-link">
-            <div style="display:flex; flex-direction:row; align-items:center; gap:8px;">
-                <svg width="38" height="38" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg" style="display:block; flex-shrink:0;">
+            <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
+                
+                <!-- لوگوی اصلاح شده با هر ۳ نقطه کاملاً واضح -->
+                <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
                     <defs>
-                        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#1D9E75"/>
-                            <stop offset="100%" style="stop-color:#378ADD"/>
+                        <linearGradient id="mainBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1D9E75"/>
+                            <stop offset="100%" stop-color="#1D60D2"/>
+                        </linearGradient>
+                        <linearGradient id="checkCircleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1D9E75"/>
+                            <stop offset="100%" stop-color="#1D6EEB"/>
                         </linearGradient>
                     </defs>
-                    <rect x="0" y="0" width="130" height="130" rx="28" fill="url(#g2)"/>
-                    <line x1="20" y1="72" x2="110" y2="72" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
-                    <circle cx="36" cy="72" r="9" fill="white" opacity="0.4"/>
-                    <circle cx="65" cy="72" r="9" fill="white" opacity="0.65"/>
-                    <circle cx="94" cy="72" r="12" fill="white"/>
-                    <polyline points="88,70 94,78 102,66" fill="none" stroke="url(#g2)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <text x="36" y="56" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.6">Applied</text>
-                    <text x="65" y="56" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.8">Interview</text>
-                    <text x="94" y="56" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">Offer</text>
+
+                    <!-- پس‌زمینه اصلی -->
+                    <rect width="100" height="100" rx="26" fill="url(#mainBgGrad)"/>
+
+                    <!-- برگه سفید -->
+                    <rect x="20" y="18" width="48" height="64" rx="12" fill="white"/>
+
+                    <!-- ۳ خط روی برگه -->
+                    <rect x="28" y="30" width="28" height="5" rx="2.5" fill="#A8CDEC"/>
+                    <rect x="28" y="42" width="22" height="5" rx="2.5" fill="#A8CDEC"/>
+                    <rect x="28" y="54" width="16" height="5" rx="2.5" fill="#A8CDEC"/>
+
+                    <!-- ۳ نقطه سفید در سمت راست (موقعیت اصلاح‌شده تا ۳ تا کاملاً دیده بشن) -->
+                    <circle cx="78" cy="28" r="4" fill="white" opacity="0.6"/>
+                    <circle cx="78" cy="40" r="4" fill="white" opacity="0.8"/>
+                    <circle cx="78" cy="52" r="4" fill="white" opacity="0.6"/>
+
+                    <!-- دایره تیک در پایین سمت راست -->
+                    <circle cx="68" cy="68" r="18" fill="url(#checkCircleGrad)"/>
+                    <path d="M59 68L65 74L77 62" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
 
+                <!-- متن‌ها -->
                 <div style="display:flex; flex-direction:column; align-items:flex-start; gap:2px;">
                     <div style="font-family:system-ui,sans-serif; font-size:22px; font-weight:700; letter-spacing:-0.5px; line-height:1;">
                         <span style="color:#2C2C2A;">Flow</span><span style="background:linear-gradient(90deg,#1D9E75,#378ADD); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">Line</span>
@@ -423,6 +446,7 @@
                         APPLICATIONS IN FLOW
                     </div>
                 </div>
+
             </div>
         </a>
 
