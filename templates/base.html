@@ -37,12 +37,21 @@
             overflow-x: hidden;
         }
 
+        /* ==========================================
+        کانتینر اصلی برای جمع‌وجور کردن و وسط‌چین شدن تمام صفحه
+        ========================================== */
+        .container {
+            width: 100%;
+            max-width: 1000px; /* پهنای دلخواه صفحه (می‌توانید بین 900 تا 1100 بگذارید) */
+            margin: 0 auto;    /* وسط‌چین کردن کل محتوا */
+            padding: 20px 15px;
+        }
+
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh; 
-            /* اضافه کردن background-attachment: fixed برای تثبیت گرادیانت */
-            background: linear-gradient(135deg, #b2dfdb 0%, #bae6fd 100%);
+            background: linear-gradient(135deg, #a1d4ce 0%, #a3ddfc 100%);
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-size: cover;
@@ -53,12 +62,95 @@
             width: 100%;
             overflow-x: hidden;
         }
+        /* ==========================================
+           1.1 SPLASH SCREEN STYLES (NEW)
+           ========================================== */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 50%, #e6fffa 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
 
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 10px 15px;
+        .splash-logo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 22px;
+        }
+
+        /* ظرفِ در برگیرنده متن‌ها در اسپلش */
+        .splash-logo > div:last-child {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* کشیدن المان‌ها برای پوشش کل عرض */
+            width: max-content;   /* تنظیم عرض دقیق بر اساس محتوا */
+        }
+
+        /* ۱. آیکون: از مقیاس ۰.۲ با نرمی و چرخش نامحسوس بزرگ می‌شود */
+        .splash-icon {
+            transform-origin: center center;
+            animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .splash-title {
+            opacity: 0;
+            animation: slideInText 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+            white-space: nowrap;
+        }
+
+        /* ۳. زیرعنوان: بعد از FlowLine از پایین ظاهر می‌شود */
+        .splash-subtitle {
+            opacity: 0;
+            animation: fadeInSub 0.5s ease 0.85s forwards;
+            letter-spacing: 0.9px;      /* کم کردن فاصله حروف تا کل عبارت کوتاه‌تر شود و w عقب بیاید */
+            margin-left: 2px;           /* تراز دقیق لبه‌ی سمت چپ با حرف F */
+            white-space: nowrap;
+        }
+
+        @keyframes iconPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInText {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInSub {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .splash-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
         }
 
         /* ==========================================
@@ -110,14 +202,19 @@
         }
 
         .btn-logout {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            height: 29px;
+            padding: 0 12px;
+            font-size: 14px;
+            font-weight: 500;
             color: var(--danger-color);
-            text-decoration: none;
-            font-size: 0.85em;
-            font-weight: 600;
-            padding: 6px 12px;
             background: #fef2f2;
-            border: 1px solid #fecaca;
+            border: 1.5px solid #fecaca;
             border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
             transition: all 0.2s ease;
         }
 
@@ -138,7 +235,6 @@
             align-items: center;
         }
 
-        /* استایل پایه ورودی‌ها */
         input, select {
             width: 100%;
             height: 42px;
@@ -157,7 +253,6 @@
             box-shadow: 0 0 0 3px rgba(55, 138, 221, 0.15);
         }
 
-        /* استایل اختصاصی فرورفته (Inset style) */
         .inset-input {
             background: #f1f6f9;
             box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.06), 
@@ -187,7 +282,6 @@
             accent-color: var(--primary-blue);
         }
 
-        /* دکمه اصلی (Hinzufügen / Speichern) */
         .btn-primary, button[type="submit"] {
             height: 42px !important;
             display: inline-flex;
@@ -223,7 +317,6 @@
             box-shadow: 0 4px 12px rgba(55, 138, 221, 0.25);
         }
 
-        /* دکمه‌های ثانویه (Statistik / PDF-Export) */
         .btn-secondary {
             display: inline-flex;
             align-items: center;
@@ -283,7 +376,6 @@
             font-size: 0.9em;
         }
 
-        /* استایل‌های سررسید (DUE) با هماهنگی کامل متغیر --danger-color */
         .icon-due {
             stroke: var(--danger-color) !important;
             stroke-width: 2.5px !important;
@@ -364,7 +456,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 10px 10px 20px 10px !important;
@@ -376,77 +467,221 @@
                 gap: 15px;
             }
 
+            .form-row input, 
+            .form-row select, 
             .form-row button {
-                width: 100%;
+                width: 100% !important;
             }
 
-            input, select, button {
+            input, select {
                 width: 100% !important;
                 font-size: 16px;
                 padding: 12px;
             }
-        }
 
-        /* افکت کلیک دکمه‌ها */
+            /* اصلاح اصولی هدر برای موبایل */
+            header {
+                flex-direction: column !important;
+                height: auto !important;
+                padding: 12px !important;
+                gap: 12px !important;
+                align-items: stretch !important;
+            }
+
+            /* بخش بالای هدر (شامل لوگو) */
+            header .logo, header img {
+                align-self: center;
+            }
+
+            header .logo span:last-child, 
+            header .subtitle, 
+            header small {
+                font-size: 6.5px !important; /* کوچک کردن جزئی فونت برای کاهش طول کل متن */
+                letter-spacing: 0.8px !important; /* تنظیم فاصله بین حروف برای تنظیم عرض نهایی */
+                display: block !important;
+                width: 100% !important;
+            }
+
+            /* بخش پایین هدر (شامل ایمیل، زبان و دکمه خروج) */
+            header nav, header .user-nav, header .header-right {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                width: 100% !important;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            /* تنظیم اندازه ایمیل و دکمه‌ها در هدر موبایل */
+            header span, header email {
+                font-size: 12px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                max-width: 150px;
+            }
+
+            .lang-select, 
+            .btn-logout {
+                width: auto !important;
+                font-size: 13px !important;
+                padding: 6px 10px !important;
+            }
+
+            /* تنظیم کلی کارت */
+            .job {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 12px !important;
+                padding: 14px !important;
+            }
+
+            /* محتوای متنی کارت به صورت ستونی و زیر هم (به جز کانتینر دکمه‌ها) */
+            .job > div:not(.job-buttons), .job-details, .job-content {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+                width: 100% !important;
+            }
+
+            /* اگر برای Status و Datum یک خطِ جداگانه دارید */
+            .job-info-row {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 10px !important;
+            }
+
+            /* دکمه‌ها در پایین کارت در یک خطِ افقی کامل کنار هم */
+            .job-buttons {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                justify-content: flex-end !important;
+                align-items: center !important;
+                gap: 8px !important;
+                margin-top: 8px !important;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                padding-top: 10px;               
+            }
+
+            .job-buttons .btn-notes, 
+            .job-buttons .btn-edit, 
+            .job-buttons .btn-delete {
+                display: inline-flex !important;
+                width: 36px !important;
+                height: 36px !important;
+                flex: 0 0 auto !important;
+                margin: 0 !important;
+            }
+
+            /* تنظیم فاصله چک‌باکس با متن روبرویش */
+            input[type="checkbox"] {
+                width: auto !important;
+                margin-left: 4px !important; /* تنظیم فاصله در موبایل */
+                margin-right: 4px !important;
+            }
+        }
+           
         button:active, 
         [class^="btn-"]:active {
             transform: translateY(1px) !important;
         }
+        
     </style>
     {% endblock %}
 </head>
 
 <body>
 
-    <!-- Header -->
+<!-- Splash Screen با انیمیشن مرحله‌ای -->
+    <div id="splash-screen">
+        <div class="splash-logo">
+            
+            <!-- مرحله ۱: آیکون (با رنگ‌های جدید و هماهنگ با پس‌زمینه پاستلی) -->
+            <svg class="splash-icon" width="105" height="105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                <defs>
+                    <linearGradient id="splashMainBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0E9F6E"/>
+                        <stop offset="100%" stop-color="#0284C7"/>
+                    </linearGradient>
+                    <linearGradient id="splashCheckCircleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#10B981"/>
+                        <stop offset="100%" stop-color="#38BDF8"/>
+                    </linearGradient>
+                </defs>
+                <rect width="100" height="100" rx="26" fill="url(#splashMainBgGrad)"/>
+                <rect x="20" y="18" width="48" height="64" rx="12" fill="white"/>
+                <rect x="28" y="30" width="28" height="5" rx="2.5" fill="#BAE6FD"/>
+                <rect x="28" y="42" width="22" height="5" rx="2.5" fill="#BAE6FD"/>
+                <rect x="28" y="54" width="16" height="5" rx="2.5" fill="#BAE6FD"/>
+                <circle cx="78" cy="28" r="4" fill="white" opacity="0.6"/>
+                <circle cx="78" cy="40" r="4" fill="white" opacity="0.8"/>
+                <circle cx="78" cy="52" r="4" fill="white" opacity="0.6"/>
+                <circle cx="68" cy="68" r="18" fill="url(#splashCheckCircleGrad)"/>
+                <path d="M59 68L65 74L77 62" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <!-- بخش متن‌ها با تفکیک انیمیشن -->
+            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; overflow:hidden;">
+                
+                <!-- مرحله ۲: عنوان اصلی (با گرادینتِ هماهنگ شده) -->
+                <div class="splash-title" style="font-family:system-ui,sans-serif; font-size:54px; font-weight:800; letter-spacing:-1px; line-height:1;">
+                    <span style="color:#1E293B;">Flow</span><span style="background:linear-gradient(90deg,#0E9F6E,#0284C7); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">Line</span>
+                </div>
+
+                <!-- مرحله ۳: زیرعنوان -->
+                <div class="splash-subtitle" style="font-family:system-ui,sans-serif; font-size:13px; font-weight:600; color:#64748B; letter-spacing: 4.4px; line-height:1; text-align:left; white-space:nowrap;">
+                    APPLICATIONS IN FLOW
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+<!-- Header -->
     <header>
         <a href="{{ url_for('index') }}" class="logo-link">
             <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
                 
-                <!-- لوگوی اصلاح شده با هر ۳ نقطه کاملاً واضح -->
+                <!-- لوگوی اصلی هدر با رنگ‌های جدید و هماهنگ -->
                 <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
                     <defs>
                         <linearGradient id="mainBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#1D9E75"/>
-                            <stop offset="100%" stop-color="#1D60D2"/>
+                            <stop offset="0%" stop-color="#0E9F6E"/>
+                            <stop offset="100%" stop-color="#0284C7"/>
                         </linearGradient>
                         <linearGradient id="checkCircleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#1D9E75"/>
-                            <stop offset="100%" stop-color="#1D6EEB"/>
+                            <stop offset="0%" stop-color="#10B981"/>
+                            <stop offset="100%" stop-color="#38BDF8"/>
                         </linearGradient>
                     </defs>
 
-                    <!-- پس‌زمینه اصلی -->
                     <rect width="100" height="100" rx="26" fill="url(#mainBgGrad)"/>
-
-                    <!-- برگه سفید -->
                     <rect x="20" y="18" width="48" height="64" rx="12" fill="white"/>
-
-                    <!-- ۳ خط روی برگه -->
-                    <rect x="28" y="30" width="28" height="5" rx="2.5" fill="#A8CDEC"/>
-                    <rect x="28" y="42" width="22" height="5" rx="2.5" fill="#A8CDEC"/>
-                    <rect x="28" y="54" width="16" height="5" rx="2.5" fill="#A8CDEC"/>
-
-                    <!-- ۳ نقطه سفید در سمت راست (موقعیت اصلاح‌شده تا ۳ تا کاملاً دیده بشن) -->
+                    <rect x="28" y="30" width="28" height="5" rx="2.5" fill="#BAE6FD"/>
+                    <rect x="28" y="42" width="22" height="5" rx="2.5" fill="#BAE6FD"/>
+                    <rect x="28" y="54" width="16" height="5" rx="2.5" fill="#BAE6FD"/>
                     <circle cx="78" cy="28" r="4" fill="white" opacity="0.6"/>
                     <circle cx="78" cy="40" r="4" fill="white" opacity="0.8"/>
                     <circle cx="78" cy="52" r="4" fill="white" opacity="0.6"/>
-
-                    <!-- دایره تیک در پایین سمت راست -->
                     <circle cx="68" cy="68" r="18" fill="url(#checkCircleGrad)"/>
                     <path d="M59 68L65 74L77 62" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
 
-                <!-- متن‌ها -->
+                <!-- متن‌ها با گرادینت هماهنگ‌شده -->
                 <div style="display:flex; flex-direction:column; align-items:flex-start; gap:2px;">
                     <div style="font-family:system-ui,sans-serif; font-size:22px; font-weight:700; letter-spacing:-0.5px; line-height:1;">
-                        <span style="color:#2C2C2A;">Flow</span><span style="background:linear-gradient(90deg,#1D9E75,#378ADD); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">Line</span>
+                        <span style="color:#2C2C2A;">Flow</span><span style="background:linear-gradient(90deg,#0E9F6E,#0284C7); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">Line</span>
                     </div>
-                    <div style="font-family:system-ui,sans-serif; font-size:7px; color:#64748b; letter-spacing:0.7px; line-height:1; text-align:left;">
+                    <!-- بدون کلاس splash-subtitle و با اندازه‌های مناسب هدر -->
+                    <div style="font-family:system-ui,sans-serif; font-size:7px; font-weight:600; color:#64748B; letter-spacing: 0.45px; margin-left: 1.5px; line-height:1; text-align:left; white-space:nowrap;">
                         APPLICATIONS IN FLOW
                     </div>
                 </div>
-
             </div>
         </a>
 
@@ -455,7 +690,7 @@
         <div style="display: flex; align-items: center; gap: 16px;">
             <span class="user-email">{{ current_user.email }}</span>
             
-            <!-- سوئیچر زبان بین‌المللی شیک با عکس پرچم (پشتیبانی کامل در ویندوز) -->
+            <!-- سوئیچر زبان بین‌المللی -->
             <div x-data="{ open: false }" style="position: relative; display: inline-block;">
                 <button @click="open = !open" @click.outside="open = false" type="button"
                         style="border-radius: 8px; background: white; padding: 6px 12px; border: 1px solid #cbd5e1; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #334155;">
@@ -515,6 +750,28 @@
     </footer>
 
     <script>
+        // مدیریت نمایش Splash Screen با استفاده از زمان انقضا در localStorage
+        window.addEventListener('DOMContentLoaded', function() {
+            const splash = document.getElementById('splash-screen');
+            if (!splash) return;
+
+            const lastSeen = localStorage.getItem('splashLastSeen');
+            const now = new Date().getTime();
+            const intervalTime = 30 * 1000; // ۳۰ ثانیه (اگر ۳۰ ثانیه از آخرین بازدید گذشت، دوباره اسپلش را نشان بده)
+
+            if (!lastSeen || (now - lastSeen > intervalTime)) {
+                // نمایش انیمیشن سینمایی
+                setTimeout(function() {
+                    splash.classList.add('splash-hidden');
+                    localStorage.setItem('splashLastSeen', new Date().getTime());
+                }, 2000);
+            } else {
+                // اگر کمتر از ۳۰ ثانیه گذشته بود (مثل رفرش کردن سریع صفحه)
+                splash.style.display = 'none';
+            }
+        });
+
+        // حذف اتوماتیک Flash Messages
         setTimeout(function() {
             let flashMessages = document.querySelectorAll('.flash');
             flashMessages.forEach(function(msg) {
