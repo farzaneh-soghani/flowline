@@ -354,14 +354,19 @@ def export_pdf():
         spaceAfter=20
     )
 
-    # 👈 عناوین PDF نیز قابل ترجمه شدند
     elements.append(Paragraph(f"{_('Bewerbungsübersicht')} - {current_user.email}", title_style))
     elements.append(Spacer(1, 10))
 
     data = [[_("Firma"), _("Position"), _("Datum"), _("Erinnerung"), _("Status")]]
     for j in jobs:
         datum_formatted = datetime.strptime(j.datum, '%Y-%m-%d').strftime('%d.%m.%Y') if j.datum else "-"
-        follow_up_formatted = datetime.strptime(j.follow_up_datum, '%Y-%m-%d').strftime('%d.%m.%Y') if j.follow_up_datum else "-"
+        
+        # 👈 شرط جدید: اگر استتوس Zusage یا Absage بود، یادآوری خالی (-) شود
+        status_lower = j.status.lower() if j.status else ""
+        if status_lower in ["zusage", "absage"]:
+            follow_up_formatted = "-"
+        else:
+            follow_up_formatted = datetime.strptime(j.follow_up_datum, '%Y-%m-%d').strftime('%d.%m.%Y') if j.follow_up_datum else "-"
 
         data.append([
             j.firma,

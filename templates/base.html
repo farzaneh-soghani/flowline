@@ -502,31 +502,34 @@
                 width: 100% !important;
             }
 
-            /* بخش پایین هدر (شامل ایمیل، زبان و دکمه خروج) */
+            /* بخش پایین هدر (مدیریت کاملاً امن فضا) */
             header nav, header .user-nav, header .header-right {
                 display: flex !important;
                 flex-direction: row !important;
                 justify-content: space-between !important;
                 align-items: center !important;
                 width: 100% !important;
-                flex-wrap: wrap;
-                gap: 8px;
+                flex-wrap: nowrap !important;
+                gap: 4px !important;
             }
 
-            /* تنظیم اندازه ایمیل و دکمه‌ها در هدر موبایل */
-            header span, header email {
-                font-size: 12px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                max-width: 150px;
+            /* ایمیل با کنترل دقیق عرض */
+            header span, header email, header .user-email {
+                font-size: 12px !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                white-space: nowrap !important;
+                max-width: 105px !important;
+                flex-shrink: 1 !important;
             }
 
+            /* منوی زبان و دکمه خروج */
             .lang-select, 
             .btn-logout {
                 width: auto !important;
-                font-size: 13px !important;
-                padding: 6px 10px !important;
+                font-size: 12px !important;
+                padding: 4px 5px !important;
+                flex-shrink: 0 !important;
             }
 
             /* تنظیم کلی کارت */
