@@ -1,0 +1,495 @@
+# Polish translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-08-09 20:49+0200\n"
+"PO-Revision-Date: 2026-08-14 14:49+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pl\n"
+"Language-Team: pl <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app.py:126
+msgid "k.A."
+msgstr "Brak"
+
+#: app.py:143
+msgid "❌ Bitte E-Mail und Passwort eingeben!"
+msgstr "❌ Proszę podać adres e-mail i hasło!"
+
+#: app.py:147 app.py:231
+msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
+msgstr "❌ Hasło musi mieć co najmniej 8 znaków!"
+
+#: app.py:151
+msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
+msgstr "❌ Ten adres e-mail jest już zarejestrowany!"
+
+#: app.py:162
+msgid "❌ Registrierung fehlgeschlagen."
+msgstr "❌ Rejestracja nie powiodła się."
+
+#: app.py:179
+msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
+msgstr "❌ Nieprawidłowy adres e-mail lub hasło!"
+
+#: app.py:201
+msgid "Passwort zurücksetzen - FlowLine"
+msgstr "Resetowanie hasła - FlowLine"
+
+#: app.py:202
+#, python-format
+msgid ""
+"Hallo,\n"
+"\n"
+"Sie haben eine Anfrage zum Zurücksetzen Ihres Passworts für FlowLine "
+"gestellt.\n"
+"Klicken Sie auf den folgenden Link, um ein neues Passwort zu vergeben:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Dieser Link ist 1 Stunde lang gültig.\n"
+"Wenn Sie diese Anfrage nicht gestellt haben, können Sie diese E-Mail "
+"einfach ignorieren.\n"
+"\n"
+"Viele Grüße\n"
+"Ihr FlowLine Team"
+msgstr ""
+"Witaj,\n"
+"\n"
+"Otrzymaliśmy prośbę o zresetowanie hasła do konta FlowLine.\n"
+"Kliknij w poniższy link, aby ustawić nowe hasło:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Ten link jest ważny przez 1 godzinę.\n"
+"Jeśli ta prośba nie pochodzi od Ciebie, po prostu zignoruj tę wiadomość.\n"
+"\n"
+"Pozdrowienia\n"
+"Zespół FlowLine"
+
+#: app.py:209
+msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
+msgstr "Link do resetowania hasła został wysłany na Twój adres e-mail."
+
+#: app.py:212
+msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
+msgstr "❌ Błąd podczas wysyłania wiadomości e-mail. Spróbuj ponownie później."
+
+#: app.py:216
+msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
+msgstr "❌ Nie znaleziono tego adresu e-mail."
+
+#: app.py:225
+msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
+msgstr "❌ Link jest nieprawidłowy, wygasł lub został już użyty."
+
+#: app.py:237
+msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
+msgstr "✅ Hasło zostało pomyślnie zmienione! Możesz się teraz zalogować."
+
+#: app.py:241
+msgid "❌ Fehler beim Speichern des Passworts."
+msgstr "❌ Błąd podczas zapisywania hasła."
+
+#: app.py:263
+msgid "❌ Firma und Position sind Pflichtfelder!"
+msgstr "❌ Firma i stanowisko są polami obowiązkowymi!"
+
+#: app.py:279 app.py:463
+msgid "❌ Fehler beim Speichern!"
+msgstr "❌ Błąd podczas zapisywania!"
+
+#: app.py:311
+#, python-format
+msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
+msgstr "Uwaga: W przypadku %(num)d aplikacji wymagany jest kontakt lub termin upływa!"
+
+#: app.py:358
+msgid "Bewerbungsübersicht"
+msgstr "Przegląd aplikacji"
+
+#: app.py:361
+msgid "Firma"
+msgstr "Firma"
+
+#: app.py:361
+msgid "Position"
+msgstr "Stanowisko"
+
+#: app.py:361 templates/index.html:51
+msgid "Datum"
+msgstr "Data"
+
+#: app.py:361
+msgid "Erinnerung"
+msgstr "Przypomnienie"
+
+#: app.py:361 templates/index.html:47
+msgid "Status"
+msgstr "Status"
+
+#: app.py:417
+msgid "🗑️ Bewerbung gelöscht!"
+msgstr "🗑️ Aplikacja została usunięta!"
+
+#: app.py:420
+msgid "❌ Fehler beim Löschen!"
+msgstr "❌ Błąd podczas usuwania!"
+
+#: app.py:435
+msgid "❌ Pflichtfelder ausfüllen!"
+msgstr "❌ Wypełnij pola obowiązkowe!"
+
+#: app.py:447
+msgid "❌ Fehler beim Aktualisieren!"
+msgstr "❌ Błąd podczas aktualizacji!"
+
+#: templates/base.html:462
+msgid "Abmelden"
+msgstr "Wyloguj się"
+
+#: templates/base.html:488 templates/impressum.html:5
+msgid "Impressum"
+msgstr "Impressum (O nas)"
+
+#: templates/base.html:489
+msgid "Datenschutz"
+msgstr "Polityka prywatności"
+
+#: templates/datenschutzerklaerung.html:5 templates/register.html:21
+msgid "Datenschutzerklärung"
+msgstr "Oświadczenie o ochronie prywatności"
+
+#: templates/datenschutzerklaerung.html:8
+msgid "1. Datenschutz auf einen Blick"
+msgstr "1. Ochrona danych w skrócie"
+
+#: templates/datenschutzerklaerung.html:10
+msgid ""
+"Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit "
+"Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. "
+"Personenbezogene Daten sind alle Daten, mit denen Sie persönlich "
+"identifiziert werden können."
+msgstr ""
+"Poniższe informacje stanowią prosty przegląd tego, co dzieje się z Twoimi "
+"danymi osobowymi podczas odwiedzania naszej strony internetowej. Dane osobowe "
+"to wszystkie dane, za pomocą których można Cię osobiście zidentyfikować."
+
+#: templates/datenschutzerklaerung.html:13
+msgid "2. Verantwortliche Stelle"
+msgstr "2. Podmiot odpowiedzialny"
+
+#: templates/datenschutzerklaerung.html:21
+msgid "3. Datenerfassung auf dieser Website"
+msgstr "3. Gromadzenie danych na tej stronie internetowej"
+
+#: templates/datenschutzerklaerung.html:22
+msgid "Registrierung und Benutzerkonto"
+msgstr "Rejestracja i konto użytkownika"
+
+#: templates/datenschutzerklaerung.html:24
+msgid ""
+"Wenn Sie sich auf unserer Website registrieren, erheben wir Ihre E-Mail-"
+"Adresse sowie ein verschlüsseltes Passwort (Password-Hash). Diese Daten "
+"werden ausschließlich zur Bereitstellung Ihres Benutzerkontos und zur "
+"Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO)."
+msgstr ""
+"Podczas rejestracji na naszej stronie internetowej zbieramy Twój adres e-mail "
+"oraz zaszyfrowane hasło (skrót hasła). Dane te są wykorzystywane wyłącznie "
+"w celu udostępnienia konta użytkownika oraz uwierzytelnienia (art. 6 ust. 1 lit. b RODO)."
+
+#: templates/datenschutzerklaerung.html:27
+msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
+msgstr "Przetwarzanie danych aplikacyjnych (FlowLine)"
+
+#: templates/datenschutzerklaerung.html:29
+msgid ""
+"Die von Ihnen im FlowLine eingegebenen Daten (z. B. Firmennamen, "
+"Stellenbezeichnungen, Bewerbungsstatus und Notizen) werden in unserer "
+"Datenbank gespeichert, um Ihnen die Verwaltung Ihrer Bewerbungen zu "
+"ermöglichen."
+msgstr ""
+"Dane wprowadzane przez Ciebie w programie FlowLine (np. nazwy firm, stanowiska, "
+"statusy aplikacji oraz notatki) są zapisywane w naszej bazie danych, aby umożliwić "
+"Ci zarządzanie aplikacjami."
+
+#: templates/datenschutzerklaerung.html:32
+msgid "4. Ihre Rechte"
+msgstr "4. Twoje prawa"
+
+#: templates/datenschutzerklaerung.html:34
+msgid ""
+"Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu "
+"erhalten (Art. 15 DSGVO)."
+msgstr "Uzyskanie informacji o Twoich danych osobowych przechowywanych przez nas (art. 15 RODO)."
+
+#: templates/datenschutzerklaerung.html:35
+msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
+msgstr "Żądanie sprostowania nieprawidłowych danych (art. 16 RODO)."
+
+#: templates/datenschutzerklaerung.html:36
+msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
+msgstr "Żądanie usunięcia Twoich danych (art. 17 RODO)."
+
+#: templates/edit.html:12
+msgid "Bewerbung bearbeiten"
+msgstr "Edytuj aplikację"
+
+#: templates/edit.html:19 templates/index.html:11
+msgid "Firmenname eingeben"
+msgstr "Wpisz nazwę firmy"
+
+#: templates/edit.html:22 templates/index.html:12
+msgid "Jobtitel eingeben"
+msgstr "Wpisz tytuł stanowiska"
+
+#: templates/edit.html:27 templates/stats.html:21
+msgid "Offen"
+msgstr "Otwarte"
+
+#: templates/edit.html:28
+msgid "Einladung"
+msgstr "Zaproszenie"
+
+#: templates/edit.html:29
+msgid "Zusage"
+msgstr "Akceptacja"
+
+#: templates/edit.html:30
+msgid "Absage"
+msgstr "Odrzucenie"
+
+#: templates/edit.html:44
+msgid "Termin für Nachfassen"
+msgstr "Termin kontaktu"
+
+#: templates/edit.html:52 templates/notes.html:24
+msgid "Speichern"
+msgstr "Zapisz"
+
+#: templates/impressum.html:8
+msgid "Angaben gemäß § 5 DDG"
+msgstr "Informacje zgodnie z § 5 DDG (Niemiecka Ustawa o Usługach Cyfrowych)"
+
+#: templates/impressum.html:16
+msgid "Kontakt"
+msgstr "Kontakt"
+
+#: templates/impressum.html:18
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: templates/impressum.html:21
+msgid "Redaktionell verantwortlich"
+msgstr "Odpowiedzialny redakcyjnie"
+
+#: templates/impressum.html:28
+msgid "Haftungsausschluss (Disclaimer)"
+msgstr "Wyłączenie odpowiedzialności (Disclaimer)"
+
+#: templates/impressum.html:29
+msgid "Haftung für Inhalte"
+msgstr "Odpowiedzialność za treści"
+
+#: templates/impressum.html:31
+msgid ""
+"Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf "
+"diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis"
+" 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, "
+"übermittelte oder gespeicherte fremde Informationen zu überwachen oder "
+"nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit "
+"hinweisen."
+msgstr ""
+"Jako dostawca usług jesteśmy odpowiedzialni za własne treści na tych stronach "
+"zgodnie z ogólnymi przepisami na podstawie § 7 ust. 1 DDG. Zgodnie z §§ 8 do 10 DDG, "
+"jako dostawca usług nie jesteśmy jednak zobowiązani do monitorowania przekazywanych "
+"lub przechowywanych informacji osób trzecich ani do badania okoliczności wskazujących "
+"na działalność niezgodną z prawem."
+
+#: templates/impressum.html:34
+msgid "Haftung für Links"
+msgstr "Odpowiedzialność za linki"
+
+#: templates/impressum.html:36
+msgid ""
+"Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
+"Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
+"Inhalte auch keine Gewähr übernehmen."
+msgstr ""
+"Nasza oferta zawiera linki do zewnętrznych stron internetowych osób trzecich, "
+"na których treść nie mamy wpływu. Dlatego nie możemy ponosić żadnej odpowiedzialności "
+"za te treści zewnętrze."
+
+#: templates/index.html:7
+msgid "Neue Bewerbung"
+msgstr "Nowa aplikacja"
+
+#: templates/index.html:14
+msgid "Hinzufügen"
+msgstr "Dodaj"
+
+#: templates/index.html:21
+msgid "Bewerbungen"
+msgstr "Aplikacje"
+
+#: templates/index.html:29
+msgid "Suchen..."
+msgstr "Szukaj..."
+
+#: templates/index.html:60
+msgid "Erinnerung umschalten"
+msgstr "Przełącz przypomnienie"
+
+#: templates/index.html:90
+msgid "Nachfassen"
+msgstr "Kontakt"
+
+#: templates/index.html:101 templates/notes.html:8
+msgid "Notizen"
+msgstr "Notatki"
+
+#: templates/index.html:110
+msgid "Bearbeiten"
+msgstr "Edytuj"
+
+#: templates/index.html:117
+msgid "Löschen"
+msgstr "Usuń"
+
+#: templates/index.html:129
+#, python-format
+msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
+msgstr "Nie znaleziono aplikacji dla zapytania „%(query)s”."
+
+#: templates/index.html:143
+msgid "Keine Bewerbungen vorhanden."
+msgstr "Brak dostępnych aplikacji."
+
+#: templates/index.html:157
+msgid "Statistik"
+msgstr "Statystyki"
+
+#: templates/index.html:168
+msgid "PDF-Export"
+msgstr "Eksport PDF"
+
+#: templates/login.html:8
+msgid "Anmelden"
+msgstr "Zaloguj się"
+
+#: templates/login.html:15 templates/register.html:13
+msgid "E-Mail-Adresse"
+msgstr "Adres e-mail"
+
+#: templates/login.html:18
+msgid "Passwort"
+msgstr "Hasło"
+
+#: templates/login.html:22
+msgid "Einloggen"
+msgstr "Zaloguj się"
+
+#: templates/login.html:30
+msgid "Noch kein Konto?"
+msgstr "Nie masz jeszcze konta?"
+
+#: templates/login.html:30
+msgid "Hier registrieren"
+msgstr "Zarejestruj się tutaj"
+
+#: templates/login.html:33
+msgid "Passwort vergessen?"
+msgstr "Zapomniałeś hasła?"
+
+#: templates/notes.html:19
+msgid "Notizen, Telefonate, nächste Schritte..."
+msgstr "Notatki, rozmowy telefoniczne, kolejne kroki..."
+
+#: templates/register.html:7
+msgid "Registrieren"
+msgstr "Zarejestruj się"
+
+#: templates/register.html:15
+msgid "Passwort (mind. 8 Zeichen)"
+msgstr "Hasło (min. 8 znaków)"
+
+#: templates/register.html:21
+msgid "Ich habe die"
+msgstr "Przeczytałem(-am)"
+
+#: templates/register.html:21
+msgid "gelesen und akzeptiere sie."
+msgstr "i akceptuję ją."
+
+#: templates/register.html:26
+msgid "Konto erstellen"
+msgstr "Utwórz konto"
+
+#: templates/register.html:32
+msgid "Bereits ein Konto?"
+msgstr "Masz już konto?"
+
+#: templates/register.html:32
+msgid "Hier anmelden"
+msgstr "Zaloguj się tutaj"
+
+#: templates/reset_password.html:7
+msgid "Neues Passwort eingeben"
+msgstr "Wprowadź nowe hasło"
+
+#: templates/reset_password.html:11
+msgid "Bitte geben Sie Ihr neues Passwort ein (mindestens 8 Zeichen)."
+msgstr "Proszę wpisać nowe hasło (co najmniej 8 znaków)."
+
+#: templates/reset_password.html:17
+msgid "Neues Passwort"
+msgstr "Nowe hasło"
+
+#: templates/reset_password.html:20
+msgid "Passwort speichern"
+msgstr "Zapisz hasło"
+
+#: templates/reset_password.html:28 templates/reset_request.html:33
+msgid "Zurück zum Login"
+msgstr "Powrót do logowania"
+
+#: templates/reset_request.html:8
+msgid "Passwort zurücksetzen"
+msgstr "Zresetuj hasło"
+
+#: templates/reset_request.html:13
+msgid ""
+"Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zum "
+"Zurücksetzen Ihres Passworts."
+msgstr "Wprowadź swój adres e-mail. Wyślemy Ci link do resetowania hasła."
+
+#: templates/reset_request.html:20
+msgid "E-Mail-Adresse eingeben"
+msgstr "Wprowadź adres e-mail"
+
+#: templates/reset_request.html:24
+msgid "Link anfordern"
+msgstr "Poproś o link"
+
+#: templates/stats.html:7
+msgid "Statistiken"
+msgstr "Statystyki"
+
+#: templates/stats.html:15
+msgid "Gesamt Bewerbungen"
+msgstr "Łączna liczba aplikacji"
+
+#: templates/index.html:117
+msgid "Wirklich löschen?"
+msgstr "Czy na pewno chcesz usunąć?"

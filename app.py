@@ -75,7 +75,10 @@ def verify_reset_token(token, expiration=3600):
 def get_locale():
     if 'lang' in session:
         return session['lang']
-    return request.accept_languages.best_match(['de', 'en', 'fa', 'ar', 'tr']) or 'de'
+    return request.accept_languages.best_match([
+        'de', 'en', 'fa', 'ar', 'tr', 
+        'ru', 'pl', 'uk', 'es', 'fr', 'zh', 'ja'
+    ]) or 'de'
 
 babel = Babel(app, locale_selector=get_locale)
 

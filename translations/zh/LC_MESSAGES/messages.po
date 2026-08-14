@@ -1,0 +1,482 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-08-09 20:49+0200\n"
+"PO-Revision-Date: 2026-08-14 14:49+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app.py:126
+msgid "k.A."
+msgstr "无"
+
+#: app.py:143
+msgid "❌ Bitte E-Mail und Passwort eingeben!"
+msgstr "❌ 请输入邮箱和密码！"
+
+#: app.py:147 app.py:231
+msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
+msgstr "❌ 密码长度必须至少为 8 位！"
+
+#: app.py:151
+msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
+msgstr "❌ 该邮箱地址已被注册！"
+
+#: app.py:162
+msgid "❌ Registrierung fehlgeschlagen."
+msgstr "❌ 注册失败。"
+
+#: app.py:179
+msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
+msgstr "❌ 邮箱地址或密码无效！"
+
+#: app.py:201
+msgid "Passwort zurücksetzen - FlowLine"
+msgstr "重置密码 - FlowLine"
+
+#: app.py:202
+#, python-format
+msgid ""
+"Hallo,\n"
+"\n"
+"Sie haben eine Anfrage zum Zurücksetzen Ihres Passworts für FlowLine "
+"gestellt.\n"
+"Klicken Sie auf den folgenden Link, um ein neues Passwort zu vergeben:\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Dieser Link ist 1 Stunde lang gültig.\n"
+"Wenn Sie diese Anfrage nicht gestellt haben, können Sie diese E-Mail "
+"einfach ignorieren.\n"
+"\n"
+"Viele Grüße\n"
+"Ihr FlowLine Team"
+msgstr ""
+"您好，\n"
+"\n"
+"您提交了重置 FlowLine 账户密码的请求。\n"
+"请点击以下链接设置新密码：\n"
+"\n"
+"%(url)s\n"
+"\n"
+"此链接的有效期为 1 小时。\n"
+"如果您并未发出此请求，请忽略此邮件。\n"
+"\n"
+"祝好，\n"
+"FlowLine 团队"
+
+#: app.py:209
+msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
+msgstr "重置密码的链接已发送至您的邮箱。"
+
+#: app.py:212
+msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
+msgstr "❌ 发送邮件时出错。请稍后重试。"
+
+#: app.py:216
+msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
+msgstr "❌ 未找到该邮箱地址。"
+
+#: app.py:225
+msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
+msgstr "❌ 该链接无效、已过期或已被使用。"
+
+#: app.py:237
+msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
+msgstr "✅ 密码修改成功！您现在可以登录了。"
+
+#: app.py:241
+msgid "❌ Fehler beim Speichern des Passworts."
+msgstr "❌ 保存密码时出错。"
+
+#: app.py:263
+msgid "❌ Firma und Position sind Pflichtfelder!"
+msgstr "❌ 公司和职位为必填项！"
+
+#: app.py:279 app.py:463
+msgid "❌ Fehler beim Speichern!"
+msgstr "❌ 保存时出错！"
+
+#: app.py:311
+#, python-format
+msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
+msgstr "注意：有 %(num)d 个求职申请需要跟进或到期！"
+
+#: app.py:358
+msgid "Bewerbungsübersicht"
+msgstr "求职概览"
+
+#: app.py:361
+msgid "Firma"
+msgstr "公司"
+
+#: app.py:361
+msgid "Position"
+msgstr "职位"
+
+#: app.py:361 templates/index.html:51
+msgid "Datum"
+msgstr "日期"
+
+#: app.py:361
+msgid "Erinnerung"
+msgstr "提醒"
+
+#: app.py:361 templates/index.html:47
+msgid "Status"
+msgstr "状态"
+
+#: app.py:417
+msgid "🗑️ Bewerbung gelöscht!"
+msgstr "🗑️ 求职申请已删除！"
+
+#: app.py:420
+msgid "❌ Fehler beim Löschen!"
+msgstr "❌ 删除时出错！"
+
+#: app.py:435
+msgid "❌ Pflichtfelder ausfüllen!"
+msgstr "❌ 请填写必填字段！"
+
+#: app.py:447
+msgid "❌ Fehler beim Aktualisieren!"
+msgstr "❌ 更新时出错！"
+
+#: templates/base.html:462
+msgid "Abmelden"
+msgstr "退出登录"
+
+#: templates/base.html:488 templates/impressum.html:5
+msgid "Impressum"
+msgstr "法律声明 (Impressum)"
+
+#: templates/base.html:489
+msgid "Datenschutz"
+msgstr "隐私政策"
+
+#: templates/datenschutzerklaerung.html:5 templates/register.html:21
+msgid "Datenschutzerklärung"
+msgstr "隐私声明"
+
+#: templates/datenschutzerklaerung.html:8
+msgid "1. Datenschutz auf einen Blick"
+msgstr "1. 隐私保护概览"
+
+#: templates/datenschutzerklaerung.html:10
+msgid ""
+"Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit "
+"Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. "
+"Personenbezogene Daten sind alle Daten, mit denen Sie persönlich "
+"identifiziert werden können."
+msgstr ""
+"以下提示简要概述了您访问本网站时您的个人数据会发生什么情况。个人数据是指可用于识别您个人身份的所有数据。"
+
+#: templates/datenschutzerklaerung.html:13
+msgid "2. Verantwortliche Stelle"
+msgstr "2. 责任主体"
+
+#: templates/datenschutzerklaerung.html:21
+msgid "3. Datenerfassung auf dieser Website"
+msgstr "3. 本网站的数据收集"
+
+#: templates/datenschutzerklaerung.html:22
+msgid "Registrierung und Benutzerkonto"
+msgstr "注册与用户账户"
+
+#: templates/datenschutzerklaerung.html:24
+msgid ""
+"Wenn Sie sich auf unserer Website registrieren, erheben wir Ihre E-Mail-"
+"Adresse sowie ein verschlüsseltes Passwort (Password-Hash). Diese Daten "
+"werden ausschließlich zur Bereitstellung Ihres Benutzerkontos und zur "
+"Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO)."
+msgstr ""
+"当您在我们的网站上注册时，我们会收集您的电子邮箱地址以及加密密码（密码哈希）。这些数据仅用于提供用户账户和身份验证（《欧盟通用数据保护条例》第 6 条第 1 款 b 项）。"
+
+#: templates/datenschutzerklaerung.html:27
+msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
+msgstr "求职数据处理 (FlowLine)"
+
+#: templates/datenschutzerklaerung.html:29
+msgid ""
+"Die von Ihnen im FlowLine eingegebenen Daten (z. B. Firmennamen, "
+"Stellenbezeichnungen, Bewerbungsstatus und Notizen) werden in unserer "
+"Datenbank gespeichert, um Ihnen die Verwaltung Ihrer Bewerbungen zu "
+"ermöglichen."
+msgstr ""
+"您在 FlowLine 中输入的数据（例如公司名称、职位名称、求职状态和备注）将保存在我们的数据库中，以便您管理求职申请。"
+
+#: templates/datenschutzerklaerung.html:32
+msgid "4. Ihre Rechte"
+msgstr "4. 您的权利"
+
+#: templates/datenschutzerklaerung.html:34
+msgid ""
+"Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu "
+"erhalten (Art. 15 DSGVO)."
+msgstr "有权获取有关我们存储的您的个人数据的信息（《欧盟通用数据保护条例》第 15 条）。"
+
+#: templates/datenschutzerklaerung.html:35
+msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
+msgstr "有权要求更正不准确的数据（《欧盟通用数据保护条例》第 16 条）。"
+
+#: templates/datenschutzerklaerung.html:36
+msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
+msgstr "有权要求删除您的数据（《欧盟通用数据保护条例》第 17 条）。"
+
+#: templates/edit.html:12
+msgid "Bewerbung bearbeiten"
+msgstr "编辑求职申请"
+
+#: templates/edit.html:19 templates/index.html:11
+msgid "Firmenname eingeben"
+msgstr "请输入公司名称"
+
+#: templates/edit.html:22 templates/index.html:12
+msgid "Jobtitel eingeben"
+msgstr "请输入职位名称"
+
+#: templates/edit.html:27 templates/stats.html:21
+msgid "Offen"
+msgstr "进行中"
+
+#: templates/edit.html:28
+msgid "Einladung"
+msgstr "面试邀请"
+
+#: templates/edit.html:29
+msgid "Zusage"
+msgstr "录用"
+
+#: templates/edit.html:30
+msgid "Absage"
+msgstr "拒绝"
+
+#: templates/edit.html:44
+msgid "Termin für Nachfassen"
+msgstr "跟进时间"
+
+#: templates/edit.html:52 templates/notes.html:24
+msgid "Speichern"
+msgstr "保存"
+
+#: templates/impressum.html:8
+msgid "Angaben gemäß § 5 DDG"
+msgstr "依据德国数字服务法（DDG）第 5 条的规定"
+
+#: templates/impressum.html:16
+msgid "Kontakt"
+msgstr "联系方式"
+
+#: templates/impressum.html:18
+msgid "E-Mail"
+msgstr "电子邮件"
+
+#: templates/impressum.html:21
+msgid "Redaktionell verantwortlich"
+msgstr "编辑负责人"
+
+#: templates/impressum.html:28
+msgid "Haftungsausschluss (Disclaimer)"
+msgstr "免责声明"
+
+#: templates/impressum.html:29
+msgid "Haftung für Inhalte"
+msgstr "内容责任"
+
+#: templates/impressum.html:31
+msgid ""
+"Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf "
+"diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis"
+" 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, "
+"übermittelte oder gespeicherte fremde Informationen zu überwachen oder "
+"nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit "
+"hinweisen."
+msgstr ""
+"作为服务提供商，我们根据德国数字服务法（DDG）第 7 条第 1 款的规定，对本页面上的自有内容承担一般法律责任。然而，根据 DDG 第 8 至 10 条的规定，作为服务提供商，我们没有义务监控传输或存储的第三方信息，也没有义务调查表明存在非法活动的各项情况。"
+
+#: templates/impressum.html:34
+msgid "Haftung für Links"
+msgstr "链接责任"
+
+#: templates/impressum.html:36
+msgid ""
+"Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
+"Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
+"Inhalte auch keine Gewähr übernehmen."
+msgstr ""
+"我们的服务包含指向第三方外部网站的链接，我们对这些网站的内容没有控制权。因此，我们无法对这些外部内容承担任何保证责任。"
+
+#: templates/index.html:7
+msgid "Neue Bewerbung"
+msgstr "新建求职申请"
+
+#: templates/index.html:14
+msgid "Hinzufügen"
+msgstr "添加"
+
+#: templates/index.html:21
+msgid "Bewerbungen"
+msgstr "求职申请"
+
+#: templates/index.html:29
+msgid "Suchen..."
+msgstr "搜索..."
+
+#: templates/index.html:60
+msgid "Erinnerung umschalten"
+msgstr "切换提醒"
+
+#: templates/index.html:90
+msgid "Nachfassen"
+msgstr "跟进"
+
+#: templates/index.html:101 templates/notes.html:8
+msgid "Notizen"
+msgstr "备注"
+
+#: templates/index.html:110
+msgid "Bearbeiten"
+msgstr "编辑"
+
+#: templates/index.html:117
+msgid "Löschen"
+msgstr "删除"
+
+#: templates/index.html:129
+#, python-format
+msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
+msgstr "未找到与“%(query)s”相关的求职申请。"
+
+#: templates/index.html:143
+msgid "Keine Bewerbungen vorhanden."
+msgstr "暂无求职申请。"
+
+#: templates/index.html:157
+msgid "Statistik"
+msgstr "统计"
+
+#: templates/index.html:168
+msgid "PDF-Export"
+msgstr "导出 PDF"
+
+#: templates/login.html:8
+msgid "Anmelden"
+msgstr "登录"
+
+#: templates/login.html:15 templates/register.html:13
+msgid "E-Mail-Adresse"
+msgstr "邮箱地址"
+
+#: templates/login.html:18
+msgid "Passwort"
+msgstr "密码"
+
+#: templates/login.html:22
+msgid "Einloggen"
+msgstr "登录"
+
+#: templates/login.html:30
+msgid "Noch kein Konto?"
+msgstr "还没有账户？"
+
+#: templates/login.html:30
+msgid "Hier registrieren"
+msgstr "在此注册"
+
+#: templates/login.html:33
+msgid "Passwort vergessen?"
+msgstr "忘记密码？"
+
+#: templates/notes.html:19
+msgid "Notizen, Telefonate, nächste Schritte..."
+msgstr "备注、通话记录、后续步骤..."
+
+#: templates/register.html:7
+msgid "Registrieren"
+msgstr "注册"
+
+#: templates/register.html:15
+msgid "Passwort (mind. 8 Zeichen)"
+msgstr "密码（至少 8 位）"
+
+#: templates/register.html:21
+msgid "Ich habe die"
+msgstr "我已阅读并同意"
+
+#: templates/register.html:21
+msgid "gelesen und akzeptiere sie."
+msgstr "。"
+
+#: templates/register.html:26
+msgid "Konto erstellen"
+msgstr "创建账户"
+
+#: templates/register.html:32
+msgid "Bereits ein Konto?"
+msgstr "已有账户？"
+
+#: templates/register.html:32
+msgid "Hier anmelden"
+msgstr "在此登录"
+
+#: templates/reset_password.html:7
+msgid "Neues Passwort eingeben"
+msgstr "输入新密码"
+
+#: templates/reset_password.html:11
+msgid "Bitte geben Sie Ihr neues Passwort ein (mindestens 8 Zeichen)."
+msgstr "请输入您的新密码（至少 8 位）。"
+
+#: templates/reset_password.html:17
+msgid "Neues Passwort"
+msgstr "新密码"
+
+#: templates/reset_password.html:20
+msgid "Passwort speichern"
+msgstr "保存密码"
+
+#: templates/reset_password.html:28 templates/reset_request.html:33
+msgid "Zurück zum Login"
+msgstr "返回登录"
+
+#: templates/reset_request.html:8
+msgid "Passwort zurücksetzen"
+msgstr "重置密码"
+
+#: templates/reset_request.html:13
+msgid ""
+"Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zum "
+"Zurücksetzen Ihres Passworts."
+msgstr "请输入您的电子邮箱地址。我们将向您发送重置密码的链接。"
+
+#: templates/reset_request.html:20
+msgid "E-Mail-Adresse eingeben"
+msgstr "输入邮箱地址"
+
+#: templates/reset_request.html:24
+msgid "Link anfordern"
+msgstr "获取链接"
+
+#: templates/stats.html:7
+msgid "Statistiken"
+msgstr "统计信息"
+
+#: templates/stats.html:15
+msgid "Gesamt Bewerbungen"
+msgstr "求职申请总数"
+
+#: templates/index.html:117
+msgid "Wirklich löschen?"
+msgstr "确定要删除吗？"

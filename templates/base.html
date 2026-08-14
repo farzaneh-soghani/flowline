@@ -705,6 +705,20 @@
                         <img src="https://flagcdn.com/w20/sa.png" width="20" alt="AR"> العربية
                     {% elif current_lang == 'tr' %}
                         <img src="https://flagcdn.com/w20/tr.png" width="20" alt="TR"> Türkçe
+                    {% elif current_lang == 'ru' %}
+                        <img src="https://flagcdn.com/w20/ru.png" width="20" alt="RU"> Русский
+                    {% elif current_lang == 'pl' %}
+                        <img src="https://flagcdn.com/w20/pl.png" width="20" alt="PL"> Polski
+                    {% elif current_lang == 'uk' %}
+                        <img src="https://flagcdn.com/w20/ua.png" width="20" alt="UK"> Українська
+                    {% elif current_lang == 'es' %}
+                        <img src="https://flagcdn.com/w20/es.png" width="20" alt="ES"> Español
+                    {% elif current_lang == 'fr' %}
+                        <img src="https://flagcdn.com/w20/fr.png" width="20" alt="FR"> Français
+                    {% elif current_lang == 'zh' %}
+                        <img src="https://flagcdn.com/w20/cn.png" width="20" alt="ZH"> 中文
+                    {% elif current_lang == 'ja' %}
+                        <img src="https://flagcdn.com/w20/jp.png" width="20" alt="JA"> 日本語
                     {% else %}
                         <img src="https://flagcdn.com/w20/de.png" width="20" alt="DE"> Deutsch
                     {% endif %}
@@ -712,12 +726,19 @@
                 </button>
 
                 <div x-show="open" x-transition 
-                    style="position: absolute; right: 0; top: 110%; background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; min-width: 140px; overflow: hidden; display: none;">
+                    style="position: absolute; right: 0; top: 110%; background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; min-width: 140px; max-height: 250px; overflow-y: auto; display: none;">
                     <a href="{{ url_for('set_language', lang='de') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/de.png" width="20"> Deutsch</a>
                     <a href="{{ url_for('set_language', lang='en') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/gb.png" width="20"> English</a>
                     <a href="{{ url_for('set_language', lang='fa') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/ir.png" width="20"> فارسی</a>
-                    <a href="{{ url_for('set_language', lang='ar') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/sa.png" width="20"> العربية</a>
+                    <a href="{{ url_for('set_language', lang='ru') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/ru.png" width="20"> Русский</a>
+                    <a href="{{ url_for('set_language', lang='pl') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/pl.png" width="20"> Polski</a>
+                    <a href="{{ url_for('set_language', lang='uk') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/ua.png" width="20"> Українська</a>
+                    <a href="{{ url_for('set_language', lang='es') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/es.png" width="20"> Español</a>
+                    <a href="{{ url_for('set_language', lang='fr') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/fr.png" width="20"> Français</a>
+                    <a href="{{ url_for('set_language', lang='zh') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/cn.png" width="20"> 中文</a>
+                    <a href="{{ url_for('set_language', lang='ja') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/jp.png" width="20"> 日本語</a>
                     <a href="{{ url_for('set_language', lang='tr') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/tr.png" width="20"> Türkçe</a>
+                    <a href="{{ url_for('set_language', lang='ar') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/sa.png" width="20"> العربية</a>
                 </div>
             </div>
 
