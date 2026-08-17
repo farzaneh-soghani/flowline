@@ -2,21 +2,21 @@
 {% block content %}
 <div class="container" style="max-width: 750px; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto;">
 
-    <!-- عنوان صفحه آماری (بدون دکمه بازگشت و بدون ایموجی) -->
+    <!-- Überschrift für den Statistikbereich -->
     <h2 style="font-size: 1.4em; font-weight: 600; color: #0f172a; margin-bottom: 20px;">
         {{ _('Statistiken') }}
     </h2>
 
-    <!-- گرید کارت‌های آماری مدرن -->
+    <!-- Modernes Grid-Layout für die Statistik-Karten -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 30px;">
         
-        <!-- کارت کل درخواست‌ها -->
+        <!-- Karte für die Gesamtzahl der Bewerbungen -->
         <div style="background: #ffffff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
             <div style="font-size: 0.88em; color: #64748b; font-weight: 500;">{{ _('Gesamt Bewerbungen') }}</div>
             <div style="font-size: 2em; font-weight: 700; color: #0f172a; margin-top: 5px;">{{ total }}</div>
         </div>
 
-        <!-- کارت درخواست‌های باز -->
+        <!-- Karte für offene Bewerbungen inklusive Prozentanteil -->
         <div style="background: #ffffff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
             <div style="font-size: 0.88em; color: #64748b; font-weight: 500;">{{ _('Offen') }} ({{ offen_prozent }}&#37;)</div>
             <div style="font-size: 2em; font-weight: 700; color: #0f172a; margin-top: 5px;">{{ offen }}</div>

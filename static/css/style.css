@@ -1,0 +1,576 @@
+/* ==========================================
+    1. BASIS- & RESET-STYLES
+    ========================================== */
+:root {
+    --primary-blue: #378ADD;
+    --primary-hover: #1D9E75;
+    --border-color: #cbd5e1;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --danger-color: #dc2626; 
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+Hauptcontainer zum Zentrieren und Begrenzen der Bildschirmbreite
+========================================== */
+.container {
+    width: 100%;
+    max-width: 1000px; /* Gewünschte Seitenbreite */
+    margin: 0 auto;    /* Gesamten Inhalt zentrieren */
+    padding: 20px 15px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    background: linear-gradient(135deg, #a1d4ce 0%, #a3ddfc 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+    1.1 SPLASH-SCREEN-STYLES
+    ========================================== */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 50%, #e6fffa 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.splash-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+}
+
+/* Container für die Texte im Splash-Screen */
+.splash-logo > div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: max-content;
+}
+
+.splash-icon {
+    transform-origin: center center;
+    animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.splash-title {
+    opacity: 0;
+    animation: slideInText 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    white-space: nowrap;
+}
+
+.splash-subtitle {
+    opacity: 0;
+    animation: fadeInSub 0.5s ease 0.85s forwards;
+    letter-spacing: 0.9px;
+    margin-left: 2px;
+    white-space: nowrap;
+}
+
+@keyframes iconPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInText {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInSub {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.splash-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* ==========================================
+    2. HEADER & NAVBAR
+    ========================================== */
+header {
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a.logo-link {
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lang-select {
+    height: 32px !important;
+    padding: 0 8px !important;
+    font-size: 0.85em !important;
+    font-weight: 500;
+    color: var(--text-main);
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.lang-select:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.user-email {
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 29px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--danger-color);
+    background: #fef2f2;
+    border: 1.5px solid #fecaca;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background: var(--danger-color);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+/* ==========================================
+    3. FORMULAREINGABEN & BUTTONS
+    ========================================== */
+.form-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    align-items: center;
+}
+
+input, select {
+    width: 100%;
+    height: 42px;
+    padding: 0 16px;
+    font-size: 0.95em;
+    color: var(--text-main);
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(55, 138, 221, 0.15);
+}
+
+.inset-input {
+    background: #f1f6f9;
+    box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.06), 
+                inset -1px -1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.inset-input:focus, textarea.inset-input:focus {
+    background: #ffffff !important;
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+    outline: none !important;
+}
+
+.form-row .inset-input,
+.form-row input,
+.form-row select {
+    flex: 1;
+    width: auto;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin-top: 3px;
+    cursor: pointer;
+    accent-color: var(--primary-blue);
+}
+
+.btn-primary, button[type="submit"] {
+    height: 42px !important;
+    display: inline-flex;
+    line-height: 1 !important;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: #ffffff;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    border-radius: 8px;
+    padding: 0 20px;
+    font-weight: 600;
+    font-size: 0.95em;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin-right: 2px;
+}
+
+.btn-primary .plus-icon {
+    font-size: 1.35em;
+    font-weight: 700;
+    line-height: 1;
+    margin-right: 2px;
+}
+
+.btn-primary:hover, button[type="submit"]:hover {
+    background: linear-gradient(90deg, var(--primary-hover), var(--primary-blue));
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(55, 138, 221, 0.25);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    padding: 0 16px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--text-main);
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+    4. CARDS & AKTIONSDAY-BUTTONS
+    ========================================== */
+.job {
+    background: #f1f6f9;
+    border: 1.5px solid var(--border-color);
+    padding: 16px 18px;
+    margin: 12px 0;
+    border-radius: 12px;
+    box-shadow: inset 1px 4px 10px rgba(0, 0, 0, 0.05), 
+                inset -1px -1px 3px rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.job:hover {
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    border-color: #94a3b8;
+    transform: translateY(-1px);
+}
+
+.job-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.job-info {
+    color: var(--text-muted);
+    font-size: 0.9em;
+}
+
+.icon-due {
+    stroke: var(--danger-color) !important;
+    stroke-width: 2.5px !important;
+}
+
+.text-due {
+    color: var(--danger-color) !important;
+}
+
+.date-due {
+    font-weight: 700 !important;
+}
+
+.job-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-notes, .btn-edit, .btn-delete {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    padding: 0;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    color: #475569;
+    transition: all 0.2s ease;
+}
+
+.btn-notes:hover, .btn-edit:hover {
+    background: #ffffff;
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.btn-delete:hover {
+    background: #fef2f2;
+    border-color: #fca5a5;
+    color: var(--danger-color);
+}
+
+/* ==========================================
+    5. FLASH-MESSAGES & FOOTER
+    ========================================== */
+.flash {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 10px 0;
+    border: 1px solid #c3e6cb;
+}
+
+footer {
+    margin-top: auto;
+    background-color: #ffffff;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85em;
+    padding: 20px 10px;
+}
+
+footer a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    margin: 0 5px;
+    transition: all 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px 10px 20px 10px !important;
+        max-width: 100% !important;
+    }
+
+    .form-row {
+        flex-direction: column !important;
+        gap: 15px;
+    }
+
+    .form-row input, 
+    .form-row select, 
+    .form-row button {
+        width: 100% !important;
+    }
+
+    input, select {
+        width: 100% !important;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    /* Korrekte Header-Anpassung für Mobilgeräte */
+    header {
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 12px !important;
+        gap: 12px !important;
+        align-items: stretch !important;
+    }
+
+    /* Oberer Bereich des Headers (inkl. Logo) */
+    header .logo, header img {
+        align-self: center;
+    }
+
+    header .logo span:last-child, 
+    header .subtitle, 
+    header small {
+        font-size: 6.5px !important;
+        letter-spacing: 0.8px !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    /* Unterer Bereich des Headers */
+    header nav, header .user-nav, header .header-right {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+        gap: 4px !important;
+    }
+
+    /* E-Mail mit präziser Breitenkontrolle */
+    header span, header email, header .user-email {
+        font-size: 12px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        max-width: 105px !important;
+        flex-shrink: 1 !important;
+    }
+
+    /* Sprachauswahl und Abmelden-Button */
+    .lang-select, 
+    .btn-logout {
+        width: auto !important;
+        font-size: 12px !important;
+        padding: 4px 5px !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Allgemeine Kartenanpassung */
+    .job {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        padding: 14px !important;
+    }
+
+    /* Inhalt der Karte untereinander anordnen */
+    .job > div:not(.job-buttons), .job-details, .job-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        width: 100% !important;
+    }
+
+    .job-info-row {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 10px !important;
+    }
+
+    /* Buttons am unteren Kartenrand in einer horizontalen Linie */
+    .job-buttons {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-top: 8px !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding-top: 10px;               
+    }
+
+    .job-buttons .btn-notes, 
+    .job-buttons .btn-edit, 
+    .job-buttons .btn-delete {
+        display: inline-flex !important;
+        width: 36px !important;
+        height: 36px !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+    }
+
+    /* Abstand für Checkboxen auf Mobilgeräten */
+    input[type="checkbox"] {
+        width: auto !important;
+        margin-left: 4px !important;
+        margin-right: 4px !important;
+    }
+}
+     
+button:active, 
+[class^="btn-"]:active {
+    transform: translateY(1px) !important;
+}

@@ -3,28 +3,29 @@
 
 <div class="container" style="max-width: 400px; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto;">
     
-    <!-- عنوان تمیز و متناسب -->
+    <!-- Überschrift für den Anmeldebereich -->
     <h2 style="font-size: 1.3em; font-weight: 600; color: #0f172a; margin-bottom: 20px; text-align: center;">
         {{ _('Anmelden') }}
     </h2>
 
+    <!-- Anmeldeformular mit POST-Request -->
     <form method="POST">
         <div style="display: flex; flex-direction: column; gap: 16px;">
             
-            <!-- ایمیل -->
+            <!-- Eingabefeld für die E-Mail-Adresse -->
             <input type="email" name="email" placeholder="{{ _('E-Mail-Adresse') }}" required autofocus class="inset-input">
 
-            <!-- رمز عبور -->
+            <!-- Eingabefeld für das Passwort -->
             <input type="password" name="password" placeholder="{{ _('Passwort') }}" required class="inset-input">
             
-            <!-- دکمه ورود -->
+            <!-- Absendeschaltfläche für den Login -->
             <button type="submit" class="btn-primary" style="width: 100%; height: 42px; font-size: 0.95em; font-weight: 500;">
                 {{ _('Einloggen') }}
             </button>
         </div>
     </form>
     
-    <!-- لینک‌های پایین فرم (یکدست و وسط‌چین) -->
+    <!-- Zusätzliche Links für Registrierung und Passwort-Wiederherstellung -->
     <div style="margin-top: 20px; text-align: center; display: flex; flex-direction: column; gap: 8px;">
         <p style="margin: 0; font-size: 0.85em; color: #64748b;">
             {{ _('Noch kein Konto?') }} <a href="{{ url_for('register') }}" style="color: #378ADD; text-decoration: none; font-weight: 500;">{{ _('Hier registrieren') }}</a>

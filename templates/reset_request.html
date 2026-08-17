@@ -3,23 +3,24 @@
 
 <div class="container" style="max-width: 400px; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto;">
     
-    <!-- عنوان متمرکز -->
+    <!-- Überschrift für das Zurücksetzen des Passworts -->
     <h2 style="font-size: 1.3em; font-weight: 600; color: #0f172a; margin-bottom: 8px; text-align: center;">
         {{ _('Passwort zurücksetzen') }}
     </h2>
     
-    <!-- متن توضیحات -->
+    <!-- Beschreibungstext mit Hinweisen zum Anfordern des Links -->
     <p style="font-size: 0.85em; color: #64748b; text-align: center; margin-top: 0; margin-bottom: 20px;">
         {{ _('Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts.') }}
     </p>
 
+    <!-- Formular zum Anfordern des Passwort-Zurücksetzen-Links -->
     <form method="POST" action="{{ url_for('reset_password_request') }}">
         <div style="display: flex; flex-direction: column; gap: 16px;">
             
-            <!-- ورودی ایمیل هماهنگ -->
+            <!-- Eingabefeld für die E-Mail-Adresse -->
             <input type="email" name="email" placeholder="{{ _('E-Mail-Adresse eingeben') }}" required autofocus class="inset-input">
             
-            <!-- دکمه درخواست لینک -->
+            <!-- Absendeschaltfläche zum Anfordern des Links -->
             <button type="submit" class="btn-primary" style="width: 100%; height: 42px; font-size: 0.95em; font-weight: 500; cursor: pointer;">
                 {{ _('Link anfordern') }}
             </button>
@@ -27,7 +28,7 @@
         </div>
     </form>
     
-    <!-- لینک بازگشت -->
+    <!-- Link zur Rückkehr zur Anmeldeseite -->
     <div style="margin-top: 20px; text-align: center;">
         <a href="{{ url_for('login') }}" style="color: #64748b; font-size: 0.85em; text-decoration: none;">
             {{ _('Zurück zum Login') }}

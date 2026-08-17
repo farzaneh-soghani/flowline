@@ -2,26 +2,31 @@
 
 {% block content %}
 
+<!-- Einbindung der externen CSS-Bibliothek für den Flatpickr-Kalender -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<!-- Einbindung der Flatpickr-JavaScript-Bibliothek und der deutschen Sprachdatei -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
 
+<!-- Hauptcontainer für das Bearbeitungsformular mit zentrierter Ausrichtung -->
 <div class="container" style="max-width: 400px; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto;">
     
+    <!-- Überschrift des Formulars -->
     <h2 style="font-size: 1.3em; font-weight: 600; color: #0f172a; margin-bottom: 20px; text-align: center;">
         {{ _('Bewerbung bearbeiten') }}
     </h2>
 
+    <!-- Formular zum Senden der aktualisierten Bewerbungsdaten per POST-Request -->
     <form method="POST">
         <div style="display: flex; flex-direction: column; gap: 16px;">
             
-            <!-- نام شرکت -->
+            <!-- Eingabefeld für den Namen des Unternehmens -->
             <input name="firma" value="{{ job.firma }}" required placeholder="{{ _('Firmenname eingeben') }}" class="inset-input">
 
-            <!-- عنوان شغل -->
+            <!-- Eingabefeld für die Berufsbezeichnung bzw. Position -->
             <input name="position" value="{{ job.position }}" required placeholder="{{ _('Jobtitel eingeben') }}" class="inset-input">
 
-            <!-- وضعیت -->
+            <!-- Dropdown-Menü zur Auswahl des aktuellen Bewerbungsstatus -->
             <div style="position: relative; width: 100%;">
                 <select name="status" class="inset-input" style="padding-right: 35px; cursor: pointer; appearance: none; -webkit-appearance: none;">
                     <option value="offen" {% if job.status == 'offen' %}selected{% endif %}>{{ _('Offen') }}</option>
@@ -29,13 +34,15 @@
                     <option value="zusage" {% if job.status == 'zusage' %}selected{% endif %}>{{ _('Zusage') }}</option>
                     <option value="absage" {% if job.status == 'absage' %}selected{% endif %}>{{ _('Absage') }}</option>
                 </select>
-                <!-- فلش منوی کشویی -->
+                <!-- Benutzerdefiniertes visuelles Pfeil-Icon für die Auswahlliste -->
                 <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #64748b; font-size: 0.75em;">
                     ▼
                 </div>
             </div>
-            <!-- تاریخ پیگیری -->
+
+            <!-- Bereich für das Wiedervorlage- oder Nachfassdatum -->
             <div>
+                <!-- Beschriftung des Datumsfeldes inklusive Kalender-Symbol -->
                 <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85em; color: #475569; margin-bottom: 6px; font-weight: 500;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
@@ -44,11 +51,12 @@
                     {{ _('Termin für Nachfassen') }}
                 </label>
                 
+                <!-- Textfeld, das durch das Flatpickr-Skript zu einem interaktiven Kalender wird -->
                 <input type="text" id="datepicker" name="follow_up_datum" value="{{ job.follow_up_datum }}" class="inset-input" style="width: 100%; cursor: pointer; background-color: #fff;">
             </div>
 
-            <!-- دکمه Speichern -->
-            <button type="submit" class="btn-primary" style="width: 100%; height: 42px; font-size: 0.95em; font-weight: 500; cursor: pointer; margin-top: 5px;">
+            <!-- Absendeschaltfläche zum Sichern der Änderungen -->
+            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5px;">
                 {{ _('Speichern') }}
             </button>
 
@@ -56,13 +64,14 @@
     </form>
 </div>
 
+<!-- JavaScript-Logik zur Initialisierung und Konfiguration des Datumswählers -->
 <script>
     flatpickr("#datepicker", {
-        locale: "de",               // زبان آلمانی
-        dateFormat: "Y-m-d",        // فرمت ارسال به دیتابیس
-        altInput: true,
-        altFormat: "d.m.Y",         // نمایش به صورت روز.ماه.سال (TT.MM.JJJJ)
-        allowInput: false
+        locale: "de",                // Aktivierung der deutschen Sprachunterstützung
+        dateFormat: "Y-m-d",         // Standard-Datumsformat für die Übermittlung an das Backend/Datenbank
+        altInput: true,              // Erstellung eines benutzerfreundlichen Ersatzfeldes
+        altFormat: "d.m.Y",          // Anzeigeformat für den Anwender (Tag.Monat.Jahr)
+        allowInput: false            // Unterbindung direkter, fehlerhafter Tastatureingaben
     });
 </script>
 

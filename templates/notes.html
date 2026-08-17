@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container" style="max-width: 500px; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto;">
     
-    <!-- هدر متمرکز (Notizen و مشخصات کنار هم) -->
+    <!-- Überschrift für Notizen und Job-Details -->
     <div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
         <h2 style="font-size: 1.3em; font-weight: 600; color: #0f172a; margin: 0;">
             {{ _('Notizen') }}
@@ -12,14 +12,15 @@
         </span>
     </div>
 
+    <!-- Formular zum Bearbeiten und Speichern von Notizen -->
     <form method="POST">
         <div style="display: flex; flex-direction: column; gap: 16px;">
             
-            <!-- کادر یادداشت فقط با کلاس inset-input -->
+            <!-- Textarea-Eingabefeld für Notizen, Telefonate und nächste Schritte -->
             <textarea name="notes" placeholder="{{ _('Notizen, Telefonate, nächste Schritte...') }}" class="inset-input" 
                 style="width: 100%; height: 220px; padding: 14px; font-family: inherit; resize: vertical; box-sizing: border-box; display: block; border-radius: 8px;">{{ job.notes or '' }}</textarea>
 
-            <!-- دکمه ذخیره -->
+            <!-- Absendeschaltfläche zum Speichern der Notizen -->
             <button type="submit" class="btn-primary" style="width: 100%; height: 42px; font-size: 0.95em; font-weight: 500; cursor: pointer;">
                 {{ _('Speichern') }}
             </button>
