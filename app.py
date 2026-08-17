@@ -506,7 +506,7 @@ def inject_global_vars():
 @app.route("/set_language/<lang>")
 def set_language(lang):
     # Überprüft, ob die angeforderte Sprache unterstützt wird
-    if lang in ["de", "en", "fa", "ar", "tr"]:
+    if lang in ["de", "en", "fa", "ru", "pl", "uk", "es", "fr", "ja", "zh", "tr", "ar"]:
         # Speichert die gewählte Sprache in der aktuellen Sitzung (Session)
         session["lang"] = lang
 
