@@ -774,28 +774,27 @@
     </footer>
 
     <script>
-        // مدیریت نمایش Splash Screen با استفاده از زمان انقضا در localStorage
+        // Verwaltung der Splash-Screen-Anzeige mit sessionStorage
         window.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash-screen');
             if (!splash) return;
 
-            const lastSeen = localStorage.getItem('splashLastSeen');
-            const now = new Date().getTime();
-            const intervalTime = 30 * 1000; // ۳۰ ثانیه (اگر ۳۰ ثانیه از آخرین بازدید گذشت، دوباره اسپلش را نشان بده)
+            // Wir verwenden sessionStorage, damit der Splash-Screen beim ersten Öffnen oder Neuladen des Tabs angezeigt wird
+            const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
 
-            if (!lastSeen || (now - lastSeen > intervalTime)) {
-                // نمایش انیمیشن سینمایی
+            if (!hasSeenSplash) {
+                // Splash-Screen beim ersten Aufruf oder vollständigen Neuladen anzeigen
                 setTimeout(function() {
                     splash.classList.add('splash-hidden');
-                    localStorage.setItem('splashLastSeen', new Date().getTime());
+                    sessionStorage.setItem('hasSeenSplash', 'true');
                 }, 2000);
             } else {
-                // اگر کمتر از ۳۰ ثانیه گذشته بود (مثل رفرش کردن سریع صفحه)
+                // Wenn der Benutzer sich in einer aktiven Sitzung befindet, wird der Splash-Screen nicht geladen, um während der Arbeit nicht zu stören
                 splash.style.display = 'none';
             }
         });
 
-        // حذف اتوماتیک Flash Messages
+        // Automatisches Löschen von Flash-Meldungen
         setTimeout(function() {
             let flashMessages = document.querySelectorAll('.flash');
             flashMessages.forEach(function(msg) {

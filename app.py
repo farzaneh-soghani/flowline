@@ -330,7 +330,7 @@ def reset_password_request():
                     )
                 )
             except Exception as e:  # pragma: no cover
-                # اگر در محیط تست هستیم، خطا را بالا بفرست تا متوجه شویم
+                # Falls wir uns in einer Testumgebung befinden, poste Fehler, damit wir ihn verstehen können.
                 if current_app.config.get("TESTING"):
                     raise e
 

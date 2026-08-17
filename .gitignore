@@ -3,15 +3,20 @@ browser_*_jobs.json
 bewerbungen*.json
 *_jobs.json
 
-# Python Cache
+# Python Cache & Build
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
+
+# Test & Coverage Reports
+.pytest_cache/
+htmlcov/
+.coverage
 
 # GEHEIME Config
-.envstruktur.txt
-
 .env
+struktur.txt
 
 # Database & Instance folder
 instance/
@@ -23,3 +28,7 @@ instance/
 
 # Virtual Environment
 .venv/
+
+# Development & Translation Scripts
+auto_translate.py
+fix_translations.py
