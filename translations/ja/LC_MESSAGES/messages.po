@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-08-09 20:49+0200\n"
+"POT-Creation-Date: 2026-08-18 17:44+0200\n"
 "PO-Revision-Date: 2026-08-14 14:49+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -18,35 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app.py:126
+#: app.py:221
 msgid "k.A."
 msgstr "N/A"
 
-#: app.py:143
+#: app.py:244
 msgid "❌ Bitte E-Mail und Passwort eingeben!"
 msgstr "❌ メールアドレスとパスワードを入力してください。"
 
-#: app.py:147 app.py:231
+#: app.py:249 app.py:397
 msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
 msgstr "❌ パスワードは8文字以上である必要があります。"
 
-#: app.py:151
+#: app.py:254
 msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
 msgstr "❌ このメールアドレスはすでに登録されています。"
 
-#: app.py:162
+#: app.py:267
 msgid "❌ Registrierung fehlgeschlagen."
 msgstr "❌ 登録に失敗しました。"
 
-#: app.py:179
+#: app.py:293
 msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
 msgstr "❌ メールアドレスまたはパスワードが無効です。"
 
-#: app.py:201
+#: app.py:316
+msgid "Dein Konto wurde erfolgreich gelöscht."
+msgstr ""
+
+#: app.py:336
 msgid "Passwort zurücksetzen - FlowLine"
 msgstr "パスワードの再設定 - FlowLine"
 
-#: app.py:202
+#: app.py:338
 #, python-format
 msgid ""
 "Hallo,\n"
@@ -77,96 +81,106 @@ msgstr ""
 "よろしくお願いいたします。\n"
 "FlowLineチーム"
 
-#: app.py:209
+#: app.py:358
 msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
 msgstr "パスワード再設定用のリンクをメールで送信しました。"
 
-#: app.py:212
+#: app.py:369
 msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
 msgstr "❌ メールの送信中にエラーが発生しました。後で再度お試しください。"
 
-#: app.py:216
+#: app.py:376
 msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
 msgstr "❌ このメールアドレスが見つかりませんでした。"
 
-#: app.py:225
+#: app.py:388
 msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
 msgstr "❌ リンクが無効であるか、有効期限が切れているか、すでに使用されています。"
 
-#: app.py:237
+#: app.py:405
 msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
 msgstr "✅ パスワードが正常に変更されました！ログインできるようになりました。"
 
-#: app.py:241
+#: app.py:411
 msgid "❌ Fehler beim Speichern des Passworts."
 msgstr "❌ パスワードの保存中にエラーが発生しました。"
 
-#: app.py:263
+#: app.py:437
 msgid "❌ Firma und Position sind Pflichtfelder!"
 msgstr "❌ 企業名と役職は必須項目です！"
 
-#: app.py:279 app.py:463
+#: app.py:454 app.py:735
 msgid "❌ Fehler beim Speichern!"
 msgstr "❌ 保存中にエラーが発生しました！"
 
-#: app.py:311
+#: app.py:493
 #, python-format
 msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
 msgstr "注意: %(num)件の応募について、フォローアップまたは予定の期限が近づいています！"
 
-#: app.py:358
-msgid "Bewerbungsübersicht"
-msgstr "応募概要"
-
-#: app.py:361
+#: app.py:571
 msgid "Firma"
 msgstr "企業名"
 
-#: app.py:361
+#: app.py:571
 msgid "Position"
 msgstr "役職"
 
-#: app.py:361 templates/index.html:51
+#: app.py:571 templates/index.html:55
 msgid "Datum"
 msgstr "日付"
 
-#: app.py:361
+#: app.py:571
 msgid "Erinnerung"
 msgstr "リマインダー"
 
-#: app.py:361 templates/index.html:47
+#: app.py:571 templates/index.html:51
 msgid "Status"
 msgstr "ステータス"
 
-#: app.py:417
+#: app.py:673
 msgid "🗑️ Bewerbung gelöscht!"
 msgstr "🗑️ 応募が削除されました！"
 
-#: app.py:420
+#: app.py:677
 msgid "❌ Fehler beim Löschen!"
 msgstr "❌ 削除中にエラーが発生しました！"
 
-#: app.py:435
+#: app.py:699
 msgid "❌ Pflichtfelder ausfüllen!"
 msgstr "❌ 必須項目を入力してください！"
 
-#: app.py:447
+#: app.py:713
 msgid "❌ Fehler beim Aktualisieren!"
 msgstr "❌ 更新中にエラーが発生しました！"
 
-#: templates/base.html:462
+#: templates/base.html:148
+msgid "Konto"
+msgstr "アカウント"
+
+#: templates/base.html:164
 msgid "Abmelden"
 msgstr "ログアウト"
 
-#: templates/base.html:488 templates/impressum.html:5
+#: templates/base.html:171
+msgid ""
+"Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht "
+"rückgängig gemacht werden."
+msgstr "本当にアカウントを削除しますか？この操作は元に戻すことができません。"
+
+#: templates/base.html:175
+msgid "Konto löschen"
+msgstr "アカウントを削除"
+
+#: templates/base.html:205 templates/impressum.html:5
 msgid "Impressum"
 msgstr "運営者情報 (インプレッサム)"
 
-#: templates/base.html:489
+#: templates/base.html:206
 msgid "Datenschutz"
 msgstr "プライバシーポリシー"
 
-#: templates/datenschutzerklaerung.html:5 templates/register.html:21
+#: templates/datenschutzerklaerung.html:5 templates/register.html:25
 msgid "Datenschutzerklärung"
 msgstr "プライバシーポリシー"
 
@@ -180,9 +194,7 @@ msgid ""
 "Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. "
 "Personenbezogene Daten sind alle Daten, mit denen Sie persönlich "
 "identifiziert werden können."
-msgstr ""
-"以下の注意事項は、当ウェブサイトを訪問した際に、お客様の個人データがどのように扱われるかの簡単な概要を示しています。"
-"個人データとは、お客様を個人として特定できるすべてのデータを指します。"
+msgstr "以下の注意事項は、当ウェブサイトを訪問した際に、お客様の個人データがどのように扱われるかの簡単な概要を示しています。個人データとは、お客様を個人として特定できるすべてのデータを指します。"
 
 #: templates/datenschutzerklaerung.html:13
 msgid "2. Verantwortliche Stelle"
@@ -202,9 +214,7 @@ msgid ""
 "Adresse sowie ein verschlüsseltes Passwort (Password-Hash). Diese Daten "
 "werden ausschließlich zur Bereitstellung Ihres Benutzerkontos und zur "
 "Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO)."
-msgstr ""
-"当ウェブサイトにご登録いただく際、メールアドレスおよび暗号化されたパスワード（パスワードハッシュ）を収集します。"
-"これらのデータは、ユーザーアカウントの提供および認証の目的でのみ使用されます（EU一般データ保護規則第6条第1項(b)に基づく）。"
+msgstr "当ウェブサイトにご登録いただく際、メールアドレスおよび暗号化されたパスワード（パスワードハッシュ）を収集します。これらのデータは、ユーザーアカウントの提供および認証の目的でのみ使用されます（EU一般データ保護規則第6条第1項(b)に基づく）。"
 
 #: templates/datenschutzerklaerung.html:27
 msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
@@ -216,9 +226,7 @@ msgid ""
 "Stellenbezeichnungen, Bewerbungsstatus und Notizen) werden in unserer "
 "Datenbank gespeichert, um Ihnen die Verwaltung Ihrer Bewerbungen zu "
 "ermöglichen."
-msgstr ""
-"FlowLineに入力されたデータ（企業名、役職名、応募ステータス、メモなど）は、"
-"応募管理を円滑に行うために当社のデータベースに保存されます。"
+msgstr "FlowLineに入力されたデータ（企業名、役職名、応募ステータス、メモなど）は、応募管理を円滑に行うために当社のデータベースに保存されます。"
 
 #: templates/datenschutzerklaerung.html:32
 msgid "4. Ihre Rechte"
@@ -238,39 +246,39 @@ msgstr "不正確なデータの訂正を求める権利（EU一般データ保�
 msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
 msgstr "データの削除を求める権利（EU一般データ保護規則第17条）。"
 
-#: templates/edit.html:12
+#: templates/edit.html:16
 msgid "Bewerbung bearbeiten"
 msgstr "応募情報の編集"
 
-#: templates/edit.html:19 templates/index.html:11
+#: templates/edit.html:24 templates/index.html:12
 msgid "Firmenname eingeben"
 msgstr "企業名を入力"
 
-#: templates/edit.html:22 templates/index.html:12
+#: templates/edit.html:27 templates/index.html:13
 msgid "Jobtitel eingeben"
 msgstr "職種名を入力"
 
-#: templates/edit.html:27 templates/stats.html:21
+#: templates/edit.html:32 templates/stats.html:21
 msgid "Offen"
 msgstr "選考中"
 
-#: templates/edit.html:28
+#: templates/edit.html:33
 msgid "Einladung"
 msgstr "面接案内"
 
-#: templates/edit.html:29
+#: templates/edit.html:34
 msgid "Zusage"
 msgstr "内定"
 
-#: templates/edit.html:30
+#: templates/edit.html:35
 msgid "Absage"
 msgstr "お見送り"
 
-#: templates/edit.html:44
+#: templates/edit.html:51
 msgid "Termin für Nachfassen"
 msgstr "フォローアップ予定日"
 
-#: templates/edit.html:52 templates/notes.html:24
+#: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"
 msgstr "保存"
 
@@ -306,11 +314,7 @@ msgid ""
 "übermittelte oder gespeicherte fremde Informationen zu überwachen oder "
 "nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit "
 "hinweisen."
-msgstr ""
-"サービスプロバイダーとして、当社はドイツデジタルサービス法（DDG）第7条第1項に基づき、"
-"一般法に従って本サイト上の自社コンテンツの責任を負います。"
-"ただし、DDG第8条から第10条に基づき、サービスプロバイダーとして送信または保存された第三者の情報を監視したり、"
-"違法行為を示す状況を調査したりする義務はありません。"
+msgstr "サービスプロバイダーとして、当社はドイツデジタルサービス法（DDG）第7条第1項に基づき、一般法に従って本サイト上の自社コンテンツの責任を負います。ただし、DDG第8条から第10条に基づき、サービスプロバイダーとして送信または保存された第三者の情報を監視したり、違法行為を示す状況を調査したりする義務はありません。"
 
 #: templates/impressum.html:34
 msgid "Haftung für Links"
@@ -321,60 +325,62 @@ msgid ""
 "Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
 "Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
 "Inhalte auch keine Gewähr übernehmen."
-msgstr ""
-"当社のサービスには、第三者の外部ウェブサイトへのリンクが含まれていますが、"
-"その内容に対して当社は一切の影響力を持たないため、第三者のコンテンツに対する責任は負いかねます。"
+msgstr "当社のサービスには、第三者の外部ウェブサイトへのリンクが含まれていますが、その内容に対して当社は一切の影響力を持たないため、第三者のコンテンツに対する責任は負いかねます。"
 
 #: templates/index.html:7
 msgid "Neue Bewerbung"
 msgstr "新規応募"
 
-#: templates/index.html:14
+#: templates/index.html:15
 msgid "Hinzufügen"
 msgstr "追加"
 
-#: templates/index.html:21
+#: templates/index.html:22
 msgid "Bewerbungen"
 msgstr "応募一覧"
 
-#: templates/index.html:29
+#: templates/index.html:32
 msgid "Suchen..."
 msgstr "検索..."
 
-#: templates/index.html:60
+#: templates/index.html:64
 msgid "Erinnerung umschalten"
 msgstr "リマインダーの切り替え"
 
-#: templates/index.html:90
+#: templates/index.html:94
 msgid "Nachfassen"
 msgstr "フォローアップ"
 
-#: templates/index.html:101 templates/notes.html:8
+#: templates/index.html:106 templates/notes.html:8
 msgid "Notizen"
 msgstr "メモ"
 
-#: templates/index.html:110
+#: templates/index.html:115
 msgid "Bearbeiten"
 msgstr "編集"
 
-#: templates/index.html:117
+#: templates/index.html:122
+msgid "Wirklich löschen?"
+msgstr "本当に削除しますか？"
+
+#: templates/index.html:122
 msgid "Löschen"
 msgstr "削除"
 
-#: templates/index.html:129
+#: templates/index.html:135
 #, python-format
 msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
 msgstr "\"%(query)s\" の検索結果は見つかりませんでした。"
 
-#: templates/index.html:143
+#: templates/index.html:146
 msgid "Keine Bewerbungen vorhanden."
 msgstr "応募情報がありません。"
 
-#: templates/index.html:157
+#: templates/index.html:160
 msgid "Statistik"
 msgstr "統計"
 
-#: templates/index.html:168
+#: templates/index.html:171
 msgid "PDF-Export"
 msgstr "PDFエクスポート"
 
@@ -382,79 +388,79 @@ msgstr "PDFエクスポート"
 msgid "Anmelden"
 msgstr "ログイン"
 
-#: templates/login.html:15 templates/register.html:13
+#: templates/login.html:16 templates/register.html:16
 msgid "E-Mail-Adresse"
 msgstr "メールアドレス"
 
-#: templates/login.html:18
+#: templates/login.html:19
 msgid "Passwort"
 msgstr "パスワード"
 
-#: templates/login.html:22
+#: templates/login.html:23
 msgid "Einloggen"
 msgstr "ログイン"
 
-#: templates/login.html:30
+#: templates/login.html:31
 msgid "Noch kein Konto?"
 msgstr "アカウントをお持ちでないですか？"
 
-#: templates/login.html:30
+#: templates/login.html:31
 msgid "Hier registrieren"
 msgstr "新規登録はこちら"
 
-#: templates/login.html:33
+#: templates/login.html:34
 msgid "Passwort vergessen?"
 msgstr "パスワードをお忘れですか？"
 
-#: templates/notes.html:19
+#: templates/notes.html:20
 msgid "Notizen, Telefonate, nächste Schritte..."
 msgstr "メモ、電話対応、次のステップなど..."
 
-#: templates/register.html:7
+#: templates/register.html:8
 msgid "Registrieren"
 msgstr "登録"
 
-#: templates/register.html:15
+#: templates/register.html:19
 msgid "Passwort (mind. 8 Zeichen)"
 msgstr "パスワード（8文字以上）"
 
-#: templates/register.html:21
+#: templates/register.html:25
 msgid "Ich habe die"
 msgstr ""
 
-#: templates/register.html:21
+#: templates/register.html:25
 msgid "gelesen und akzeptiere sie."
 msgstr "に同意します。"
 
-#: templates/register.html:26
+#: templates/register.html:31
 msgid "Konto erstellen"
 msgstr "アカウント作成"
 
-#: templates/register.html:32
+#: templates/register.html:38
 msgid "Bereits ein Konto?"
 msgstr "すでにアカウントをお持ちですか？"
 
-#: templates/register.html:32
+#: templates/register.html:38
 msgid "Hier anmelden"
 msgstr "ログインはこちら"
 
-#: templates/reset_password.html:7
+#: templates/reset_password.html:8
 msgid "Neues Passwort eingeben"
 msgstr "新しいパスワードの入力"
 
-#: templates/reset_password.html:11
+#: templates/reset_password.html:13
 msgid "Bitte geben Sie Ihr neues Passwort ein (mindestens 8 Zeichen)."
 msgstr "新しいパスワードを入力してください（8文字以上）。"
 
-#: templates/reset_password.html:17
+#: templates/reset_password.html:21
 msgid "Neues Passwort"
 msgstr "新しいパスワード"
 
-#: templates/reset_password.html:20
+#: templates/reset_password.html:25
 msgid "Passwort speichern"
 msgstr "パスワードを保存"
 
-#: templates/reset_password.html:28 templates/reset_request.html:33
+#: templates/reset_password.html:34 templates/reset_request.html:34
 msgid "Zurück zum Login"
 msgstr "ログイン画面に戻る"
 
@@ -468,11 +474,11 @@ msgid ""
 "Zurücksetzen Ihres Passworts."
 msgstr "メールアドレスを入力してください。パスワード再設定用のリンクをお送りします。"
 
-#: templates/reset_request.html:20
+#: templates/reset_request.html:21
 msgid "E-Mail-Adresse eingeben"
 msgstr "メールアドレスを入力"
 
-#: templates/reset_request.html:24
+#: templates/reset_request.html:25
 msgid "Link anfordern"
 msgstr "リンクをリクエスト"
 
@@ -484,6 +490,12 @@ msgstr "統計情報"
 msgid "Gesamt Bewerbungen"
 msgstr "総応募数"
 
-#: templates/index.html:117
-msgid "Wirklich löschen?"
-msgstr "本当に削除しますか？"
+#~ msgid "Bewerbungsübersicht"
+#~ msgstr "応募概要"
+
+#~ msgid "Ja, löschen"
+#~ msgstr "はい、削除する"
+
+#~ msgid "Abbrechen"
+#~ msgstr "キャンセル"
+

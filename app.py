@@ -41,6 +41,25 @@ from reportlab.lib import colors
 # Initialisierung der Flask-Anwendung
 app = Flask(__name__)
 
+LANGUAGES = {
+    'de': {'name': 'Deutsch', 'flag': 'de'},
+    'en': {'name': 'English', 'flag': 'gb'},
+    'fa': {'name': 'فارسی', 'flag': 'ir'},
+    'ru': {'name': 'Русский', 'flag': 'ru'},
+    'pl': {'name': 'Polski', 'flag': 'pl'},
+    'uk': {'name': 'Українська', 'flag': 'ua'},
+    'es': {'name': 'Español', 'flag': 'es'},
+    'fr': {'name': 'Français', 'flag': 'fr'},
+    'zh': {'name': '中文', 'flag': 'cn'},
+    'ja': {'name': '日本語', 'flag': 'jp'},
+    'tr': {'name': 'Türkçe', 'flag': 'tr'},
+    'ar': {'name': 'العربية', 'flag': 'sa'}
+}
+
+@app.context_processor
+def inject_languages():
+    return dict(languages=LANGUAGES)
+
 # Sicherer Secret-Key für Session-Management und Tokens (wird aus .env geladen oder zufällig generiert)
 app.secret_key = os.getenv("SECRET_KEY") or os.urandom(24)
 
@@ -286,6 +305,16 @@ def logout():
 
     # Leitet den Benutzer nach dem Logout zur Login-Seite weiter
     return redirect(url_for("login"))
+
+
+@app.route('/delete-account', methods=['POST', 'GET'])
+@login_required
+def delete_account():
+    db.session.delete(current_user)
+    db.session.commit()
+    logout_user()
+    flash(_('Dein Konto wurde erfolgreich gelöscht.'), 'success')
+    return redirect(url_for('index'))
 
 
 # --- PASSWORT-WIEDERHERSTELLUNG: ANFRAGE ---

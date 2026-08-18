@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FlowLine 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-09 20:49+0200\n"
+"POT-Creation-Date: 2026-08-18 17:44+0200\n"
 "PO-Revision-Date: 2026-08-09 19:50+0200\n"
 "Last-Translator: FlowLine Team\n"
 "Language: fa\n"
@@ -16,35 +16,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app.py:126
+#: app.py:221
 msgid "k.A."
 msgstr "نامشخص"
 
-#: app.py:143
+#: app.py:244
 msgid "❌ Bitte E-Mail und Passwort eingeben!"
 msgstr "❌ لطفاً ایمیل و رمز عبور را وارد کنید!"
 
-#: app.py:147 app.py:231
+#: app.py:249 app.py:397
 msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
 msgstr "❌ رمز عبور باید حداقل ۸ کاراکتر باشد!"
 
-#: app.py:151
+#: app.py:254
 msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
 msgstr "❌ این آدرس ایمیل قبلاً ثبت شده است!"
 
-#: app.py:162
+#: app.py:267
 msgid "❌ Registrierung fehlgeschlagen."
 msgstr "❌ ثبت نام ناموفق بود."
 
-#: app.py:179
+#: app.py:293
 msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
 msgstr "❌ ایمیل یا رمز عبور اشتباه است!"
 
-#: app.py:201
+#: app.py:316
+msgid "Dein Konto wurde erfolgreich gelöscht."
+msgstr ""
+
+#: app.py:336
 msgid "Passwort zurücksetzen - FlowLine"
 msgstr "بازیابی رمز عبور - FlowLine"
 
-#: app.py:202
+#: app.py:338
 #, python-format
 msgid ""
 "Hallo,\n"
@@ -75,96 +79,108 @@ msgstr ""
 "با احترام\n"
 "تیم FlowLine"
 
-#: app.py:209
+#: app.py:358
 msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
 msgstr "لینک بازیابی رمز عبور به ایمیل شما ارسال شد."
 
-#: app.py:212
+#: app.py:369
 msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
 msgstr "❌ خطا در ارسال ایمیل. لطفاً بعداً دوباره امتحان کنید."
 
-#: app.py:216
+#: app.py:376
 msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
 msgstr "❌ این آدرس ایمیل پیدا نشد."
 
-#: app.py:225
+#: app.py:388
 msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
 msgstr "❌ لینک نامعتبر، منقضی شده یا قبلاً استفاده شده است."
 
-#: app.py:237
+#: app.py:405
 msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
 msgstr "✅ رمز عبور با موفقیت تغییر کرد! اکنون می‌توانید وارد شوید."
 
-#: app.py:241
+#: app.py:411
 msgid "❌ Fehler beim Speichern des Passworts."
 msgstr "❌ خطا در ذخیره رمز عبور."
 
-#: app.py:263
+#: app.py:437
 msgid "❌ Firma und Position sind Pflichtfelder!"
 msgstr "❌ نام شرکت و سمت شغلی الزامی هستند!"
 
-#: app.py:279 app.py:463
+#: app.py:454 app.py:735
 msgid "❌ Fehler beim Speichern!"
 msgstr "❌ خطا در ذخیره‌سازی!"
 
-#: app.py:311
+#: app.py:493
 #, python-format
 msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
 msgstr "توجه: %(num)d درخواست نیاز به پیگیری یا زمان مصاحبه دارد!"
 
-#: app.py:358
-msgid "Bewerbungsübersicht"
-msgstr "خلاصه درخواست‌های کاری"
-
-#: app.py:361
+#: app.py:571
 msgid "Firma"
 msgstr "شرکت"
 
-#: app.py:361
+#: app.py:571
 msgid "Position"
 msgstr "سمت شغلی"
 
-#: app.py:361 templates/index.html:51
+#: app.py:571 templates/index.html:55
 msgid "Datum"
 msgstr "تاریخ"
 
-#: app.py:361
+#: app.py:571
 msgid "Erinnerung"
 msgstr "یادآوری"
 
-#: app.py:361 templates/index.html:47
+#: app.py:571 templates/index.html:51
 msgid "Status"
 msgstr "وضعیت"
 
-#: app.py:417
+#: app.py:673
 msgid "🗑️ Bewerbung gelöscht!"
 msgstr "🗑️ درخواست کاری حذف شد!"
 
-#: app.py:420
+#: app.py:677
 msgid "❌ Fehler beim Löschen!"
 msgstr "❌ خطا در حذف!"
 
-#: app.py:435
+#: app.py:699
 msgid "❌ Pflichtfelder ausfüllen!"
 msgstr "❌ فیلدهای الزامی را پر کنید!"
 
-#: app.py:447
+#: app.py:713
 msgid "❌ Fehler beim Aktualisieren!"
 msgstr "❌ خطا در بروزرسانی!"
 
-#: templates/base.html:462
+#: templates/base.html:148
+msgid "Konto"
+msgstr "حساب کاربری"
+
+#: templates/base.html:164
 msgid "Abmelden"
 msgstr "خروج"
 
-#: templates/base.html:488 templates/impressum.html:5
+#: templates/base.html:171
+msgid ""
+"Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht "
+"rückgängig gemacht werden."
+msgstr ""
+"آیا مطمئن هستید که می‌خواهید حساب کاربری خود را حذف کنید؟ این عملیات قابل"
+" بازگشت نیست."
+
+#: templates/base.html:175
+msgid "Konto löschen"
+msgstr "حذف حساب کاربری"
+
+#: templates/base.html:205 templates/impressum.html:5
 msgid "Impressum"
 msgstr "اطلاعات حقوقی"
 
-#: templates/base.html:489
+#: templates/base.html:206
 msgid "Datenschutz"
 msgstr "حریم خصوصی"
 
-#: templates/datenschutzerklaerung.html:5 templates/register.html:21
+#: templates/datenschutzerklaerung.html:5 templates/register.html:25
 msgid "Datenschutzerklärung"
 msgstr "سیاست حریم خصوصی"
 
@@ -239,39 +255,39 @@ msgstr "درخواست اصلاح داده‌های نادرست (ماده ۱۶ 
 msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
 msgstr "درخواست حذف داده‌های خود (ماده ۱۷ DSGVO)."
 
-#: templates/edit.html:12
+#: templates/edit.html:16
 msgid "Bewerbung bearbeiten"
 msgstr "ویرایش درخواست کاری"
 
-#: templates/edit.html:19 templates/index.html:11
+#: templates/edit.html:24 templates/index.html:12
 msgid "Firmenname eingeben"
 msgstr "نام شرکت را وارد کنید"
 
-#: templates/edit.html:22 templates/index.html:12
+#: templates/edit.html:27 templates/index.html:13
 msgid "Jobtitel eingeben"
 msgstr "عنوان شغلی را وارد کنید"
 
-#: templates/edit.html:27 templates/stats.html:21
+#: templates/edit.html:32 templates/stats.html:21
 msgid "Offen"
 msgstr "در جریان"
 
-#: templates/edit.html:28
+#: templates/edit.html:33
 msgid "Einladung"
 msgstr "دعوت به مصاحبه"
 
-#: templates/edit.html:29
+#: templates/edit.html:34
 msgid "Zusage"
 msgstr "پذیرفته شده"
 
-#: templates/edit.html:30
+#: templates/edit.html:35
 msgid "Absage"
 msgstr "رد شده"
 
-#: templates/edit.html:44
+#: templates/edit.html:51
 msgid "Termin für Nachfassen"
 msgstr "تاریخ پیگیری"
 
-#: templates/edit.html:52 templates/notes.html:24
+#: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"
 msgstr "ذخیره"
 
@@ -324,52 +340,56 @@ msgstr "سایت ما شامل لینک‌هایی به وب‌سایت‌های
 msgid "Neue Bewerbung"
 msgstr "درخواست کاری جدید"
 
-#: templates/index.html:14
+#: templates/index.html:15
 msgid "Hinzufügen"
 msgstr "افزودن"
 
-#: templates/index.html:21
+#: templates/index.html:22
 msgid "Bewerbungen"
 msgstr "درخواست‌های کاری"
 
-#: templates/index.html:29
+#: templates/index.html:32
 msgid "Suchen..."
 msgstr "جستجو..."
 
-#: templates/index.html:60
+#: templates/index.html:64
 msgid "Erinnerung umschalten"
 msgstr "تغییر وضعیت یادآوری"
 
-#: templates/index.html:90
+#: templates/index.html:94
 msgid "Nachfassen"
 msgstr "پیگیری"
 
-#: templates/index.html:101 templates/notes.html:8
+#: templates/index.html:106 templates/notes.html:8
 msgid "Notizen"
 msgstr "یادداشت‌ها"
 
-#: templates/index.html:110
+#: templates/index.html:115
 msgid "Bearbeiten"
 msgstr "ویرایش"
 
-#: templates/index.html:117
+#: templates/index.html:122
+msgid "Wirklich löschen?"
+msgstr "آیا واقعاً می‌خواهید حذف کنید؟"
+
+#: templates/index.html:122
 msgid "Löschen"
 msgstr "حذف"
 
-#: templates/index.html:129
+#: templates/index.html:135
 #, python-format
 msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
 msgstr "هیچ درخواستی برای \"%(query)s\" یافت نشد."
 
-#: templates/index.html:143
+#: templates/index.html:146
 msgid "Keine Bewerbungen vorhanden."
 msgstr "هیچ درخواست کاری وجود ندارد."
 
-#: templates/index.html:157
+#: templates/index.html:160
 msgid "Statistik"
 msgstr "آمار"
 
-#: templates/index.html:168
+#: templates/index.html:171
 msgid "PDF-Export"
 msgstr "خروجی PDF"
 
@@ -377,79 +397,79 @@ msgstr "خروجی PDF"
 msgid "Anmelden"
 msgstr "ورود"
 
-#: templates/login.html:15 templates/register.html:13
+#: templates/login.html:16 templates/register.html:16
 msgid "E-Mail-Adresse"
 msgstr "آدرس ایمیل"
 
-#: templates/login.html:18
+#: templates/login.html:19
 msgid "Passwort"
 msgstr "رمز عبور"
 
-#: templates/login.html:22
+#: templates/login.html:23
 msgid "Einloggen"
 msgstr "ورود به حساب"
 
-#: templates/login.html:30
+#: templates/login.html:31
 msgid "Noch kein Konto?"
 msgstr "هنوز حساب کاربری ندارید؟"
 
-#: templates/login.html:30
+#: templates/login.html:31
 msgid "Hier registrieren"
 msgstr "اینجا ثبت نام کنید"
 
-#: templates/login.html:33
+#: templates/login.html:34
 msgid "Passwort vergessen?"
 msgstr "رمز عبور را فراموش کرده‌اید؟"
 
-#: templates/notes.html:19
+#: templates/notes.html:20
 msgid "Notizen, Telefonate, nächste Schritte..."
 msgstr "یادداشت‌ها، تماس‌ها، اقدامات بعدی..."
 
-#: templates/register.html:7
+#: templates/register.html:8
 msgid "Registrieren"
 msgstr "ثبت‌نام"
 
-#: templates/register.html:15
+#: templates/register.html:19
 msgid "Passwort (mind. 8 Zeichen)"
 msgstr "رمز عبور (حداقل ۸ کاراکتر)"
 
-#: templates/register.html:21
+#: templates/register.html:25
 msgid "Ich habe die"
 msgstr "من"
 
-#: templates/register.html:21
+#: templates/register.html:25
 msgid "gelesen und akzeptiere sie."
 msgstr "را خوانده و می‌پذیرم."
 
-#: templates/register.html:26
+#: templates/register.html:31
 msgid "Konto erstellen"
 msgstr "ایجاد حساب کاربری"
 
-#: templates/register.html:32
+#: templates/register.html:38
 msgid "Bereits ein Konto?"
 msgstr "قبلاً حساب کاربری داشته‌اید؟"
 
-#: templates/register.html:32
+#: templates/register.html:38
 msgid "Hier anmelden"
 msgstr "اینجا وارد شوید"
 
-#: templates/reset_password.html:7
+#: templates/reset_password.html:8
 msgid "Neues Passwort eingeben"
 msgstr "رمز عبور جدید را وارد کنید"
 
-#: templates/reset_password.html:11
+#: templates/reset_password.html:13
 msgid "Bitte geben Sie Ihr neues Passwort ein (mindestens 8 Zeichen)."
 msgstr "لطفاً رمز عبور جدید خود را وارد کنید (حداقل ۸ کاراکتر)."
 
-#: templates/reset_password.html:17
+#: templates/reset_password.html:21
 msgid "Neues Passwort"
 msgstr "رمز عبور جدید"
 
-#: templates/reset_password.html:20
+#: templates/reset_password.html:25
 msgid "Passwort speichern"
 msgstr "ذخیره رمز عبور"
 
-#: templates/reset_password.html:28 templates/reset_request.html:33
+#: templates/reset_password.html:34 templates/reset_request.html:34
 msgid "Zurück zum Login"
 msgstr "بازگشت به صفحه ورود"
 
@@ -465,11 +485,11 @@ msgstr ""
 "آدرس ایمیل خود را وارد کنید. ما لینکی برای بازیابی رمز عبور برایتان ارسال"
 " می‌کنیم."
 
-#: templates/reset_request.html:20
+#: templates/reset_request.html:21
 msgid "E-Mail-Adresse eingeben"
 msgstr "ورود آدرس ایمیل"
 
-#: templates/reset_request.html:24
+#: templates/reset_request.html:25
 msgid "Link anfordern"
 msgstr "درخواست لینک"
 
@@ -481,7 +501,12 @@ msgstr "آمار"
 msgid "Gesamt Bewerbungen"
 msgstr "کل درخواست‌های کاری"
 
-#: templates/index.html:117
-msgid "Wirklich löschen?"
-msgstr "آیا واقعاً می‌خواهید حذف کنید؟"
+#~ msgid "Bewerbungsübersicht"
+#~ msgstr "خلاصه درخواست‌های کاری"
+
+#~ msgid "Ja, löschen"
+#~ msgstr "بله، حذف کن"
+
+#~ msgid "Abbrechen"
+#~ msgstr "انصراف"
 

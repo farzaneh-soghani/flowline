@@ -1,4 +1,3 @@
-```po
 # Spanish translations for PROJECT.
 # Copyright (C) 2026 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
@@ -8,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-08-09 20:49+0200\n"
+"POT-Creation-Date: 2026-08-18 17:44+0200\n"
 "PO-Revision-Date: 2026-08-14 14:49+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -19,35 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app.py:126
+#: app.py:221
 msgid "k.A."
 msgstr "N/D"
 
-#: app.py:143
+#: app.py:244
 msgid "❌ Bitte E-Mail und Passwort eingeben!"
 msgstr "❌ ¡Por favor, introduce el correo electrónico y la contraseña!"
 
-#: app.py:147 app.py:231
+#: app.py:249 app.py:397
 msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
 msgstr "❌ ¡La contraseña debe tener al menos 8 caracteres!"
 
-#: app.py:151
+#: app.py:254
 msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
 msgstr "❌ ¡Esta dirección de correo electrónico ya está registrada!"
 
-#: app.py:162
+#: app.py:267
 msgid "❌ Registrierung fehlgeschlagen."
 msgstr "❌ El registro ha fallado."
 
-#: app.py:179
+#: app.py:293
 msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
 msgstr "❌ ¡Correo electrónico o contraseña inválidos!"
 
-#: app.py:201
+#: app.py:316
+msgid "Dein Konto wurde erfolgreich gelöscht."
+msgstr ""
+
+#: app.py:336
 msgid "Passwort zurücksetzen - FlowLine"
 msgstr "Restablecer contraseña - FlowLine"
 
-#: app.py:202
+#: app.py:338
 #, python-format
 msgid ""
 "Hallo,\n"
@@ -73,101 +76,118 @@ msgstr ""
 "%(url)s\n"
 "\n"
 "Este enlace es válido durante 1 hora.\n"
-"Si no has realizado esta solicitud, simplemente puedes ignorar este correo electrónico.\n"
+"Si no has realizado esta solicitud, simplemente puedes ignorar este "
+"correo electrónico.\n"
 "\n"
 "Atentamente,\n"
 "El equipo de FlowLine"
 
-#: app.py:209
+#: app.py:358
 msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
-msgstr "Se ha enviado un enlace para restablecer la contraseña a tu correo electrónico."
+msgstr ""
+"Se ha enviado un enlace para restablecer la contraseña a tu correo "
+"electrónico."
 
-#: app.py:212
+#: app.py:369
 msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
-msgstr "❌ Error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde."
+msgstr ""
+"❌ Error al enviar el correo electrónico. Por favor, inténtalo de nuevo "
+"más tarde."
 
-#: app.py:216
+#: app.py:376
 msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
 msgstr "❌ No se ha encontrado esta dirección de correo electrónico."
 
-#: app.py:225
+#: app.py:388
 msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
 msgstr "❌ El enlace no es válido, ha caducado o ya ha sido utilizado."
 
-#: app.py:237
+#: app.py:405
 msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
 msgstr "✅ ¡Contraseña cambiada con éxito! Ya puedes iniciar sesión."
 
-#: app.py:241
+#: app.py:411
 msgid "❌ Fehler beim Speichern des Passworts."
 msgstr "❌ Error al guardar la contraseña."
 
-#: app.py:263
+#: app.py:437
 msgid "❌ Firma und Position sind Pflichtfelder!"
 msgstr "❌ ¡La empresa y el puesto son campos obligatorios!"
 
-#: app.py:279 app.py:463
+#: app.py:454 app.py:735
 msgid "❌ Fehler beim Speichern!"
 msgstr "❌ ¡Error al guardar!"
 
-#: app.py:311
+#: app.py:493
 #, python-format
 msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
 msgstr "Atención: ¡Hay un seguimiento o cita pendiente para %(num)d solicitud(es)!"
 
-#: app.py:358
-msgid "Bewerbungsübersicht"
-msgstr "Resumen de solicitudes"
-
-#: app.py:361
+#: app.py:571
 msgid "Firma"
 msgstr "Empresa"
 
-#: app.py:361
+#: app.py:571
 msgid "Position"
 msgstr "Puesto"
 
-#: app.py:361 templates/index.html:51
+#: app.py:571 templates/index.html:55
 msgid "Datum"
 msgstr "Fecha"
 
-#: app.py:361
+#: app.py:571
 msgid "Erinnerung"
 msgstr "Recordatorio"
 
-#: app.py:361 templates/index.html:47
+#: app.py:571 templates/index.html:51
 msgid "Status"
 msgstr "Estado"
 
-#: app.py:417
+#: app.py:673
 msgid "🗑️ Bewerbung gelöscht!"
 msgstr "🗑️ ¡Solicitud eliminada!"
 
-#: app.py:420
+#: app.py:677
 msgid "❌ Fehler beim Löschen!"
 msgstr "❌ ¡Error al eliminar!"
 
-#: app.py:435
+#: app.py:699
 msgid "❌ Pflichtfelder ausfüllen!"
 msgstr "❌ ¡Rellena los campos obligatorios!"
 
-#: app.py:447
+#: app.py:713
 msgid "❌ Fehler beim Aktualisieren!"
 msgstr "❌ ¡Error al actualizar!"
 
-#: templates/base.html:462
+#: templates/base.html:148
+msgid "Konto"
+msgstr "Cuenta"
+
+#: templates/base.html:164
 msgid "Abmelden"
 msgstr "Cerrar sesión"
 
-#: templates/base.html:488 templates/impressum.html:5
+#: templates/base.html:171
+msgid ""
+"Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht "
+"rückgängig gemacht werden."
+msgstr ""
+"¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede "
+"deshacer."
+
+#: templates/base.html:175
+msgid "Konto löschen"
+msgstr "Eliminar cuenta"
+
+#: templates/base.html:205 templates/impressum.html:5
 msgid "Impressum"
 msgstr "Aviso legal"
 
-#: templates/base.html:489
+#: templates/base.html:206
 msgid "Datenschutz"
 msgstr "Privacidad"
 
-#: templates/datenschutzerklaerung.html:5 templates/register.html:21
+#: templates/datenschutzerklaerung.html:5 templates/register.html:25
 msgid "Datenschutzerklärung"
 msgstr "Política de privacidad"
 
@@ -183,8 +203,8 @@ msgid ""
 "identifiziert werden können."
 msgstr ""
 "La siguiente información ofrece un resumen sencillo de lo que ocurre con "
-"tus datos personales cuando visitas este sitio web. Los datos personales son "
-"cualquier dato con el que puedas ser identificado personalmente."
+"tus datos personales cuando visitas este sitio web. Los datos personales "
+"son cualquier dato con el que puedas ser identificado personalmente."
 
 #: templates/datenschutzerklaerung.html:13
 msgid "2. Verantwortliche Stelle"
@@ -205,9 +225,10 @@ msgid ""
 "werden ausschließlich zur Bereitstellung Ihres Benutzerkontos und zur "
 "Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO)."
 msgstr ""
-"Cuando te registras en nuestro sitio web, recopilamos tu dirección de correo electrónico "
-"y una contraseña cifrada (hash de contraseña). Estos datos se utilizan exclusivamente "
-"para proporcionar tu cuenta de usuario y para la autenticación (art. 6, apdo. 1, letra b del RGPD)."
+"Cuando te registras en nuestro sitio web, recopilamos tu dirección de "
+"correo electrónico y una contraseña cifrada (hash de contraseña). Estos "
+"datos se utilizan exclusivamente para proporcionar tu cuenta de usuario y"
+" para la autenticación (art. 6, apdo. 1, letra b del RGPD)."
 
 #: templates/datenschutzerklaerung.html:27
 msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
@@ -221,8 +242,8 @@ msgid ""
 "ermöglichen."
 msgstr ""
 "Los datos que introduces en FlowLine (p. ej., nombres de empresas, "
-"títulos de puestos, estado de las solicitudes y notas) se almacenan en nuestra "
-"base de dados para permitirte gestionar tus solicitudes."
+"títulos de puestos, estado de las solicitudes y notas) se almacenan en "
+"nuestra base de dados para permitirte gestionar tus solicitudes."
 
 #: templates/datenschutzerklaerung.html:32
 msgid "4. Ihre Rechte"
@@ -233,7 +254,8 @@ msgid ""
 "Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu "
 "erhalten (Art. 15 DSGVO)."
 msgstr ""
-"Obtener información sobre tus datos personales almacenados por nosotros (art. 15 del RGPD)."
+"Obtener información sobre tus datos personales almacenados por nosotros "
+"(art. 15 del RGPD)."
 
 #: templates/datenschutzerklaerung.html:35
 msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
@@ -243,39 +265,39 @@ msgstr "Solicitar la rectificación de datos inexactos (art. 16 del RGPD)."
 msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
 msgstr "Solicitar la supresión de tus datos (art. 17 del RGPD)."
 
-#: templates/edit.html:12
+#: templates/edit.html:16
 msgid "Bewerbung bearbeiten"
 msgstr "Editar solicitud"
 
-#: templates/edit.html:19 templates/index.html:11
+#: templates/edit.html:24 templates/index.html:12
 msgid "Firmenname eingeben"
 msgstr "Introducir nombre de empresa"
 
-#: templates/edit.html:22 templates/index.html:12
+#: templates/edit.html:27 templates/index.html:13
 msgid "Jobtitel eingeben"
 msgstr "Introducir título del puesto"
 
-#: templates/edit.html:27 templates/stats.html:21
+#: templates/edit.html:32 templates/stats.html:21
 msgid "Offen"
 msgstr "Pendiente"
 
-#: templates/edit.html:28
+#: templates/edit.html:33
 msgid "Einladung"
 msgstr "Entrevista"
 
-#: templates/edit.html:29
+#: templates/edit.html:34
 msgid "Zusage"
 msgstr "Oferta recibida"
 
-#: templates/edit.html:30
+#: templates/edit.html:35
 msgid "Absage"
 msgstr "Rechazado"
 
-#: templates/edit.html:44
+#: templates/edit.html:51
 msgid "Termin für Nachfassen"
 msgstr "Fecha de seguimiento"
 
-#: templates/edit.html:52 templates/notes.html:24
+#: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"
 msgstr "Guardar"
 
@@ -312,11 +334,12 @@ msgid ""
 "nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit "
 "hinweisen."
 msgstr ""
-"Como prestadores de servicios, somos responsables de nuestros propios contenidos "
-"en estas páginas de conformidad con las leyes generales según el art. 7, apdo. 1 de la DDG. "
-"Sin embargo, según los arts. 8 a 10 de la DDG, no estamos obligados a supervisar "
-"la información de terceros transmitida o almacenada ni a investigar circunstancias "
-"que indiquen una actividad ilegal."
+"Como prestadores de servicios, somos responsables de nuestros propios "
+"contenidos en estas páginas de conformidad con las leyes generales según "
+"el art. 7, apdo. 1 de la DDG. Sin embargo, según los arts. 8 a 10 de la "
+"DDG, no estamos obligados a supervisar la información de terceros "
+"transmitida o almacenada ni a investigar circunstancias que indiquen una "
+"actividad ilegal."
 
 #: templates/impressum.html:34
 msgid "Haftung für Links"
@@ -328,60 +351,64 @@ msgid ""
 "Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
 "Inhalte auch keine Gewähr übernehmen."
 msgstr ""
-"Nuestra oferta contiene enlaces a sitios web externos de terceros, sobre cuyos "
-"contenidos no tenemos ninguna influencia. Por lo tanto, no podemos asumir "
-"ninguna garantía por dichos contenidos de terceros."
+"Nuestra oferta contiene enlaces a sitios web externos de terceros, sobre "
+"cuyos contenidos no tenemos ninguna influencia. Por lo tanto, no podemos "
+"asumir ninguna garantía por dichos contenidos de terceros."
 
 #: templates/index.html:7
 msgid "Neue Bewerbung"
 msgstr "Nueva solicitud"
 
-#: templates/index.html:14
+#: templates/index.html:15
 msgid "Hinzufügen"
 msgstr "Añadir"
 
-#: templates/index.html:21
+#: templates/index.html:22
 msgid "Bewerbungen"
 msgstr "Solicitudes"
 
-#: templates/index.html:29
+#: templates/index.html:32
 msgid "Suchen..."
 msgstr "Buscar..."
 
-#: templates/index.html:60
+#: templates/index.html:64
 msgid "Erinnerung umschalten"
 msgstr "Cambiar recordatorio"
 
-#: templates/index.html:90
+#: templates/index.html:94
 msgid "Nachfassen"
 msgstr "Seguimiento"
 
-#: templates/index.html:101 templates/notes.html:8
+#: templates/index.html:106 templates/notes.html:8
 msgid "Notizen"
 msgstr "Notas"
 
-#: templates/index.html:110
+#: templates/index.html:115
 msgid "Bearbeiten"
 msgstr "Editar"
 
-#: templates/index.html:117
+#: templates/index.html:122
+msgid "Wirklich löschen?"
+msgstr "¿Seguro que quieres eliminarlo?"
+
+#: templates/index.html:122
 msgid "Löschen"
 msgstr "Eliminar"
 
-#: templates/index.html:129
+#: templates/index.html:135
 #, python-format
 msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
 msgstr "No se encontraron solicitudes para \"%(query)s\"."
 
-#: templates/index.html:143
+#: templates/index.html:146
 msgid "Keine Bewerbungen vorhanden."
 msgstr "No hay solicitudes disponibles."
 
-#: templates/index.html:157
+#: templates/index.html:160
 msgid "Statistik"
 msgstr "Estadísticas"
 
-#: templates/index.html:168
+#: templates/index.html:171
 msgid "PDF-Export"
 msgstr "Exportar a PDF"
 
@@ -389,79 +416,79 @@ msgstr "Exportar a PDF"
 msgid "Anmelden"
 msgstr "Iniciar sesión"
 
-#: templates/login.html:15 templates/register.html:13
+#: templates/login.html:16 templates/register.html:16
 msgid "E-Mail-Adresse"
 msgstr "Dirección de correo electrónico"
 
-#: templates/login.html:18
+#: templates/login.html:19
 msgid "Passwort"
 msgstr "Contraseña"
 
-#: templates/login.html:22
+#: templates/login.html:23
 msgid "Einloggen"
 msgstr "Entrar"
 
-#: templates/login.html:30
+#: templates/login.html:31
 msgid "Noch kein Konto?"
 msgstr "¿Aún no tienes una cuenta?"
 
-#: templates/login.html:30
+#: templates/login.html:31
 msgid "Hier registrieren"
 msgstr "Regístrate aquí"
 
-#: templates/login.html:33
+#: templates/login.html:34
 msgid "Passwort vergessen?"
 msgstr "¿Has olvidado tu contraseña?"
 
-#: templates/notes.html:19
+#: templates/notes.html:20
 msgid "Notizen, Telefonate, nächste Schritte..."
 msgstr "Notas, llamadas telefónicas, próximos pasos..."
 
-#: templates/register.html:7
+#: templates/register.html:8
 msgid "Registrieren"
 msgstr "Registrarse"
 
-#: templates/register.html:15
+#: templates/register.html:19
 msgid "Passwort (mind. 8 Zeichen)"
 msgstr "Contraseña (mín. 8 caracteres)"
 
-#: templates/register.html:21
+#: templates/register.html:25
 msgid "Ich habe die"
 msgstr "He leído la"
 
-#: templates/register.html:21
+#: templates/register.html:25
 msgid "gelesen und akzeptiere sie."
 msgstr "y la acepto."
 
-#: templates/register.html:26
+#: templates/register.html:31
 msgid "Konto erstellen"
 msgstr "Crear cuenta"
 
-#: templates/register.html:32
+#: templates/register.html:38
 msgid "Bereits ein Konto?"
 msgstr "¿Ya tienes una cuenta?"
 
-#: templates/register.html:32
+#: templates/register.html:38
 msgid "Hier anmelden"
 msgstr "Inicia sesión aquí"
 
-#: templates/reset_password.html:7
+#: templates/reset_password.html:8
 msgid "Neues Passwort eingeben"
 msgstr "Introducir nueva contraseña"
 
-#: templates/reset_password.html:11
+#: templates/reset_password.html:13
 msgid "Bitte geben Sie Ihr neues Passwort ein (mindestens 8 Zeichen)."
 msgstr "Por favor, introduce tu nueva contraseña (al menos 8 caracteres)."
 
-#: templates/reset_password.html:17
+#: templates/reset_password.html:21
 msgid "Neues Passwort"
 msgstr "Nueva contraseña"
 
-#: templates/reset_password.html:20
+#: templates/reset_password.html:25
 msgid "Passwort speichern"
 msgstr "Guardar contraseña"
 
-#: templates/reset_password.html:28 templates/reset_request.html:33
+#: templates/reset_password.html:34 templates/reset_request.html:34
 msgid "Zurück zum Login"
 msgstr "Volver al inicio de sesión"
 
@@ -473,13 +500,15 @@ msgstr "Restablecer contraseña"
 msgid ""
 "Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zum "
 "Zurücksetzen Ihres Passworts."
-msgstr "Introduce tu dirección de correo electrónico. Te enviaremos un enlace para restablecer tu contraseña."
+msgstr ""
+"Introduce tu dirección de correo electrónico. Te enviaremos un enlace "
+"para restablecer tu contraseña."
 
-#: templates/reset_request.html:20
+#: templates/reset_request.html:21
 msgid "E-Mail-Adresse eingeben"
 msgstr "Introducir correo electrónico"
 
-#: templates/reset_request.html:24
+#: templates/reset_request.html:25
 msgid "Link anfordern"
 msgstr "Solicitar enlace"
 
@@ -491,8 +520,12 @@ msgstr "Estadísticas"
 msgid "Gesamt Bewerbungen"
 msgstr "Total de solicitudes"
 
-#: templates/index.html:117
-msgid "Wirklich löschen?"
-msgstr "¿Seguro que quieres eliminarlo?"
+#~ msgid "Bewerbungsübersicht"
+#~ msgstr "Resumen de solicitudes"
 
-```
+#~ msgid "Ja, löschen"
+#~ msgstr "Sí, eliminar"
+
+#~ msgid "Abbrechen"
+#~ msgstr "Cancelar"
+

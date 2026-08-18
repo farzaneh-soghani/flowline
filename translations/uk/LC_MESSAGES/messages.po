@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-08-09 20:49+0200\n"
+"POT-Creation-Date: 2026-08-18 17:44+0200\n"
 "PO-Revision-Date: 2026-08-14 14:49+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
@@ -19,35 +19,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app.py:126
+#: app.py:221
 msgid "k.A."
 msgstr "Н/Д"
 
-#: app.py:143
+#: app.py:244
 msgid "❌ Bitte E-Mail und Passwort eingeben!"
 msgstr "❌ Будь ласка, введіть електронну пошту та пароль!"
 
-#: app.py:147 app.py:231
+#: app.py:249 app.py:397
 msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
 msgstr "❌ Пароль має містити щонайменше 8 символів!"
 
-#: app.py:151
+#: app.py:254
 msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
 msgstr "❌ Цю електронну адресу вже зареєстровано!"
 
-#: app.py:162
+#: app.py:267
 msgid "❌ Registrierung fehlgeschlagen."
 msgstr "❌ Реєстрація не вдалася."
 
-#: app.py:179
+#: app.py:293
 msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
 msgstr "❌ Недійсна електронна адреса або пароль!"
 
-#: app.py:201
+#: app.py:316
+msgid "Dein Konto wurde erfolgreich gelöscht."
+msgstr ""
+
+#: app.py:336
 msgid "Passwort zurücksetzen - FlowLine"
 msgstr "Відновлення пароля - FlowLine"
 
-#: app.py:202
+#: app.py:338
 #, python-format
 msgid ""
 "Hallo,\n"
@@ -67,7 +71,8 @@ msgid ""
 msgstr ""
 "Вітаю,\n"
 "\n"
-"Ви надіслали запит на скидання пароля для вашого облікового запису FlowLine.\n"
+"Ви надіслали запит на скидання пароля для вашого облікового запису "
+"FlowLine.\n"
 "Натисніть на посилання нижче, щоб встановити новий пароль:\n"
 "\n"
 "%(url)s\n"
@@ -78,96 +83,110 @@ msgstr ""
 "З повагою,\n"
 "Команда FlowLine"
 
-#: app.py:209
+#: app.py:358
 msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
 msgstr "Посилання для скидання пароля надіслано на вашу електронну пошту."
 
-#: app.py:212
+#: app.py:369
 msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
 msgstr "❌ Помилка надсилання електронного листа. Будь ласка, спробуйте пізніше."
 
-#: app.py:216
+#: app.py:376
 msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
 msgstr "❌ Цю електронну адресу не знайдено."
 
-#: app.py:225
+#: app.py:388
 msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
-msgstr "❌ Посилання недійсне, закінчився термін його дії або воно вже було використане."
+msgstr ""
+"❌ Посилання недійсне, закінчився термін його дії або воно вже було "
+"використане."
 
-#: app.py:237
+#: app.py:405
 msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
 msgstr "✅ Пароль успішно змінено! Тепер ви можете увійти."
 
-#: app.py:241
+#: app.py:411
 msgid "❌ Fehler beim Speichern des Passworts."
 msgstr "❌ Помилка збереження пароля."
 
-#: app.py:263
+#: app.py:437
 msgid "❌ Firma und Position sind Pflichtfelder!"
 msgstr "❌ Компанія та посада є обов'язковими полями!"
 
-#: app.py:279 app.py:463
+#: app.py:454 app.py:735
 msgid "❌ Fehler beim Speichern!"
 msgstr "❌ Помилка збереження!"
 
-#: app.py:311
+#: app.py:493
 #, python-format
 msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
 msgstr "Увага: Для %(num)d заявки(-ок) настав термін нагадування або зустрічі!"
 
-#: app.py:358
-msgid "Bewerbungsübersicht"
-msgstr "Огляд заяв"
-
-#: app.py:361
+#: app.py:571
 msgid "Firma"
 msgstr "Компанія"
 
-#: app.py:361
+#: app.py:571
 msgid "Position"
 msgstr "Посада"
 
-#: app.py:361 templates/index.html:51
+#: app.py:571 templates/index.html:55
 msgid "Datum"
 msgstr "Дата"
 
-#: app.py:361
+#: app.py:571
 msgid "Erinnerung"
 msgstr "Нагадування"
 
-#: app.py:361 templates/index.html:47
+#: app.py:571 templates/index.html:51
 msgid "Status"
 msgstr "Статус"
 
-#: app.py:417
+#: app.py:673
 msgid "🗑️ Bewerbung gelöscht!"
 msgstr "🗑️ Заяву видалено!"
 
-#: app.py:420
+#: app.py:677
 msgid "❌ Fehler beim Löschen!"
 msgstr "❌ Помилка видалення!"
 
-#: app.py:435
+#: app.py:699
 msgid "❌ Pflichtfelder ausfüllen!"
 msgstr "❌ Заповніть обов'язкові поля!"
 
-#: app.py:447
+#: app.py:713
 msgid "❌ Fehler beim Aktualisieren!"
 msgstr "❌ Помилка оновлення!"
 
-#: templates/base.html:462
+#: templates/base.html:148
+msgid "Konto"
+msgstr "Обліковий запис"
+
+#: templates/base.html:164
 msgid "Abmelden"
 msgstr "Вийти"
 
-#: templates/base.html:488 templates/impressum.html:5
+#: templates/base.html:171
+msgid ""
+"Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht "
+"rückgängig gemacht werden."
+msgstr ""
+"Ви впевнені, що хочете видалити свій обліковий запис? Цю дію неможливо "
+"скасувати."
+
+#: templates/base.html:175
+msgid "Konto löschen"
+msgstr "Видалити обліковий запис"
+
+#: templates/base.html:205 templates/impressum.html:5
 msgid "Impressum"
 msgstr "Імпресум (Про нас)"
 
-#: templates/base.html:489
+#: templates/base.html:206
 msgid "Datenschutz"
 msgstr "Конфіденційність"
 
-#: templates/datenschutzerklaerung.html:5 templates/register.html:21
+#: templates/datenschutzerklaerung.html:5 templates/register.html:25
 msgid "Datenschutzerklärung"
 msgstr "Політика конфіденційності"
 
@@ -183,8 +202,9 @@ msgid ""
 "identifiziert werden können."
 msgstr ""
 "Наступна інформація надає простий огляд того, що відбувається з вашими "
-"персональними даними під час відвідування цього веб-сайту. Персональні дані — це "
-"будь-які дані, за допомогою яких можна особисто ідентифікувати вас."
+"персональними даними під час відвідування цього веб-сайту. Персональні "
+"дані — це будь-які дані, за допомогою яких можна особисто ідентифікувати "
+"вас."
 
 #: templates/datenschutzerklaerung.html:13
 msgid "2. Verantwortliche Stelle"
@@ -205,9 +225,10 @@ msgid ""
 "werden ausschließlich zur Bereitstellung Ihres Benutzerkontos und zur "
 "Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO)."
 msgstr ""
-"Під час реєстрації на нашому веб-сайті ми збираємо вашу електронну адресу "
-"та зашифрований пароль (хеш пароля). Ці дані використовуються виключно для "
-"надання вашого облікового запису та автентификації (ст. 6 п. 1 літ. b GDPR)."
+"Під час реєстрації на нашому веб-сайті ми збираємо вашу електронну адресу"
+" та зашифрований пароль (хеш пароля). Ці дані використовуються виключно "
+"для надання вашого облікового запису та автентификації (ст. 6 п. 1 літ. b"
+" GDPR)."
 
 #: templates/datenschutzerklaerung.html:27
 msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
@@ -221,8 +242,8 @@ msgid ""
 "ermöglichen."
 msgstr ""
 "Дані, введені вами у FlowLine (наприклад, назви компаній, назви посад, "
-"статуси заяв та нотатки), зберігаються в нашій базі даних, щоб надати вам "
-"можливість керувати своїми заявами."
+"статуси заяв та нотатки), зберігаються в нашій базі даних, щоб надати вам"
+" можливість керувати своїми заявами."
 
 #: templates/datenschutzerklaerung.html:32
 msgid "4. Ihre Rechte"
@@ -232,7 +253,9 @@ msgstr "4. Ваші права"
 msgid ""
 "Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu "
 "erhalten (Art. 15 DSGVO)."
-msgstr "Отримувати інформацію про ваші персональні дані, які зберігаються у нас (ст. 15 GDPR)."
+msgstr ""
+"Отримувати інформацію про ваші персональні дані, які зберігаються у нас "
+"(ст. 15 GDPR)."
 
 #: templates/datenschutzerklaerung.html:35
 msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
@@ -242,39 +265,39 @@ msgstr "Вимагати виправлення неточних даних (с�
 msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
 msgstr "Вимагати видалення ваших даних (ст. 17 GDPR)."
 
-#: templates/edit.html:12
+#: templates/edit.html:16
 msgid "Bewerbung bearbeiten"
 msgstr "Редагувати заяву"
 
-#: templates/edit.html:19 templates/index.html:11
+#: templates/edit.html:24 templates/index.html:12
 msgid "Firmenname eingeben"
 msgstr "Введіть назву компанії"
 
-#: templates/edit.html:22 templates/index.html:12
+#: templates/edit.html:27 templates/index.html:13
 msgid "Jobtitel eingeben"
 msgstr "Введіть назву посади"
 
-#: templates/edit.html:27 templates/stats.html:21
+#: templates/edit.html:32 templates/stats.html:21
 msgid "Offen"
 msgstr "Відкрито"
 
-#: templates/edit.html:28
+#: templates/edit.html:33
 msgid "Einladung"
 msgstr "Запрошення"
 
-#: templates/edit.html:29
+#: templates/edit.html:34
 msgid "Zusage"
 msgstr "Прийнято"
 
-#: templates/edit.html:30
+#: templates/edit.html:35
 msgid "Absage"
 msgstr "Відмова"
 
-#: templates/edit.html:44
+#: templates/edit.html:51
 msgid "Termin für Nachfassen"
 msgstr "Термін для зв'язку"
 
-#: templates/edit.html:52 templates/notes.html:24
+#: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"
 msgstr "Зберегти"
 
@@ -311,10 +334,11 @@ msgid ""
 "nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit "
 "hinweisen."
 msgstr ""
-"Як постачальник послуг ми несемо відповідальність за власний зміст на цих сторінках "
-"згідно із загальними законами відповідно до § 7 абз. 1 DDG. Однак згідно з §§ 8–10 DDG "
-"ми не зобов'язані як постачальник послуг контролювати передану або збережену сторонню "
-"інформацію чи розслідувати обставини, що вказують на незаконну діяльність."
+"Як постачальник послуг ми несемо відповідальність за власний зміст на цих"
+" сторінках згідно із загальними законами відповідно до § 7 абз. 1 DDG. "
+"Однак згідно з §§ 8–10 DDG ми не зобов'язані як постачальник послуг "
+"контролювати передану або збережену сторонню інформацію чи розслідувати "
+"обставини, що вказують на незаконну діяльність."
 
 #: templates/impressum.html:34
 msgid "Haftung für Links"
@@ -326,59 +350,64 @@ msgid ""
 "Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
 "Inhalte auch keine Gewähr übernehmen."
 msgstr ""
-"Наш сайт містить посилання на зовнішні веб-сайти третіх сторін, на зміст яких ми не "
-"маємо впливу. Тому ми не можемо нести жодної відповідальності за цей сторонній зміст."
+"Наш сайт містить посилання на зовнішні веб-сайти третіх сторін, на зміст "
+"яких ми не маємо впливу. Тому ми не можемо нести жодної відповідальності "
+"за цей сторонній зміст."
 
 #: templates/index.html:7
 msgid "Neue Bewerbung"
 msgstr "Нова заява"
 
-#: templates/index.html:14
+#: templates/index.html:15
 msgid "Hinzufügen"
 msgstr "Додати"
 
-#: templates/index.html:21
+#: templates/index.html:22
 msgid "Bewerbungen"
 msgstr "Заяви"
 
-#: templates/index.html:29
+#: templates/index.html:32
 msgid "Suchen..."
 msgstr "Пошук..."
 
-#: templates/index.html:60
+#: templates/index.html:64
 msgid "Erinnerung umschalten"
 msgstr "Переключити нагадування"
 
-#: templates/index.html:90
+#: templates/index.html:94
 msgid "Nachfassen"
 msgstr "Зв'язатися"
 
-#: templates/index.html:101 templates/notes.html:8
+#: templates/index.html:106 templates/notes.html:8
 msgid "Notizen"
 msgstr "Нотатки"
 
-#: templates/index.html:110
+#: templates/index.html:115
 msgid "Bearbeiten"
 msgstr "Редагувати"
 
-#: templates/index.html:117
+#: templates/index.html:122
+msgid "Wirklich löschen?"
+msgstr "Дійсно видалити?"
+
+#: templates/index.html:122
 msgid "Löschen"
 msgstr "Видалити"
 
-#: templates/index.html:129
+#: templates/index.html:135
 #, python-format
 msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
 msgstr "Не знайдено заяв за запитом «%(query)s»."
 
-#: templates/index.html:143
+#: templates/index.html:146
 msgid "Keine Bewerbungen vorhanden."
 msgstr "Немає доступних заяв."
 
-#: templates/index.html:157
+#: templates/index.html:160
 msgid "Statistik"
 msgstr "Статистика"
 
-#: templates/index.html:168
+#: templates/index.html:171
 msgid "PDF-Export"
 msgstr "Експорт у PDF"
 
@@ -386,79 +415,79 @@ msgstr "Експорт у PDF"
 msgid "Anmelden"
 msgstr "Увійти"
 
-#: templates/login.html:15 templates/register.html:13
+#: templates/login.html:16 templates/register.html:16
 msgid "E-Mail-Adresse"
 msgstr "Електронна адреса"
 
-#: templates/login.html:18
+#: templates/login.html:19
 msgid "Passwort"
 msgstr "Пароль"
 
-#: templates/login.html:22
+#: templates/login.html:23
 msgid "Einloggen"
 msgstr "Увійти"
 
-#: templates/login.html:30
+#: templates/login.html:31
 msgid "Noch kein Konto?"
 msgstr "Ще немає облікового запису?"
 
-#: templates/login.html:30
+#: templates/login.html:31
 msgid "Hier registrieren"
 msgstr "Зареєструватися тут"
 
-#: templates/login.html:33
+#: templates/login.html:34
 msgid "Passwort vergessen?"
 msgstr "Забули пароль?"
 
-#: templates/notes.html:19
+#: templates/notes.html:20
 msgid "Notizen, Telefonate, nächste Schritte..."
 msgstr "Нотатки, дзвінки, наступні кроки..."
 
-#: templates/register.html:7
+#: templates/register.html:8
 msgid "Registrieren"
 msgstr "Зареєструватися"
 
-#: templates/register.html:15
+#: templates/register.html:19
 msgid "Passwort (mind. 8 Zeichen)"
 msgstr "Пароль (мін. 8 символів)"
 
-#: templates/register.html:21
+#: templates/register.html:25
 msgid "Ich habe die"
 msgstr "Я прочитав(-ла)"
 
-#: templates/register.html:21
+#: templates/register.html:25
 msgid "gelesen und akzeptiere sie."
 msgstr "і приймаю її."
 
-#: templates/register.html:26
+#: templates/register.html:31
 msgid "Konto erstellen"
 msgstr "Створити обліковий запис"
 
-#: templates/register.html:32
+#: templates/register.html:38
 msgid "Bereits ein Konto?"
 msgstr "Вже є обліковий запис?"
 
-#: templates/register.html:32
+#: templates/register.html:38
 msgid "Hier anmelden"
 msgstr "Увійти тут"
 
-#: templates/reset_password.html:7
+#: templates/reset_password.html:8
 msgid "Neues Passwort eingeben"
 msgstr "Введіть новий пароль"
 
-#: templates/reset_password.html:11
+#: templates/reset_password.html:13
 msgid "Bitte geben Sie Ihr neues Passwort ein (mindestens 8 Zeichen)."
 msgstr "Будь ласка, введіть новий пароль (щонайменше 8 символів)."
 
-#: templates/reset_password.html:17
+#: templates/reset_password.html:21
 msgid "Neues Passwort"
 msgstr "Новий пароль"
 
-#: templates/reset_password.html:20
+#: templates/reset_password.html:25
 msgid "Passwort speichern"
 msgstr "Зберегти пароль"
 
-#: templates/reset_password.html:28 templates/reset_request.html:33
+#: templates/reset_password.html:34 templates/reset_request.html:34
 msgid "Zurück zum Login"
 msgstr "Повернутися до входу"
 
@@ -470,13 +499,15 @@ msgstr "Скидання пароля"
 msgid ""
 "Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zum "
 "Zurücksetzen Ihres Passworts."
-msgstr "Введіть свою електронну адресу. Ми надішлемо вам посилання для скидання пароля."
+msgstr ""
+"Введіть свою електронну адресу. Ми надішлемо вам посилання для скидання "
+"пароля."
 
-#: templates/reset_request.html:20
+#: templates/reset_request.html:21
 msgid "E-Mail-Adresse eingeben"
 msgstr "Введіть електронну адресу"
 
-#: templates/reset_request.html:24
+#: templates/reset_request.html:25
 msgid "Link anfordern"
 msgstr "Запросити посилання"
 
@@ -488,6 +519,12 @@ msgstr "Статистика"
 msgid "Gesamt Bewerbungen"
 msgstr "Всього заяв"
 
-#: templates/index.html:117
-msgid "Wirklich löschen?"
-msgstr "Дійсно видалити?"
+#~ msgid "Bewerbungsübersicht"
+#~ msgstr "Огляд заяв"
+
+#~ msgid "Ja, löschen"
+#~ msgstr "Так, видалити"
+
+#~ msgid "Abbrechen"
+#~ msgstr "Скасувати"
+

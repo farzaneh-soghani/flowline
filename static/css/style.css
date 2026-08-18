@@ -179,6 +179,29 @@ header nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+.account-dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;       
+    left: auto;
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+[dir="rtl"] .dropdown-content {
+    right: auto !important;
+    left: 0 !important;
+}
+
 .user-email {
     font-size: 0.9em;
     color: var(--text-muted);
@@ -489,11 +512,11 @@ footer a:hover {
     header nav, header .user-nav, header .header-right {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: space-between !important;
+        justify-content: flex-end !important;
         align-items: center !important;
         width: 100% !important;
         flex-wrap: nowrap !important;
-        gap: 4px !important;
+        gap: 8px !important;
     }
 
     /* E-Mail mit präziser Breitenkontrolle */
@@ -513,6 +536,16 @@ footer a:hover {
         font-size: 12px !important;
         padding: 4px 5px !important;
         flex-shrink: 0 !important;
+    }
+
+    .dropdown-content {
+        position: absolute !important;
+        max-width: 90vw !important; 
+    }
+    
+    [dir="rtl"] .dropdown-content {
+        right: 0 !important;
+        left: auto !important;
     }
 
     /* Allgemeine Kartenanpassung */

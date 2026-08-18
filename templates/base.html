@@ -62,9 +62,7 @@
                 <div class="splash-subtitle" style="font-family:system-ui,sans-serif; font-size:13px; font-weight:600; color:#64748B; letter-spacing: 4.4px; line-height:1; text-align:left; white-space:nowrap;">
                     APPLICATIONS IN FLOW
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -113,59 +111,79 @@
 
         <nav>
         {% if current_user.is_authenticated %}
-        <div style="display: flex; align-items: center; gap: 16px;">
-            <span class="user-email">{{ current_user.email }}</span>
-            
-            <!-- Internationaler Sprachumschalter -->
+            <div style="display: flex; align-items: center; gap: 16px;">
+                
+                <!-- Internationaler Sprachumschalter -->
+                <div x-data="{ open: false }" style="position: relative; display: inline-block;">
+                    
+                    <!-- دکمه اصلی (نمایش خودکار پرچم و نام زبان فعلی) -->
+                    <button @click="open = !open" @click.outside="open = false" type="button"
+                            style="border-radius: 8px; background: white; padding: 6px 12px; border: 1px solid #cbd5e1; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #334155;">
+                        <img src="https://flagcdn.com/w20/{{ languages[current_lang].flag }}.png" width="20" alt="{{ current_lang }}"> 
+                        <span>{{ languages[current_lang].name }}</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+
+                    <!-- منوی کشویی (تولید خودکار لیست زبان‌ها با حلقه) -->
+                    <div x-show="open" x-transition class="dropdown-content"
+                        style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; min-width: 140px; max-height: 250px; overflow-y: auto; display: none;">
+                        
+                        {% for code, info in languages.items() %}
+                        <a href="{{ url_for('set_language', lang=code) }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;">
+                            <img src="https://flagcdn.com/w20/{{ info.flag }}.png" width="20" alt="{{ code }}"> 
+                            {{ info.name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- منوی جدید Konto (دقیقاً هم‌استایل با دکمه زبان) -->
             <div x-data="{ open: false }" style="position: relative; display: inline-block;">
                 <button @click="open = !open" @click.outside="open = false" type="button"
-                        style="border-radius: 8px; background: white; padding: 6px 12px; border: 1px solid #cbd5e1; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #334155;">
-                    {% if current_lang == 'fa' %}
-                        <img src="https://flagcdn.com/w20/ir.png" width="20" alt="FA"> فارسی
-                    {% elif current_lang == 'en' %}
-                        <img src="https://flagcdn.com/w20/gb.png" width="20" alt="EN"> English
-                    {% elif current_lang == 'ar' %}
-                        <img src="https://flagcdn.com/w20/sa.png" width="20" alt="AR"> العربية
-                    {% elif current_lang == 'tr' %}
-                        <img src="https://flagcdn.com/w20/tr.png" width="20" alt="TR"> Türkçe
-                    {% elif current_lang == 'ru' %}
-                        <img src="https://flagcdn.com/w20/ru.png" width="20" alt="RU"> Русский
-                    {% elif current_lang == 'pl' %}
-                        <img src="https://flagcdn.com/w20/pl.png" width="20" alt="PL"> Polski
-                    {% elif current_lang == 'uk' %}
-                        <img src="https://flagcdn.com/w20/ua.png" width="20" alt="UK"> Українська
-                    {% elif current_lang == 'es' %}
-                        <img src="https://flagcdn.com/w20/es.png" width="20" alt="ES"> Español
-                    {% elif current_lang == 'fr' %}
-                        <img src="https://flagcdn.com/w20/fr.png" width="20" alt="FR"> Français
-                    {% elif current_lang == 'zh' %}
-                        <img src="https://flagcdn.com/w20/cn.png" width="20" alt="ZH"> 中文
-                    {% elif current_lang == 'ja' %}
-                        <img src="https://flagcdn.com/w20/jp.png" width="20" alt="JA"> 日本語
-                    {% else %}
-                        <img src="https://flagcdn.com/w20/de.png" width="20" alt="DE"> Deutsch
-                    {% endif %}
+                        style="border-radius: 8px; background: white; padding: 6px 12px; border: 1.5px solid #cbd5e1; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 14px; color: #0f172a;">
+                    <svg width="20" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="min-width: 20px;">
+                        <defs>
+                            <!-- گرادینت سرمه‌ای شیک به آبی ملایم -->
+                            <linearGradient id="avatar-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0f172a; stop-opacity:1" /> <!-- سرمه‌ای تیره -->
+                                <stop offset="100%" style="stop-color:#334155; stop-opacity:1" /> <!-- آبیِ دودی شیک -->
+                            </linearGradient>
+                        </defs>
+                        
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" style="fill: url(#avatar-gradient); stroke: none;"></path>
+                        <circle cx="12" cy="7" r="4" style="fill: url(#avatar-gradient); stroke: none;"></circle>
+                    </svg>
+                    <span>{{ _('Konto') }}</span>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
 
-                <div x-show="open" x-transition 
-                    style="position: absolute; right: 0; top: 110%; background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; min-width: 140px; max-height: 250px; overflow-y: auto; display: none;">
-                    <a href="{{ url_for('set_language', lang='de') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/de.png" width="20"> Deutsch</a>
-                    <a href="{{ url_for('set_language', lang='en') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/gb.png" width="20"> English</a>
-                    <a href="{{ url_for('set_language', lang='fa') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/ir.png" width="20"> فارسی</a>
-                    <a href="{{ url_for('set_language', lang='ru') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/ru.png" width="20"> Русский</a>
-                    <a href="{{ url_for('set_language', lang='pl') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/pl.png" width="20"> Polski</a>
-                    <a href="{{ url_for('set_language', lang='uk') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/ua.png" width="20"> Українська</a>
-                    <a href="{{ url_for('set_language', lang='es') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/es.png" width="20"> Español</a>
-                    <a href="{{ url_for('set_language', lang='fr') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/fr.png" width="20"> Français</a>
-                    <a href="{{ url_for('set_language', lang='zh') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/cn.png" width="20"> 中文</a>
-                    <a href="{{ url_for('set_language', lang='ja') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/jp.png" width="20"> 日本語</a>
-                    <a href="{{ url_for('set_language', lang='tr') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/tr.png" width="20"> Türkçe</a>
-                    <a href="{{ url_for('set_language', lang='ar') }}" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-decoration: none; color: #1e293b; font-size: 14px;"><img src="https://flagcdn.com/w20/sa.png" width="20"> العربية</a>
+                <!-- منوی کشویی Konto -->
+                <div x-show="open" x-transition class="dropdown-content"
+                    style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; min-width: 200px; display: none; padding: 6px 0;">
+                    
+                    <!-- نمایش ایمیل کاربر در بالای منو به عنوان هدر -->
+                    <div style="padding: 8px 14px; font-size: 12px; color: #64748b; border-bottom: 1px solid #f1f5f9; word-break: break-all; font-weight: 500;">
+                        {{ current_user.email }}
+                    </div>
+
+                    <!-- گزینه خروج (Abmelden) -->
+                    <a href="{{ url_for('logout') }}" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; text-decoration: none; color: #1e293b; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='transparent'">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        {{ _('Abmelden') }}
+                    </a>
+
+                    <!-- خط جداکننده قرمز ملایم -->
+                    <div style="height: 1px; background: #fee2e2; margin: 4px 0;"></div>
+
+                    <!-- گزینه حذف حساب (Konto löschen) -->
+                    <a href="#" @click.prevent="if(confirm('{{ _("Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.") }}')) { window.location.href='{{ url_for("delete_account") }}'; }" 
+                    style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; text-decoration: none; color: #dc2626; font-size: 14px;" 
+                    onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='transparent'">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                        <span>{{ _('Konto löschen') }}</span>
+                    </a>
                 </div>
             </div>
-
-            <a href="{{ url_for('logout') }}" class="btn-logout">{{ _('Abmelden') }}</a>
         </div>
         {% endif %}
     </nav>
