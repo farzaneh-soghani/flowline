@@ -27,13 +27,13 @@ html {
     overflow-x: hidden;
 }
 
-/* ==========================================
-   Hauptcontainer zum Zentrieren und Begrenzen der Bildschirmbreite
-   ========================================== */
+/* ==========================================================================
+   Hauptcontainer (Zentrierung und maximale Seitenbreite)
+   ========================================================================== */
 .container {
     width: 100%;
-    max-width: 1000px; /* Gewünschte Seitenbreite */
-    margin: 0 auto;    /* Gesamten Inhalt zentrieren */
+    max-width: 1000px;
+    margin: 0 auto;    
     padding: 20px 15px;
 }
 
@@ -58,7 +58,6 @@ body {
 
 /* ==========================================================================
    Splash-Screen (Eingangsanimation / Ladebildschirm)
-   - Vollflächiges Overlay mit Farbverlauf und zentriertem Layout
    ========================================================================== */
 #splash-screen {
     position: fixed;
@@ -74,7 +73,6 @@ body {
     transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-/* Logo-Container im Splash-Screen */
 .splash-logo {
     display: flex;
     flex-direction: row;
@@ -82,17 +80,27 @@ body {
     gap: 22px;
 }
 
-/* Container für die Texte im Splash-Screen */
-.splash-logo > div:last-child {
+.splash-text-container {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     width: max-content;
 }
 
-/* ==========================================================================
-   Splash-Screen Elemente und Animationen
-   ========================================================================== */
+/* RTL-Anpassungen für den Splash-Screen (Persisch & Arabisch) */
+[dir="rtl"] #splash-screen .splash-text-container {
+    align-items: flex-end !important;
+    text-align: right !important;
+}
+
+[dir="rtl"] #splash-screen .splash-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: right;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
 .splash-icon {
     transform-origin: center center;
     animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -112,10 +120,7 @@ body {
     white-space: nowrap;
 }
 
-/* ==========================================================================
-   Keyframe-Animationen für den Splash-Screen
-   ========================================================================== */
-/* Pop-Effekt für das Icon */
+/* Keyframe-Animationen für den Splash-Screen */
 @keyframes iconPop {
     0% {
         opacity: 0;
@@ -127,7 +132,6 @@ body {
     }
 }
 
-/* Einblend- und Bewegungseffekt für den Titel */
 @keyframes slideInText {
     0% {
         opacity: 0;
@@ -139,7 +143,6 @@ body {
     }
 }
 
-/* Sanftes Einblenden für den Untertitel */
 @keyframes fadeInSub {
     0% {
         opacity: 0;
@@ -151,9 +154,6 @@ body {
     }
 }
 
-/* ==========================================================================
-   Ausblende-Zustand (Splash-Screen verstecken)
-   ========================================================================== */
 .splash-hidden {
     opacity: 0 !important;
     visibility: hidden !important;
@@ -161,7 +161,6 @@ body {
 
 /* ==========================================================================
    Header-Layout und Navigation
-   - Grundlegendes Design, Innenabstände und Flexbox-Ausrichtung des Seitenkopfs
    ========================================================================== */
 header {
     padding: 15px 20px;
@@ -227,7 +226,7 @@ header nav {
     z-index: 1000;
 }
 
-/* Automatische Ausrichtung des Dropdowns für RTL-Sprachen (z. B. Persisch/Arabisch) */
+/* Automatische Ausrichtung des Dropdowns für RTL-Sprachen */
 [dir="rtl"] .dropdown-content {
     right: auto !important;
     left: 0 !important;
@@ -266,7 +265,6 @@ header nav {
 
 /* ==========================================================================
    Formular-Layout und Steuerelemente (Inputs & Selects)
-   - Grundlegende Formatierung für Formularzeilen, Eingabefelder und Dropdown-Menüs
    ========================================================================== */
 .form-row {
     display: flex;
@@ -289,20 +287,17 @@ input, select {
     transition: all 0.2s ease;
 }
 
-/* Fokus-Effekte für Standard-Eingabefelder */
 input:focus, select:focus {
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(55, 138, 221, 0.15);
 }
 
-/* Spezielle Eingabefelder mit Innenschatten (Inset) */
 .inset-input {
     background: #f1f6f9;
     box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.06), 
                 inset -1px -1px 3px rgba(255, 255, 255, 0.8);
 }
 
-/* Fokus-Zustand für Inset-Eingabefelder und Textareas */
 .inset-input:focus, textarea.inset-input:focus {
     background: #ffffff !important;
     border-color: var(--primary-blue) !important;
@@ -310,7 +305,6 @@ input:focus, select:focus {
     outline: none !important;
 }
 
-/* Automatische Größenanpassung von Feldern innerhalb von Formularzeilen */
 .form-row .inset-input,
 .form-row input,
 .form-row select {
@@ -318,7 +312,6 @@ input:focus, select:focus {
     width: auto;
 }
 
-/* Kontrollkästchen (Checkboxes) */
 input[type="checkbox"] {
     width: 16px;
     height: 16px;
@@ -329,7 +322,7 @@ input[type="checkbox"] {
 }
 
 /* ==========================================================================
-   Primäre Schaltflächen und Absende-Buttons (Primary Buttons)
+   Primäre Schaltflächen (Primary Buttons)
    ========================================================================== */
 .btn-primary, button[type="submit"] {
     height: 42px !important;
@@ -352,7 +345,6 @@ input[type="checkbox"] {
     margin-right: 2px;
 }
 
-/* Plus-Symbol innerhalb von Primärschaltflächen */
 .btn-primary .plus-icon {
     font-size: 1.35em;
     font-weight: 700;
@@ -360,7 +352,6 @@ input[type="checkbox"] {
     margin-right: 2px;
 }
 
-/* Hover-Effekt für Primärschaltflächen (mit Farbverlauf) */
 .btn-primary:hover, button[type="submit"]:hover {
     background: linear-gradient(90deg, var(--primary-hover), var(--primary-blue));
     color: #ffffff;
@@ -388,7 +379,6 @@ input[type="checkbox"] {
     transition: all 0.2s ease-in-out;
 }
 
-/* Hover-Effekt für Sekundärschaltflächen */
 .btn-secondary:hover {
     background: #f8fafc;
     border-color: #94a3b8;
@@ -398,7 +388,6 @@ input[type="checkbox"] {
 
 /* ==========================================================================
    Job-Karten (Layout & Design)
-   - Grundstil, Abstände, abgerundete Ecken und dezente Innenschatten für Job-Einträge
    ========================================================================== */
 .job {
     background: #f1f6f9;
@@ -414,10 +403,6 @@ input[type="checkbox"] {
     transition: all 0.2s ease;
 }
 
-/* ----------------------------------------------------------------------
-   Hover-Effekt für Job-Karten
-   - Hebt die Karte beim Überfahren mit der Maus optisch hervor
-   ---------------------------------------------------------------------- */
 .job:hover {
     background: #ffffff;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
@@ -425,9 +410,6 @@ input[type="checkbox"] {
     transform: translateY(-1px);
 }
 
-/* ==========================================================================
-   Job-Inhalt und Informationsbereiche
-   ========================================================================== */
 .job-content {
     display: flex;
     flex-direction: column;
@@ -440,7 +422,7 @@ input[type="checkbox"] {
 }
 
 /* ==========================================================================
-   Fälligkeits-Indikatoren (Warnungen bei Fristüberschreitung)
+   Fälligkeits-Indikatoren
    ========================================================================== */
 .icon-due {
     stroke: var(--danger-color) !important;
@@ -456,7 +438,7 @@ input[type="checkbox"] {
 }
 
 /* ==========================================================================
-   Aktionsschaltflächen (Job-Buttons: Notizen, Bearbeiten, Löschen)
+   Aktionsschaltflächen (Job-Buttons)
    ========================================================================== */
 .job-buttons {
     display: flex;
@@ -479,14 +461,12 @@ input[type="checkbox"] {
     transition: all 0.2s ease;
 }
 
-/* Hover-Effekte für Standard-Aktionsbuttons (Notizen, Bearbeiten) */
 .btn-notes:hover, .btn-edit:hover {
     background: #ffffff;
     border-color: var(--primary-blue);
     color: var(--primary-blue);
 }
 
-/* Hover-Effekt für den Löschen-Button (Sicherheitswarnung in Rot) */
 .btn-delete:hover {
     background: #fef2f2;
     border-color: #fca5a5;
@@ -495,8 +475,6 @@ input[type="checkbox"] {
 
 /* ==========================================================================
    Flash-Nachrichten (Benachrichtigungen)
-   - Stil für Erfolgs- oder Statusmeldungen 
-   (Hintergrund, Textfarbe, Abstände und Rahmen)
    ========================================================================== */
 .flash {
     background: #d4edda;
@@ -509,7 +487,6 @@ input[type="checkbox"] {
 
 /* ==========================================================================
    Footer-Stile und Layout
-   - Definiert das Erscheinungsbild, die Ausrichtung und Abstände des Seitenfuters
    ========================================================================== */
 footer {
     margin-top: auto;
@@ -521,10 +498,6 @@ footer {
     padding: 20px 10px;
 }
 
-/* ==========================================================================
-   Footer-Link-Stile
-   - Steuert Farben, Abstände und Interaktionen (Hover-Effekte) für Links im Footer
-   ========================================================================== */
 footer a {
     color: var(--primary-blue);
     text-decoration: none;
@@ -539,12 +512,9 @@ footer a:hover {
 
 /* ==========================================================================
    Responsive Media Query (Max-Width: 768px)
-   - Passt Container, Formularelemente und Abstände für mobile Geräte an
    ========================================================================== */
 @media (max-width: 768px) {
-    /* ----------------------------------------------------------------------
-       1. Container- und Formular-Anpassungen
-       ---------------------------------------------------------------------- */
+    /* 1. Container- und Formular-Anpassungen */
     .container {
         padding: 10px 10px 20px 10px !important;
         max-width: 100% !important;
@@ -567,10 +537,7 @@ footer a:hover {
         padding: 12px;
     }
 
-    /* ----------------------------------------------------------------------
-       2. Header-Optimierung für mobile Endgeräte
-       ---------------------------------------------------------------------- */
-    /* Korrekte Header-Anpassung für Mobilgeräte */
+    /* 2. Header-Optimierung für mobile Endgeräte */
     header {
         flex-direction: column !important;
         height: auto !important;
@@ -579,7 +546,6 @@ footer a:hover {
         align-items: stretch !important;
     }
 
-    /* Oberer Bereich des Headers (inkl. Logo) */
     header .logo, header img {
         align-self: center;
     }
@@ -593,7 +559,6 @@ footer a:hover {
         width: 100% !important;
     }
 
-    /* Unterer Bereich des Headers */
     header nav, header .user-nav, header .header-right {
         display: flex !important;
         flex-direction: row !important;
@@ -604,7 +569,6 @@ footer a:hover {
         gap: 8px !important;
     }
 
-    /* E-Mail mit präziser Breitenkontrolle */
     header span, header email, header .user-email {
         font-size: 12px !important;
         overflow: hidden !important;
@@ -614,7 +578,6 @@ footer a:hover {
         flex-shrink: 1 !important;
     }
 
-    /* Sprachauswahl und Abmelden-Button */
     .lang-select, 
     .btn-logout {
         width: auto !important;
@@ -627,16 +590,8 @@ footer a:hover {
         position: absolute !important;
         max-width: 90vw !important; 
     }
-    
-    [dir="rtl"] .dropdown-content {
-        right: 0 !important;
-        left: auto !important;
-    }
 
-    /* ----------------------------------------------------------------------
-       3. Karten- und Layout-Anpassungen (Jobs)
-       ---------------------------------------------------------------------- */
-    /* Allgemeine Kartenanpassung */
+    /* 3. Karten- und Layout-Anpassungen (Jobs) */
     .job {
         flex-direction: column !important;
         align-items: stretch !important;
@@ -644,7 +599,6 @@ footer a:hover {
         padding: 14px !important;
     }
 
-    /* Inhalt der Karte untereinander anordnen */
     .job > div:not(.job-buttons), .job-details, .job-content {
         display: flex !important;
         flex-direction: column !important;
@@ -659,7 +613,6 @@ footer a:hover {
         gap: 10px !important;
     }
 
-    /* Buttons am unteren Kartenrand in einer horizontalen Linie */
     .job-buttons {
         width: 100% !important;
         display: flex !important;
@@ -670,7 +623,7 @@ footer a:hover {
         gap: 8px !important;
         margin-top: 8px !important;
         border-top: 1px solid rgba(0, 0, 0, 0.05);
-        padding-top: 10px;              
+        padding-top: 10px;               
     }
 
     .job-buttons .btn-notes, 
@@ -683,14 +636,16 @@ footer a:hover {
         margin: 0 !important;
     }
 
-    /* Abstand für Checkboxen auf Mobilgeräten */
     input[type="checkbox"] {
         width: auto !important;
         margin-left: 4px !important;
         margin-right: 4px !important;
     }
 }
-     
+
+/* ==========================================================================
+   Globale Interaktions-Effekte (Buttons)
+   ========================================================================== */
 button:active, 
 [class^="btn-"]:active {
     transform: translateY(1px) !important;
