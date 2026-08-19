@@ -1,0 +1,5 @@
+[run]
+omit =
+    auto_translate.py
+    fix_translations.py
+    tests/*
