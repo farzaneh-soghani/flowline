@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-08-18 17:44+0200\n"
+"POT-Creation-Date: 2026-08-19 22:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app.py:221
+#: app.py:281
 msgid "k.A."
 msgstr ""
 
-#: app.py:244
+#: app.py:309
 msgid "❌ Bitte E-Mail und Passwort eingeben!"
 msgstr ""
 
-#: app.py:249 app.py:397
+#: app.py:314 app.py:494
 msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
 msgstr ""
 
-#: app.py:254
+#: app.py:319
 msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
 msgstr ""
 
-#: app.py:267
+#: app.py:332
 msgid "❌ Registrierung fehlgeschlagen."
 msgstr ""
 
-#: app.py:293
+#: app.py:365
 msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
 msgstr ""
 
-#: app.py:316
+#: app.py:401
 msgid "Dein Konto wurde erfolgreich gelöscht."
 msgstr ""
 
-#: app.py:336
+#: app.py:427
 msgid "Passwort zurücksetzen - FlowLine"
 msgstr ""
 
-#: app.py:338
+#: app.py:429
 #, python-format
 msgid ""
 "Hallo,\n"
@@ -68,102 +68,102 @@ msgid ""
 "Ihr FlowLine Team"
 msgstr ""
 
-#: app.py:358
+#: app.py:449
 msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
 msgstr ""
 
-#: app.py:369
+#: app.py:460
 msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
 msgstr ""
 
-#: app.py:376
+#: app.py:467
 msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
 msgstr ""
 
-#: app.py:388
+#: app.py:485
 msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
 msgstr ""
 
-#: app.py:405
+#: app.py:502
 msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
 msgstr ""
 
-#: app.py:411
+#: app.py:508
 msgid "❌ Fehler beim Speichern des Passworts."
 msgstr ""
 
-#: app.py:437
+#: app.py:542
 msgid "❌ Firma und Position sind Pflichtfelder!"
 msgstr ""
 
-#: app.py:454 app.py:735
+#: app.py:559 app.py:896
 msgid "❌ Fehler beim Speichern!"
 msgstr ""
 
-#: app.py:493
+#: app.py:598
 #, python-format
 msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
 msgstr ""
 
-#: app.py:571
+#: app.py:702
 msgid "Firma"
 msgstr ""
 
-#: app.py:571
+#: app.py:702
 msgid "Position"
 msgstr ""
 
-#: app.py:571 templates/index.html:55
+#: app.py:702 templates/index.html:64
 msgid "Datum"
 msgstr ""
 
-#: app.py:571
+#: app.py:702
 msgid "Erinnerung"
 msgstr ""
 
-#: app.py:571 templates/index.html:51
+#: app.py:702 templates/index.html:60
 msgid "Status"
 msgstr ""
 
-#: app.py:673
+#: app.py:819
 msgid "🗑️ Bewerbung gelöscht!"
 msgstr ""
 
-#: app.py:677
+#: app.py:823
 msgid "❌ Fehler beim Löschen!"
 msgstr ""
 
-#: app.py:699
+#: app.py:853
 msgid "❌ Pflichtfelder ausfüllen!"
 msgstr ""
 
-#: app.py:713
+#: app.py:867
 msgid "❌ Fehler beim Aktualisieren!"
 msgstr ""
 
-#: templates/base.html:148
+#: templates/base.html:156
 msgid "Konto"
 msgstr ""
 
-#: templates/base.html:164
+#: templates/base.html:172
 msgid "Abmelden"
 msgstr ""
 
-#: templates/base.html:171
+#: templates/base.html:179
 msgid ""
 "Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht "
 "rückgängig gemacht werden."
 msgstr ""
 
-#: templates/base.html:175
+#: templates/base.html:183
 msgid "Konto löschen"
 msgstr ""
 
-#: templates/base.html:205 templates/impressum.html:5
+#: templates/base.html:212 templates/impressum.html:5
 msgid "Impressum"
 msgstr ""
 
-#: templates/base.html:206
+#: templates/base.html:213
 msgid "Datenschutz"
 msgstr ""
 
@@ -172,7 +172,7 @@ msgid "Datenschutzerklärung"
 msgstr ""
 
 #: templates/datenschutzerklaerung.html:8
-msgid "1. Datenschutz auf einen Blick"
+msgid "Datenschutz auf einen Blick"
 msgstr ""
 
 #: templates/datenschutzerklaerung.html:10
@@ -184,18 +184,18 @@ msgid ""
 msgstr ""
 
 #: templates/datenschutzerklaerung.html:13
-msgid "2. Verantwortliche Stelle"
-msgstr ""
-
-#: templates/datenschutzerklaerung.html:21
-msgid "3. Datenerfassung auf dieser Website"
+msgid "Verantwortliche Stelle"
 msgstr ""
 
 #: templates/datenschutzerklaerung.html:22
+msgid "Datenerfassung auf dieser Website"
+msgstr ""
+
+#: templates/datenschutzerklaerung.html:23
 msgid "Registrierung und Benutzerkonto"
 msgstr ""
 
-#: templates/datenschutzerklaerung.html:24
+#: templates/datenschutzerklaerung.html:25
 msgid ""
 "Wenn Sie sich auf unserer Website registrieren, erheben wir Ihre E-Mail-"
 "Adresse sowie ein verschlüsseltes Passwort (Password-Hash). Diese Daten "
@@ -203,11 +203,11 @@ msgid ""
 "Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO)."
 msgstr ""
 
-#: templates/datenschutzerklaerung.html:27
+#: templates/datenschutzerklaerung.html:28
 msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
 msgstr ""
 
-#: templates/datenschutzerklaerung.html:29
+#: templates/datenschutzerklaerung.html:30
 msgid ""
 "Die von Ihnen im FlowLine eingegebenen Daten (z. B. Firmennamen, "
 "Stellenbezeichnungen, Bewerbungsstatus und Notizen) werden in unserer "
@@ -215,33 +215,50 @@ msgid ""
 "ermöglichen."
 msgstr ""
 
-#: templates/datenschutzerklaerung.html:32
-msgid "4. Ihre Rechte"
+#: templates/datenschutzerklaerung.html:33
+msgid "Ihre Rechte"
 msgstr ""
 
-#: templates/datenschutzerklaerung.html:34
+#: templates/datenschutzerklaerung.html:35
 msgid ""
 "Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu "
 "erhalten (Art. 15 DSGVO)."
 msgstr ""
 
-#: templates/datenschutzerklaerung.html:35
+#: templates/datenschutzerklaerung.html:36
 msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
 msgstr ""
 
-#: templates/datenschutzerklaerung.html:36
-msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
+#: templates/datenschutzerklaerung.html:37
+msgid ""
+"Die Löschung Ihrer Daten und Ihres Benutzerkontos zu verlangen (Art. 17 "
+"DSGVO). Sie haben jederzeit das Recht, Ihr Konto samt aller Daten "
+"vollständig zu löschen."
+msgstr ""
+
+#: templates/datenschutzerklaerung.html:40
+msgid "Export von Bewerbungsdaten (PDF-Export)"
+msgstr ""
+
+#: templates/datenschutzerklaerung.html:42
+msgid ""
+"Sie haben jederzeit die Möglichkeit, Ihre gespeicherten Bewerbungsdaten "
+"als PDF-Dokument herunterzuladen (Datenportabilität gemäß Art. 20 DSGVO)."
+" Da diese Anwendung als Prototyp betrieben wird und Daten auf kostenlosen"
+" Server-Ressourcen liegen, empfehlen wir Ihnen, Ihre Daten durch "
+"regelmäßige PDF-Exporte lokal zu sichern, um einem potenziellen "
+"Datenverlust vorzubeugen."
 msgstr ""
 
 #: templates/edit.html:16
 msgid "Bewerbung bearbeiten"
 msgstr ""
 
-#: templates/edit.html:24 templates/index.html:12
+#: templates/edit.html:24 templates/index.html:14
 msgid "Firmenname eingeben"
 msgstr ""
 
-#: templates/edit.html:27 templates/index.html:13
+#: templates/edit.html:27 templates/index.html:15
 msgid "Jobtitel eingeben"
 msgstr ""
 
@@ -285,15 +302,15 @@ msgstr ""
 msgid "Redaktionell verantwortlich"
 msgstr ""
 
-#: templates/impressum.html:28
+#: templates/impressum.html:29
 msgid "Haftungsausschluss (Disclaimer)"
 msgstr ""
 
-#: templates/impressum.html:29
+#: templates/impressum.html:30
 msgid "Haftung für Inhalte"
 msgstr ""
 
-#: templates/impressum.html:31
+#: templates/impressum.html:32
 msgid ""
 "Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf "
 "diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis"
@@ -303,71 +320,71 @@ msgid ""
 "hinweisen."
 msgstr ""
 
-#: templates/impressum.html:34
+#: templates/impressum.html:35
 msgid "Haftung für Links"
 msgstr ""
 
-#: templates/impressum.html:36
+#: templates/impressum.html:37
 msgid ""
 "Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
 "Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
 "Inhalte auch keine Gewähr übernehmen."
 msgstr ""
 
-#: templates/index.html:7
+#: templates/index.html:10
 msgid "Neue Bewerbung"
 msgstr ""
 
-#: templates/index.html:15
+#: templates/index.html:17
 msgid "Hinzufügen"
 msgstr ""
 
-#: templates/index.html:22
+#: templates/index.html:27
 msgid "Bewerbungen"
 msgstr ""
 
-#: templates/index.html:32
+#: templates/index.html:37
 msgid "Suchen..."
 msgstr ""
 
-#: templates/index.html:64
+#: templates/index.html:73
 msgid "Erinnerung umschalten"
 msgstr ""
 
-#: templates/index.html:94
+#: templates/index.html:103
 msgid "Nachfassen"
 msgstr ""
 
-#: templates/index.html:106 templates/notes.html:8
+#: templates/index.html:115 templates/notes.html:8
 msgid "Notizen"
 msgstr ""
 
-#: templates/index.html:115
+#: templates/index.html:124
 msgid "Bearbeiten"
 msgstr ""
 
-#: templates/index.html:122
+#: templates/index.html:131
 msgid "Wirklich löschen?"
 msgstr ""
 
-#: templates/index.html:122
+#: templates/index.html:131
 msgid "Löschen"
 msgstr ""
 
-#: templates/index.html:135
+#: templates/index.html:144
 #, python-format
 msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
 msgstr ""
 
-#: templates/index.html:146
+#: templates/index.html:155
 msgid "Keine Bewerbungen vorhanden."
 msgstr ""
 
-#: templates/index.html:160
+#: templates/index.html:172
 msgid "Statistik"
 msgstr ""
 
-#: templates/index.html:171
+#: templates/index.html:183
 msgid "PDF-Export"
 msgstr ""
 

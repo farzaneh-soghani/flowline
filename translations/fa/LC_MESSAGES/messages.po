@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FlowLine 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-18 17:44+0200\n"
+"POT-Creation-Date: 2026-08-19 22:44+0200\n"
 "PO-Revision-Date: 2026-08-09 19:50+0200\n"
 "Last-Translator: FlowLine Team\n"
 "Language: fa\n"
@@ -16,39 +16,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app.py:221
+#: app.py:281
 msgid "k.A."
 msgstr "نامشخص"
 
-#: app.py:244
+#: app.py:309
 msgid "❌ Bitte E-Mail und Passwort eingeben!"
 msgstr "❌ لطفاً ایمیل و رمز عبور را وارد کنید!"
 
-#: app.py:249 app.py:397
+#: app.py:314 app.py:494
 msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
 msgstr "❌ رمز عبور باید حداقل ۸ کاراکتر باشد!"
 
-#: app.py:254
+#: app.py:319
 msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
 msgstr "❌ این آدرس ایمیل قبلاً ثبت شده است!"
 
-#: app.py:267
+#: app.py:332
 msgid "❌ Registrierung fehlgeschlagen."
 msgstr "❌ ثبت نام ناموفق بود."
 
-#: app.py:293
+#: app.py:365
 msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
 msgstr "❌ ایمیل یا رمز عبور اشتباه است!"
 
-#: app.py:316
+#: app.py:401
 msgid "Dein Konto wurde erfolgreich gelöscht."
 msgstr ""
 
-#: app.py:336
+#: app.py:427
 msgid "Passwort zurücksetzen - FlowLine"
 msgstr "بازیابی رمز عبور - FlowLine"
 
-#: app.py:338
+#: app.py:429
 #, python-format
 msgid ""
 "Hallo,\n"
@@ -79,88 +79,88 @@ msgstr ""
 "با احترام\n"
 "تیم FlowLine"
 
-#: app.py:358
+#: app.py:449
 msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
 msgstr "لینک بازیابی رمز عبور به ایمیل شما ارسال شد."
 
-#: app.py:369
+#: app.py:460
 msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
 msgstr "❌ خطا در ارسال ایمیل. لطفاً بعداً دوباره امتحان کنید."
 
-#: app.py:376
+#: app.py:467
 msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
 msgstr "❌ این آدرس ایمیل پیدا نشد."
 
-#: app.py:388
+#: app.py:485
 msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
 msgstr "❌ لینک نامعتبر، منقضی شده یا قبلاً استفاده شده است."
 
-#: app.py:405
+#: app.py:502
 msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
 msgstr "✅ رمز عبور با موفقیت تغییر کرد! اکنون می‌توانید وارد شوید."
 
-#: app.py:411
+#: app.py:508
 msgid "❌ Fehler beim Speichern des Passworts."
 msgstr "❌ خطا در ذخیره رمز عبور."
 
-#: app.py:437
+#: app.py:542
 msgid "❌ Firma und Position sind Pflichtfelder!"
 msgstr "❌ نام شرکت و سمت شغلی الزامی هستند!"
 
-#: app.py:454 app.py:735
+#: app.py:559 app.py:896
 msgid "❌ Fehler beim Speichern!"
 msgstr "❌ خطا در ذخیره‌سازی!"
 
-#: app.py:493
+#: app.py:598
 #, python-format
 msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
 msgstr "توجه: %(num)d درخواست نیاز به پیگیری یا زمان مصاحبه دارد!"
 
-#: app.py:571
+#: app.py:702
 msgid "Firma"
 msgstr "شرکت"
 
-#: app.py:571
+#: app.py:702
 msgid "Position"
 msgstr "سمت شغلی"
 
-#: app.py:571 templates/index.html:55
+#: app.py:702 templates/index.html:64
 msgid "Datum"
 msgstr "تاریخ"
 
-#: app.py:571
+#: app.py:702
 msgid "Erinnerung"
 msgstr "یادآوری"
 
-#: app.py:571 templates/index.html:51
+#: app.py:702 templates/index.html:60
 msgid "Status"
 msgstr "وضعیت"
 
-#: app.py:673
+#: app.py:819
 msgid "🗑️ Bewerbung gelöscht!"
 msgstr "🗑️ درخواست کاری حذف شد!"
 
-#: app.py:677
+#: app.py:823
 msgid "❌ Fehler beim Löschen!"
 msgstr "❌ خطا در حذف!"
 
-#: app.py:699
+#: app.py:853
 msgid "❌ Pflichtfelder ausfüllen!"
 msgstr "❌ فیلدهای الزامی را پر کنید!"
 
-#: app.py:713
+#: app.py:867
 msgid "❌ Fehler beim Aktualisieren!"
 msgstr "❌ خطا در بروزرسانی!"
 
-#: templates/base.html:148
+#: templates/base.html:156
 msgid "Konto"
 msgstr "حساب کاربری"
 
-#: templates/base.html:164
+#: templates/base.html:172
 msgid "Abmelden"
 msgstr "خروج"
 
-#: templates/base.html:171
+#: templates/base.html:179
 msgid ""
 "Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht "
 "rückgängig gemacht werden."
@@ -168,15 +168,15 @@ msgstr ""
 "آیا مطمئن هستید که می‌خواهید حساب کاربری خود را حذف کنید؟ این عملیات قابل"
 " بازگشت نیست."
 
-#: templates/base.html:175
+#: templates/base.html:183
 msgid "Konto löschen"
 msgstr "حذف حساب کاربری"
 
-#: templates/base.html:205 templates/impressum.html:5
+#: templates/base.html:212 templates/impressum.html:5
 msgid "Impressum"
 msgstr "اطلاعات حقوقی"
 
-#: templates/base.html:206
+#: templates/base.html:213
 msgid "Datenschutz"
 msgstr "حریم خصوصی"
 
@@ -185,7 +185,7 @@ msgid "Datenschutzerklärung"
 msgstr "سیاست حریم خصوصی"
 
 #: templates/datenschutzerklaerung.html:8
-msgid "1. Datenschutz auf einen Blick"
+msgid "Datenschutz auf einen Blick"
 msgstr "۱. نگاهی کلی به حفاظت از داده‌ها"
 
 #: templates/datenschutzerklaerung.html:10
@@ -200,18 +200,18 @@ msgstr ""
 "اطلاعاتی هستند که می‌توان با آن‌ها شما را شناسایی کرد."
 
 #: templates/datenschutzerklaerung.html:13
-msgid "2. Verantwortliche Stelle"
+msgid "Verantwortliche Stelle"
 msgstr "۲. مسئول جمع‌آوری داده‌ها"
 
-#: templates/datenschutzerklaerung.html:21
-msgid "3. Datenerfassung auf dieser Website"
+#: templates/datenschutzerklaerung.html:22
+msgid "Datenerfassung auf dieser Website"
 msgstr "۳. جمع‌آوری داده‌ها در این وب‌سایت"
 
-#: templates/datenschutzerklaerung.html:22
+#: templates/datenschutzerklaerung.html:23
 msgid "Registrierung und Benutzerkonto"
 msgstr "ثبت‌نام و حساب کاربری"
 
-#: templates/datenschutzerklaerung.html:24
+#: templates/datenschutzerklaerung.html:25
 msgid ""
 "Wenn Sie sich auf unserer Website registrieren, erheben wir Ihre E-Mail-"
 "Adresse sowie ein verschlüsseltes Passwort (Password-Hash). Diese Daten "
@@ -222,11 +222,11 @@ msgstr ""
 " (هش) را جمع‌آوری می‌کنیم. این داده‌ها فقط برای ایجاد حساب کاربری و احراز"
 " هویت شما استفاده می‌شوند."
 
-#: templates/datenschutzerklaerung.html:27
+#: templates/datenschutzerklaerung.html:28
 msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
 msgstr "پردازش داده‌های درخواست کاری (FlowLine)"
 
-#: templates/datenschutzerklaerung.html:29
+#: templates/datenschutzerklaerung.html:30
 msgid ""
 "Die von Ihnen im FlowLine eingegebenen Daten (z. B. Firmennamen, "
 "Stellenbezeichnungen, Bewerbungsstatus und Notizen) werden in unserer "
@@ -237,33 +237,59 @@ msgstr ""
 "درخواست و یادداشت‌ها) در پایگاه داده ما ذخیره می‌شوند تا مدیریت "
 "درخواست‌ها برای شما امکان‌پذیر شود."
 
-#: templates/datenschutzerklaerung.html:32
-msgid "4. Ihre Rechte"
+#: templates/datenschutzerklaerung.html:33
+msgid "Ihre Rechte"
 msgstr "۴. حقوق شما"
 
-#: templates/datenschutzerklaerung.html:34
+#: templates/datenschutzerklaerung.html:35
 msgid ""
 "Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu "
 "erhalten (Art. 15 DSGVO)."
 msgstr "دریافت اطلاعات درباره داده‌های شخصی ذخیره‌شده شما نزد ما (ماده ۱۵ DSGVO)."
 
-#: templates/datenschutzerklaerung.html:35
+#: templates/datenschutzerklaerung.html:36
 msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
 msgstr "درخواست اصلاح داده‌های نادرست (ماده ۱۶ DSGVO)."
 
-#: templates/datenschutzerklaerung.html:36
-msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
-msgstr "درخواست حذف داده‌های خود (ماده ۱۷ DSGVO)."
+#: templates/datenschutzerklaerung.html:37
+msgid ""
+"Die Löschung Ihrer Daten und Ihres Benutzerkontos zu verlangen (Art. 17 "
+"DSGVO). Sie haben jederzeit das Recht, Ihr Konto samt aller Daten "
+"vollständig zu löschen."
+msgstr ""
+"درخواست حذف داده‌ها و حساب کاربری خود (ماده ۱۷ DSGVO). شما این حق را "
+"دارید که در هر زمان، حساب کاربری خود را به همراه تمام داده‌ها به طور کامل"
+" حذف کنید."
+
+#: templates/datenschutzerklaerung.html:40
+msgid "Export von Bewerbungsdaten (PDF-Export)"
+msgstr "خروجی داده‌های درخواست کاری (PDF)"
+
+#: templates/datenschutzerklaerung.html:42
+msgid ""
+"Sie haben jederzeit die Möglichkeit, Ihre gespeicherten Bewerbungsdaten "
+"als PDF-Dokument herunterzuladen (Datenportabilität gemäß Art. 20 DSGVO)."
+" Da diese Anwendung als Prototyp betrieben wird und Daten auf kostenlosen"
+" Server-Ressourcen liegen, empfehlen wir Ihnen, Ihre Daten durch "
+"regelmäßige PDF-Exporte lokal zu sichern, um einem potenziellen "
+"Datenverlust vorzubeugen."
+msgstr ""
+"شما در هر زمان این امکان را دارید که داده‌های ذخیره‌شده‌ی درخواست خود را "
+"به صورت سند PDF دانلود کنید (حق انتقال داده مطابق با ماده ۲۰ DSGVO). از "
+"آنجایی که این برنامه به عنوان یک نمونه اولیه (Prototyp) اجرا می‌شود و "
+"داده‌ها روی منابع سرور رایگان قرار دارند، به شما توصیه می‌کنیم برای "
+"جلوگیری از گم شدن احتمالی داده‌ها، اطلاعات خود را با خروجی‌های مرتب PDF "
+"به صورت محلی ذخیره کنید."
 
 #: templates/edit.html:16
 msgid "Bewerbung bearbeiten"
 msgstr "ویرایش درخواست کاری"
 
-#: templates/edit.html:24 templates/index.html:12
+#: templates/edit.html:24 templates/index.html:14
 msgid "Firmenname eingeben"
 msgstr "نام شرکت را وارد کنید"
 
-#: templates/edit.html:27 templates/index.html:13
+#: templates/edit.html:27 templates/index.html:15
 msgid "Jobtitel eingeben"
 msgstr "عنوان شغلی را وارد کنید"
 
@@ -307,15 +333,15 @@ msgstr "ایمیل"
 msgid "Redaktionell verantwortlich"
 msgstr "مسئول محتوا"
 
-#: templates/impressum.html:28
+#: templates/impressum.html:29
 msgid "Haftungsausschluss (Disclaimer)"
 msgstr "سلب مسئولیت"
 
-#: templates/impressum.html:29
+#: templates/impressum.html:30
 msgid "Haftung für Inhalte"
 msgstr "مسئولیت محتوا"
 
-#: templates/impressum.html:31
+#: templates/impressum.html:32
 msgid ""
 "Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf "
 "diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis"
@@ -323,73 +349,81 @@ msgid ""
 "übermittelte oder gespeicherte fremde Informationen zu überwachen oder "
 "nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit "
 "hinweisen."
-msgstr "ما به‌عنوان ارائه‌دهنده خدمت، مسئول محتوای خود در این صفحات هستیم..."
+msgstr ""
+"به‌عنوان ارائه‌دهنده خدمات و طبق ماده ۷ بند ۱ قانون DDG، ما مسئول محتوای "
+"اختصاصی خود در این صفحات بر اساس قوانین عمومی هستیم. با این حال، بر اساس "
+"مواد ۸ تا ۱۰ قانون DDG، ما به‌عنوان ارائه‌دهنده خدمات موظف نیستیم اطلاعات"
+" منتقل‌شده یا ذخیره‌شده‌ی اشخاص ثالث را مانیتور کنیم یا به‌دنبال "
+"نشانه‌هایی بگردیم که حاکی از فعالیت غیرقانونی باشند."
 
-#: templates/impressum.html:34
+#: templates/impressum.html:35
 msgid "Haftung für Links"
 msgstr "مسئولیت لینک‌ها"
 
-#: templates/impressum.html:36
+#: templates/impressum.html:37
 msgid ""
 "Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
 "Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
 "Inhalte auch keine Gewähr übernehmen."
-msgstr "سایت ما شامل لینک‌هایی به وب‌سایت‌های دیگر است..."
+msgstr ""
+"پیشنهاد و خدمات ما حاوی لینک‌هایی به وب‌سایت‌های خارجی شخص ثالث است که ما"
+" هیچ‌گونه کنترلی بر محتوای آن‌ها نداریم. به همین دلیل، نمی‌توانیم "
+"هیچ‌گونه مسئولیتی در قبال این محتوای خارجی بپذیریم."
 
-#: templates/index.html:7
+#: templates/index.html:10
 msgid "Neue Bewerbung"
 msgstr "درخواست کاری جدید"
 
-#: templates/index.html:15
+#: templates/index.html:17
 msgid "Hinzufügen"
 msgstr "افزودن"
 
-#: templates/index.html:22
+#: templates/index.html:27
 msgid "Bewerbungen"
 msgstr "درخواست‌های کاری"
 
-#: templates/index.html:32
+#: templates/index.html:37
 msgid "Suchen..."
 msgstr "جستجو..."
 
-#: templates/index.html:64
+#: templates/index.html:73
 msgid "Erinnerung umschalten"
 msgstr "تغییر وضعیت یادآوری"
 
-#: templates/index.html:94
+#: templates/index.html:103
 msgid "Nachfassen"
 msgstr "پیگیری"
 
-#: templates/index.html:106 templates/notes.html:8
+#: templates/index.html:115 templates/notes.html:8
 msgid "Notizen"
 msgstr "یادداشت‌ها"
 
-#: templates/index.html:115
+#: templates/index.html:124
 msgid "Bearbeiten"
 msgstr "ویرایش"
 
-#: templates/index.html:122
+#: templates/index.html:131
 msgid "Wirklich löschen?"
 msgstr "آیا واقعاً می‌خواهید حذف کنید؟"
 
-#: templates/index.html:122
+#: templates/index.html:131
 msgid "Löschen"
 msgstr "حذف"
 
-#: templates/index.html:135
+#: templates/index.html:144
 #, python-format
 msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
 msgstr "هیچ درخواستی برای \"%(query)s\" یافت نشد."
 
-#: templates/index.html:146
+#: templates/index.html:155
 msgid "Keine Bewerbungen vorhanden."
 msgstr "هیچ درخواست کاری وجود ندارد."
 
-#: templates/index.html:160
+#: templates/index.html:172
 msgid "Statistik"
 msgstr "آمار"
 
-#: templates/index.html:171
+#: templates/index.html:183
 msgid "PDF-Export"
 msgstr "خروجی PDF"
 
@@ -500,13 +534,4 @@ msgstr "آمار"
 #: templates/stats.html:15
 msgid "Gesamt Bewerbungen"
 msgstr "کل درخواست‌های کاری"
-
-#~ msgid "Bewerbungsübersicht"
-#~ msgstr "خلاصه درخواست‌های کاری"
-
-#~ msgid "Ja, löschen"
-#~ msgstr "بله، حذف کن"
-
-#~ msgid "Abbrechen"
-#~ msgstr "انصراف"
 

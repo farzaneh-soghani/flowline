@@ -5,50 +5,50 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FlowLine 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-18 17:44+0200\n"
-"PO-Revision-Date: 2026-08-09 20:15+0200\n"
+"POT-Creation-Date: 2026-08-19 22:44+0200\n"
+"PO-Revision-Date: 2026-08-09 21:10+0200\n"
 "Last-Translator: FlowLine Team\n"
 "Language: tr\n"
 "Language-Team: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app.py:221
+#: app.py:281
 msgid "k.A."
-msgstr "Belirtilmedi"
+msgstr "YOK"
 
-#: app.py:244
+#: app.py:309
 msgid "❌ Bitte E-Mail und Passwort eingeben!"
-msgstr "❌ Lütfen e-posta ve şifrenizi girin!"
+msgstr "❌ Lütfen e-posta adresinizi ve şifrenizi girin!"
 
-#: app.py:249 app.py:397
+#: app.py:314 app.py:494
 msgid "❌ Das Passwort muss mindestens 8 Zeichen lang sein!"
 msgstr "❌ Şifre en az 8 karakter uzunluğunda olmalıdır!"
 
-#: app.py:254
+#: app.py:319
 msgid "❌ Diese E-Mail-Adresse ist bereits registriert!"
 msgstr "❌ Bu e-posta adresi zaten kayıtlı!"
 
-#: app.py:267
+#: app.py:332
 msgid "❌ Registrierung fehlgeschlagen."
-msgstr "❌ Kayıt başarısız oldu."
+msgstr "❌ Kayıt işlemi başarısız oldu."
 
-#: app.py:293
+#: app.py:365
 msgid "❌ Ungültige E-Mail-Adresse oder Passwort!"
 msgstr "❌ Geçersiz e-posta adresi veya şifre!"
 
-#: app.py:316
+#: app.py:401
 msgid "Dein Konto wurde erfolgreich gelöscht."
-msgstr ""
+msgstr "Hesabınız başarıyla silindi."
 
-#: app.py:336
+#: app.py:427
 msgid "Passwort zurücksetzen - FlowLine"
-msgstr "Şifreyi Sıfırla - FlowLine"
+msgstr "Şifre Sıfırlama - FlowLine"
 
-#: app.py:338
+#: app.py:429
 #, python-format
 msgid ""
 "Hallo,\n"
@@ -68,124 +68,123 @@ msgid ""
 msgstr ""
 "Merhaba,\n"
 "\n"
-"FlowLine şifrenizi sıfırlamak için bir talepte bulundunuz.\n"
+"FlowLine hesabınız için bir şifre sıfırlama talebinde bulundunuz.\n"
 "Yeni bir şifre belirlemek için lütfen aşağıdaki bağlantıya tıklayın:\n"
 "\n"
 "%(url)s\n"
 "\n"
-"Bu bağlantı 1 saat boyunca geçerlidir.\n"
-"Bu talebi siz yapmadıysanız, bu e-postayı güvenle göz ardı edebilirsiniz."
-"\n"
+"Bu bağlantı 1 saat süreyle geçerlidir.\n"
+"Bu talebi siz yapmadıysanız, bu e-postayı görmezden gelebilirsiniz.\n"
 "\n"
 "Saygılarımızla,\n"
-"FlowLine Ekibiniz"
+"FlowLine Ekibi"
 
-#: app.py:358
+#: app.py:449
 msgid "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
-msgstr "E-posta adresinize şifre sıfırlama bağlantısı gönderildi."
+msgstr "Şifre sıfırlama bağlantısı e-posta adresinize gönderildi."
 
-#: app.py:369
+#: app.py:460
 msgid "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
 msgstr "❌ E-posta gönderilirken hata oluştu. Lütfen daha sonra tekrar deneyin."
 
-#: app.py:376
+#: app.py:467
 msgid "❌ Diese E-Mail-Adresse wurde nicht gefunden."
 msgstr "❌ Bu e-posta adresi bulunamadı."
 
-#: app.py:388
+#: app.py:485
 msgid "❌ Der Link ist ungültig, abgelaufen oder wurde bereits verwendet."
-msgstr "❌ Bağlantı geçersiz, süresi dolmuş veya zaten kullanılmış."
+msgstr "❌ Bağlantı geçersiz, süresi dolmuş veya daha önce kullanılmış."
 
-#: app.py:405
+#: app.py:502
 msgid "✅ Passwort erfolgreich geändert! Sie können sich jetzt einloggen."
-msgstr "✅ Şifre başarıyla değiştirildi! Şimdi giriş yapabilirsiniz."
+msgstr "✅ Şifre başarıyla değiştirildi! Artık giriş yapabilirsiniz."
 
-#: app.py:411
+#: app.py:508
 msgid "❌ Fehler beim Speichern des Passworts."
 msgstr "❌ Şifre kaydedilirken hata oluştu."
 
-#: app.py:437
+#: app.py:542
 msgid "❌ Firma und Position sind Pflichtfelder!"
 msgstr "❌ Şirket ve pozisyon zorunlu alanlardır!"
 
-#: app.py:454 app.py:735
+#: app.py:559 app.py:896
 msgid "❌ Fehler beim Speichern!"
 msgstr "❌ Kaydedilirken hata oluştu!"
 
-#: app.py:493
+#: app.py:598
 #, python-format
 msgid "Achtung: Bei %(num)d Bewerbung(en) ist ein Nachfassen oder Termin fällig!"
-msgstr "Dikkat: %(num)d başvuru için takip veya randevu zamanı geldi!"
+msgstr "Dikkat: %(num)d iş başvurusu için takip veya mülakat tarihi geldi!"
 
-#: app.py:571
+#: app.py:702
 msgid "Firma"
 msgstr "Şirket"
 
-#: app.py:571
+#: app.py:702
 msgid "Position"
 msgstr "Pozisyon"
 
-#: app.py:571 templates/index.html:55
+#: app.py:702 templates/index.html:64
 msgid "Datum"
 msgstr "Tarih"
 
-#: app.py:571
+#: app.py:702
 msgid "Erinnerung"
 msgstr "Hatırlatıcı"
 
-#: app.py:571 templates/index.html:51
+#: app.py:702 templates/index.html:60
 msgid "Status"
 msgstr "Durum"
 
-#: app.py:673
+#: app.py:819
 msgid "🗑️ Bewerbung gelöscht!"
 msgstr "🗑️ Başvuru silindi!"
 
-#: app.py:677
+#: app.py:823
 msgid "❌ Fehler beim Löschen!"
 msgstr "❌ Silinirken hata oluştu!"
 
-#: app.py:699
+#: app.py:853
 msgid "❌ Pflichtfelder ausfüllen!"
 msgstr "❌ Lütfen zorunlu alanları doldurun!"
 
-#: app.py:713
+#: app.py:867
 msgid "❌ Fehler beim Aktualisieren!"
 msgstr "❌ Güncellenirken hata oluştu!"
 
-#: templates/base.html:148
+#: templates/base.html:156
 msgid "Konto"
 msgstr "Hesap"
 
-#: templates/base.html:164
+#: templates/base.html:172
 msgid "Abmelden"
 msgstr "Çıkış Yap"
 
-#: templates/base.html:171
+#: templates/base.html:179
 msgid ""
 "Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht "
 "rückgängig gemacht werden."
 msgstr "Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
 
-#: templates/base.html:175
+#: templates/base.html:183
 msgid "Konto löschen"
-msgstr "Hesabı sil"
+msgstr "Hesabı Sil"
 
-#: templates/base.html:205 templates/impressum.html:5
+#: templates/base.html:212 templates/impressum.html:5
 msgid "Impressum"
-msgstr "Yasal Uyarı"
+msgstr "Künye (Impressum)"
 
-#: templates/base.html:206
+#: templates/base.html:213
 msgid "Datenschutz"
-msgstr "Gizlilik Politikası"
+msgstr "Gizlilik"
 
 #: templates/datenschutzerklaerung.html:5 templates/register.html:25
 msgid "Datenschutzerklärung"
 msgstr "Gizlilik Politikası"
 
 #: templates/datenschutzerklaerung.html:8
-msgid "1. Datenschutz auf einen Blick"
-msgstr "1. Bir Bakışta Veri Koruma"
+msgid "Datenschutz auf einen Blick"
+msgstr "Bir Bakışta Gizlilik"
 
 #: templates/datenschutzerklaerung.html:10
 msgid ""
@@ -194,93 +193,109 @@ msgid ""
 "Personenbezogene Daten sind alle Daten, mit denen Sie persönlich "
 "identifiziert werden können."
 msgstr ""
-"Aşağıdaki bilgiler, bu web sitesini ziyaret ettiğinizde kişisel "
-"verilerinize ne olduğuna dair genel bir bakış sunmaktadır. Kişisel "
-"veriler, sizi kişisel olarak kimliğinizi belirlemek için kullanılabilecek"
-" her türlü veridir."
+"Aşağıdaki bilgiler, bu web sitesini ziyaret ettiğinizde kişisel verilerinizin başına "
+"ne geldiğine dair basit bir genel bakış sunar. Kişisel veriler, sizin kimliğinizi "
+"doğrulayabilecek her türlü veridir."
 
 #: templates/datenschutzerklaerung.html:13
-msgid "2. Verantwortliche Stelle"
-msgstr "2. Sorumlu Birim"
-
-#: templates/datenschutzerklaerung.html:21
-msgid "3. Datenerfassung auf dieser Website"
-msgstr "3. Bu Web Sitesinde Veri Toplanması"
+msgid "Verantwortliche Stelle"
+msgstr "Sorumlu Makam"
 
 #: templates/datenschutzerklaerung.html:22
+msgid "Datenerfassung auf dieser Website"
+msgstr "Bu Web Sitesinde Veri Toplanması"
+
+#: templates/datenschutzerklaerung.html:23
 msgid "Registrierung und Benutzerkonto"
 msgstr "Kayıt ve Kullanıcı Hesabı"
 
-#: templates/datenschutzerklaerung.html:24
+#: templates/datenschutzerklaerung.html:25
 msgid ""
 "Wenn Sie sich auf unserer Website registrieren, erheben wir Ihre E-Mail-"
 "Adresse sowie ein verschlüsseltes Passwort (Password-Hash). Diese Daten "
 "werden ausschließlich zur Bereitstellung Ihres Benutzerkontos und zur "
 "Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO)."
 msgstr ""
-"Web sitemize kaydolduğunuzda, e-posta adresinizi ve şifrelenmiş şifrenizi"
-" (şifre karması) toplarız. Bu veriler yalnızca kullanıcı hesabınızı "
-"sağlamak ve kimlik doğrulaması yapmak için kullanılır (GDPR Madde 6 "
-"Paragraf 1 lit. b)."
+"Web sitemize kaydolduğunuzda e-posta adresinizi ve şifrelenmiş bir parolayı (şifre hash'i) topluyoruz. "
+"Bu veriler yalnızca kullanıcı hesabınızı sağlamak ve kimlik doğrulaması yapmak amacıyla kullanılır (GDPR Madde 6 Paragraf 1 Bent b)."
 
-#: templates/datenschutzerklaerung.html:27
+#: templates/datenschutzerklaerung.html:28
 msgid "Verarbeitung von Bewerbungsdaten (FlowLine)"
 msgstr "Başvuru Verilerinin İşlenmesi (FlowLine)"
 
-#: templates/datenschutzerklaerung.html:29
+#: templates/datenschutzerklaerung.html:30
 msgid ""
 "Die von Ihnen im FlowLine eingegebenen Daten (z. B. Firmennamen, "
 "Stellenbezeichnungen, Bewerbungsstatus und Notizen) werden in unserer "
 "Datenbank gespeichert, um Ihnen die Verwaltung Ihrer Bewerbungen zu "
 "ermöglichen."
 msgstr ""
-"FlowLine'a girdiğiniz veriler (örneğin şirket adları, pozisyon unvanları,"
-" başvuru durumu ve notlar), başvurularınızı yönetebilmeniz amacıyla "
-"veritabanımızda saklanır."
+"FlowLine'a girdiğiniz veriler (örn. şirket adları, pozisyon unvanları, başvuru durumu ve notlar), "
+"başvurularınızı yönetmenizi sağlamak amacıyla veritabanımızda saklanır."
 
-#: templates/datenschutzerklaerung.html:32
-msgid "4. Ihre Rechte"
-msgstr "4. Haklarınız"
+#: templates/datenschutzerklaerung.html:33
+msgid "Ihre Rechte"
+msgstr "Haklarınız"
 
-#: templates/datenschutzerklaerung.html:34
+#: templates/datenschutzerklaerung.html:35
 msgid ""
 "Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu "
 "erhalten (Art. 15 DSGVO)."
-msgstr ""
-"Tarafımızda saklanan kişisel verileriniz hakkında bilgi alma hakkı (GDPR "
-"Madde 15)."
-
-#: templates/datenschutzerklaerung.html:35
-msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
-msgstr "Yanlış verilerin düzeltilmesini talep etme hakkı (GDPR Madde 16)."
+msgstr "Tarafımızda saklanan kişisel verileriniz hakkında bilgi almak (GDPR Madde 15)."
 
 #: templates/datenschutzerklaerung.html:36
-msgid "Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)."
-msgstr "Verilerinizin silinmesini talep etme hakkı (GDPR Madde 17)."
+msgid "Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)."
+msgstr "Yanlış verilerin düzeltilmesini talep etmek (GDPR Madde 16)."
+
+#: templates/datenschutzerklaerung.html:37
+msgid ""
+"Die Löschung Ihrer Daten und Ihres Benutzerkontos zu verlangen (Art. 17 "
+"DSGVO). Sie haben jederzeit das Recht, Ihr Konto samt aller Daten "
+"vollständig zu löschen."
+msgstr ""
+"Verilerinizin ve kullanıcı hesabınızın silinmesini talep etmek (GDPR Madde 17). "
+"Hesabınızı ve tüm verilerinizi dilediğiniz zaman tamamen silme hakkına sahipsiniz."
+
+#: templates/datenschutzerklaerung.html:40
+msgid "Export von Bewerbungsdaten (PDF-Export)"
+msgstr "Başvuru Verilerinin Dışa Aktarılması (PDF Dışa Aktarım)"
+
+#: templates/datenschutzerklaerung.html:42
+msgid ""
+"Sie haben jederzeit die Möglichkeit, Ihre gespeicherten Bewerbungsdaten "
+"als PDF-Dokument herunterzuladen (Datenportabilität gemäß Art. 20 DSGVO)."
+" Da diese Anwendung als Prototyp betrieben wird und Daten auf kostenlosen"
+" Server-Ressourcen liegen, empfehlen wir Ihnen, Ihre Daten durch "
+"regelmäßige PDF-Exporte lokal zu sichern, um einem potenziellen "
+"Datenverlust vorzubeugen."
+msgstr ""
+"Kaydedilen başvuru verilerinizi istediğiniz zaman PDF belgesi olarak indirebilirsiniz (GDPR Madde 20 uyarınca veri taşınabilirliği). "
+"Bu uygulama bir prototip olarak işletildiğinden ve veriler ücretsiz sunucu kaynaklarında barındırıldığından, "
+"olası veri kayıplarını önlemek için düzenli PDF dışa aktarımlarıyla verilerinizi yerel olarak yedeklemenizi öneririz."
 
 #: templates/edit.html:16
 msgid "Bewerbung bearbeiten"
 msgstr "Başvuruyu Düzenle"
 
-#: templates/edit.html:24 templates/index.html:12
+#: templates/edit.html:24 templates/index.html:14
 msgid "Firmenname eingeben"
 msgstr "Şirket adını girin"
 
-#: templates/edit.html:27 templates/index.html:13
+#: templates/edit.html:27 templates/index.html:15
 msgid "Jobtitel eingeben"
-msgstr "Pozisyon unvanını girin"
+msgstr "İş unvanını girin"
 
 #: templates/edit.html:32 templates/stats.html:21
 msgid "Offen"
-msgstr "Beklemede"
+msgstr "Açık"
 
 #: templates/edit.html:33
 msgid "Einladung"
-msgstr "Mülakat Daveti"
+msgstr "Mülakat"
 
 #: templates/edit.html:34
 msgid "Zusage"
-msgstr "Kabul Edildi"
+msgstr "Kabul"
 
 #: templates/edit.html:35
 msgid "Absage"
@@ -296,7 +311,7 @@ msgstr "Kaydet"
 
 #: templates/impressum.html:8
 msgid "Angaben gemäß § 5 DDG"
-msgstr "5. Madde DDG Uyarınca Bilgiler"
+msgstr "§ 5 DDG uyarınca bilgiler"
 
 #: templates/impressum.html:16
 msgid "Kontakt"
@@ -308,17 +323,17 @@ msgstr "E-posta"
 
 #: templates/impressum.html:21
 msgid "Redaktionell verantwortlich"
-msgstr "İçerikten Sorumlu"
-
-#: templates/impressum.html:28
-msgid "Haftungsausschluss (Disclaimer)"
-msgstr "Sorumluluk Reddi"
+msgstr "İçerikten sorumlu kişi"
 
 #: templates/impressum.html:29
+msgid "Haftungsausschluss (Disclaimer)"
+msgstr "Sorumluluk Reddi (Disclaimer)"
+
+#: templates/impressum.html:30
 msgid "Haftung für Inhalte"
 msgstr "İçerik Sorumluluğu"
 
-#: templates/impressum.html:31
+#: templates/impressum.html:32
 msgid ""
 "Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf "
 "diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis"
@@ -327,79 +342,77 @@ msgid ""
 "nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit "
 "hinweisen."
 msgstr ""
-"Hizmet sağlayıcı olarak, genel yasalar uyarınca 7. Madde 1. Paragraf DDG "
-"gereğince bu sayfalardaki kendi içeriğimizden sorumluyuz. Ancak DDG Madde"
-" 8 ila 10 uyarınca, aktarılan veya saklanan üçüncü taraf bilgilerini "
-"denetleme zorunluluğumuz yoktur."
+"Hizmet sağlayıcı olarak, § 7 Abs. 1 DDG uyarınca bu sitelerdeki kendi içeriklerimizden genel kanunlar çerçevesinde sorumluyuz. "
+"Ancak §§ 8 to 10 DDG uyarınca, hizmet sağlayıcı olarak iletilen veya saklanan üçüncü taraf bilgilerini izlemekle veya "
+"yasadışı bir faaliyete işaret eden durumları araştırmakla yükümlü değiliz."
 
-#: templates/impressum.html:34
+#: templates/impressum.html:35
 msgid "Haftung für Links"
-msgstr "Bağlantı Sorumluluğu"
+msgstr "Bağlantılara (Linkler) İlişkin Sorumluluk"
 
-#: templates/impressum.html:36
+#: templates/impressum.html:37
 msgid ""
 "Unser Angebot enthält Links zu externen Websites Dritter, auf deren "
 "Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden "
 "Inhalte auch keine Gewähr übernehmen."
 msgstr ""
-"Hizmetimiz, içeriği üzerinde hiçbir etkimizin bulunmadığı harici üçüncü "
-"taraf web sitelerine bağlantılar içermektedir. Bu nedenle bu harici "
-"içerikler için herhangi bir sorumluluk kabul edemeyiz."
+"Teklifimiz, içerikleri üzerinde hiçbir kontrolümüz olmayan üçüncü tarafların harici web sitelerine bağlantılar içermektedir. "
+"Bu nedenle, bu harici içerikler için hiçbir sorumluluk kabul edemeyiz."
 
-#: templates/index.html:7
+#: templates/index.html:10
 msgid "Neue Bewerbung"
 msgstr "Yeni Başvuru"
 
-#: templates/index.html:15
+#: templates/index.html:17
 msgid "Hinzufügen"
 msgstr "Ekle"
 
-#: templates/index.html:22
+#: templates/index.html:27
 msgid "Bewerbungen"
 msgstr "Başvurular"
 
-#: templates/index.html:32
+#: templates/index.html:37
 msgid "Suchen..."
 msgstr "Ara..."
 
-#: templates/index.html:64
+#: templates/index.html:73
 msgid "Erinnerung umschalten"
-msgstr "Hatırlatıcıyı Aç/Kapat"
+msgstr "Hatırlatıcıyı değiştir"
 
-#: templates/index.html:94
+#: templates/index.html:103
 msgid "Nachfassen"
 msgstr "Takip Et"
 
-#: templates/index.html:106 templates/notes.html:8
+#: templates/index.html:115 templates/notes.html:8
 msgid "Notizen"
 msgstr "Notlar"
 
-#: templates/index.html:115
+#: templates/index.html:124
 msgid "Bearbeiten"
 msgstr "Düzenle"
 
-#: templates/index.html:122
+#: templates/index.html:131
 msgid "Wirklich löschen?"
-msgstr "Silmek istediğinize emin misiniz?"
+msgstr "Gerçekten silinsin mi?"
 
-#: templates/index.html:122
+#: templates/index.html:131
 msgid "Löschen"
 msgstr "Sil"
 
-#: templates/index.html:135
+#: templates/index.html:144
 #, python-format
 msgid "Keine Bewerbungen für \"%(query)s\" gefunden."
 msgstr "\"%(query)s\" için başvuru bulunamadı."
 
-#: templates/index.html:146
+#: templates/index.html:155
 msgid "Keine Bewerbungen vorhanden."
-msgstr "Henüz kayıtlı başvuru yok."
+msgstr "Mevcut başvuru yok."
 
-#: templates/index.html:160
+#: templates/index.html:172
 msgid "Statistik"
-msgstr "İstatistikler"
+msgstr "İstatistik"
 
-#: templates/index.html:171
+#: templates/index.html:183
 msgid "PDF-Export"
 msgstr "PDF Dışa Aktar"
 
@@ -421,7 +434,7 @@ msgstr "Giriş Yap"
 
 #: templates/login.html:31
 msgid "Noch kein Konto?"
-msgstr "Henüz hesabınız yok mu?"
+msgstr "Hesabınız yok mu?"
 
 #: templates/login.html:31
 msgid "Hier registrieren"
@@ -445,11 +458,11 @@ msgstr "Şifre (en az 8 karakter)"
 
 #: templates/register.html:25
 msgid "Ich habe die"
-msgstr "Okudum:"
+msgstr "Okudum ve kabul ediyorum:"
 
 #: templates/register.html:25
 msgid "gelesen und akzeptiere sie."
-msgstr "ve kabul ediyorum."
+msgstr ""
 
 #: templates/register.html:31
 msgid "Konto erstellen"
@@ -457,7 +470,7 @@ msgstr "Hesap Oluştur"
 
 #: templates/register.html:38
 msgid "Bereits ein Konto?"
-msgstr "Zaten bir hesabınız var mı?"
+msgstr "Zaten hesabınız var mı?"
 
 #: templates/register.html:38
 msgid "Hier anmelden"
@@ -481,7 +494,7 @@ msgstr "Şifreyi Kaydet"
 
 #: templates/reset_password.html:34 templates/reset_request.html:34
 msgid "Zurück zum Login"
-msgstr "Giriş Sayfasına Dön"
+msgstr "Giriş sayfasına dön"
 
 #: templates/reset_request.html:8
 msgid "Passwort zurücksetzen"
@@ -491,13 +504,11 @@ msgstr "Şifreyi Sıfırla"
 msgid ""
 "Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zum "
 "Zurücksetzen Ihres Passworts."
-msgstr ""
-"E-posta adresinizi girin. Şifrenizi sıfırlamanız için size bir bağlantı "
-"göndereceğiz."
+msgstr "E-posta adresinizi girin. Size şifrenizi sıfırlamanız için bir bağlantı göndereceğiz."
 
 #: templates/reset_request.html:21
 msgid "E-Mail-Adresse eingeben"
-msgstr "E-posta adresinizi girin"
+msgstr "E-posta adresini girin"
 
 #: templates/reset_request.html:25
 msgid "Link anfordern"
@@ -510,13 +521,3 @@ msgstr "İstatistikler"
 #: templates/stats.html:15
 msgid "Gesamt Bewerbungen"
 msgstr "Toplam Başvuru"
-
-#~ msgid "Bewerbungsübersicht"
-#~ msgstr "Başvuru Özeti"
-
-#~ msgid "Ja, löschen"
-#~ msgstr "Evet, sil"
-
-#~ msgid "Abbrechen"
-#~ msgstr "İptal"
-

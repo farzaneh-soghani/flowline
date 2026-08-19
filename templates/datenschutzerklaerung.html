@@ -5,20 +5,21 @@
     <h2>{{ _('Datenschutzerklärung') }}</h2>
     <hr style="margin-bottom: 20px; border: 0; border-top: 1px solid #ccc;">
 
-    <h5>{{ _('1. Datenschutz auf einen Blick') }}</h5>
+    <h5 style="margin-top: 20px;">{{ _('Datenschutz auf einen Blick') }}</h5>
     <p style="font-size: 0.85em; color: #2e2e2e;">
         {{ _('Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.') }}
     </p>
 
-    <h5 style="margin-top: 20px;">{{ _('2. Verantwortliche Stelle') }}</h5>
+    <h5 style="margin-top: 20px;">{{ _('Verantwortliche Stelle') }}</h5>
     <p>
         Farzaneh Soghani<br>
         Eulenkamp 48A<br>
         22049 Hamburg<br>
-        E-Mail: farzanehsoghani@gmail.com
+        Deutschland<br>
+        E-Mail: flowline.support@gmail.com 
     </p>
 
-    <h5 style="margin-top: 20px;">{{ _('3. Datenerfassung auf dieser Website') }}</h5>
+    <h5 style="margin-top: 20px;">{{ _('Datenerfassung auf dieser Website') }}</h5>
     <h6>{{ _('Registrierung und Benutzerkonto') }}</h6>
     <p style="font-size: 0.85em; color: #2e2e2e;">
         {{ _('Wenn Sie sich auf unserer Website registrieren, erheben wir Ihre E-Mail-Adresse sowie ein verschlüsseltes Passwort (Password-Hash). Diese Daten werden ausschließlich zur Bereitstellung Ihres Benutzerkontos und zur Authentifizierung verwendet (Art. 6 Abs. 1 lit. b DSGVO).') }}
@@ -29,11 +30,16 @@
         {{ _('Die von Ihnen im FlowLine eingegebenen Daten (z. B. Firmennamen, Stellenbezeichnungen, Bewerbungsstatus und Notizen) werden in unserer Datenbank gespeichert, um Ihnen die Verwaltung Ihrer Bewerbungen zu ermöglichen.') }}
     </p>
 
-    <h5 style="margin-top: 20px;">{{ _('4. Ihre Rechte') }}</h5>
+    <h5 style="margin-top: 20px;">{{ _('Ihre Rechte') }}</h5>
     <ul style="font-size: 0.85em; color: #2e2e2e;">
         <li>{{ _('Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu erhalten (Art. 15 DSGVO).') }}</li>
         <li>{{ _('Die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO).') }}</li>
-        <li>{{ _('Die Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO).') }}</li>
+        <li>{{ _('Die Löschung Ihrer Daten und Ihres Benutzerkontos zu verlangen (Art. 17 DSGVO). Sie haben jederzeit das Recht, Ihr Konto samt aller Daten vollständig zu löschen.') }}</li>
     </ul>
+
+    <h5 style="margin-top: 20px;">{{ _('Export von Bewerbungsdaten (PDF-Export)') }}</h5>
+    <p style="font-size: 0.85em; color: #2e2e2e;">
+        {{ _('Sie haben jederzeit die Möglichkeit, Ihre gespeicherten Bewerbungsdaten als PDF-Dokument herunterzuladen (Datenportabilität gemäß Art. 20 DSGVO). Da diese Anwendung als Prototyp betrieben wird und Daten auf kostenlosen Server-Ressourcen liegen, empfehlen wir Ihnen, Ihre Daten durch regelmäßige PDF-Exporte lokal zu sichern, um einem potenziellen Datenverlust vorzubeugen.') }}
+    </p>
 </div>
 {% endblock %}
