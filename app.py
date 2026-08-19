@@ -385,6 +385,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+# --- KONTO: KONTO LÖSCHEN ---
 @app.route('/delete-account', methods=['POST', 'GET'])
 @login_required
 def delete_account():

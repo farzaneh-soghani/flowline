@@ -294,6 +294,24 @@ def test_logout_unauthorized(client):
     assert response.status_code == 200
 
 
+def test_delete_account(app_instance, client):
+    """Testet das Löschen des Benutzerkontos."""
+    with app_instance.app_context():
+        # 1. Test-Benutzer in der Datenbank erstellen
+        user = User(email="delete_test@example.com")
+        user.set_password("password123")
+        db.session.add(user)
+        db.session.commit()
+
+    # 2. Mit dem erstellten Benutzer einloggen
+    client.post('/login', data=dict(email="delete_test@example.com", password="password123"), follow_redirects=True)
+
+    # 3. Anfrage zum Löschen des Kontos senden
+    response = client.post('/delete-account', follow_redirects=True)
+    assert response.status_code == 200
+    assert "Dein Konto wurde erfolgreich gelöscht." in response.get_data(as_text=True)
+
+
 def test_reset_password_database_error(app_instance, client):
     with app_instance.app_context():
         # ۱. ساختن یک کاربر تستی
