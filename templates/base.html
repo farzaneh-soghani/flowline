@@ -116,7 +116,7 @@
                 <!-- Internationaler Sprachumschalter -->
                 <div x-data="{ open: false }" style="position: relative; display: inline-block;">
                     
-                    <!-- دکمه اصلی (نمایش خودکار پرچم و نام زبان فعلی) -->
+                    <!-- Hauptbutton (Automatische Anzeige von Flagge und aktueller Sprache) -->
                     <button @click="open = !open" @click.outside="open = false" type="button"
                             style="border-radius: 8px; background: white; padding: 6px 12px; border: 1px solid #cbd5e1; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #334155;">
                         <img src="https://flagcdn.com/w20/{{ languages[current_lang].flag }}.png" width="20" alt="{{ current_lang }}"> 
@@ -124,7 +124,7 @@
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
 
-                    <!-- منوی کشویی (تولید خودکار لیست زبان‌ها با حلقه) -->
+                    <!-- Dropdown-Menü (Automatische Generierung der Sprachliste per Schleife) -->
                     <div x-show="open" x-transition class="dropdown-content"
                         style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; min-width: 140px; max-height: 250px; overflow-y: auto; display: none;">
                         
@@ -137,16 +137,16 @@
                     </div>
                 </div>
             </div>
-            <!-- منوی جدید Konto (دقیقاً هم‌استایل با دکمه زبان) -->
+            <!-- Konto-Menü (Strukturell identisch mit dem Sprachbutton) -->
             <div x-data="{ open: false }" style="position: relative; display: inline-block;">
                 <button @click="open = !open" @click.outside="open = false" type="button"
                         style="border-radius: 8px; background: white; padding: 6px 12px; border: 1.5px solid #cbd5e1; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 14px; color: #0f172a;">
                     <svg width="20" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="min-width: 20px;">
                         <defs>
-                            <!-- گرادینت سرمه‌ای شیک به آبی ملایم -->
+                            <!-- Elegantes Farbverlaufs-Gradient von Dunkelblau zu hellem Blau -->
                             <linearGradient id="avatar-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#0f172a; stop-opacity:1" /> <!-- سرمه‌ای تیره -->
-                                <stop offset="100%" style="stop-color:#334155; stop-opacity:1" /> <!-- آبیِ دودی شیک -->
+                                <stop offset="0%" style="stop-color:#34acaa; stop-opacity:1" /> <!-- Dunkelblau -->
+                                <stop offset="100%" style="stop-color:#0c3b86; stop-opacity:1" /> <!-- Gediegenes Rauchblau -->
                             </linearGradient>
                         </defs>
                         
@@ -157,25 +157,25 @@
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
 
-                <!-- منوی کشویی Konto -->
+                <!-- Konto Dropdown-Menü -->
                 <div x-show="open" x-transition class="dropdown-content"
                     style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; min-width: 200px; display: none; padding: 6px 0;">
                     
-                    <!-- نمایش ایمیل کاربر در بالای منو به عنوان هدر -->
+                    <!-- Anzeige der Benutzer-E-Mail im oberen Bereich als Header -->
                     <div style="padding: 8px 14px; font-size: 12px; color: #64748b; border-bottom: 1px solid #f1f5f9; word-break: break-all; font-weight: 500;">
                         {{ current_user.email }}
                     </div>
 
-                    <!-- گزینه خروج (Abmelden) -->
+                    <!-- Abmelden-Option -->
                     <a href="{{ url_for('logout') }}" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; text-decoration: none; color: #1e293b; font-size: 14px; transition: background 0.2s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='transparent'">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                         {{ _('Abmelden') }}
                     </a>
 
-                    <!-- خط جداکننده قرمز ملایم -->
+                    <!-- Sanfte Trennlinie -->
                     <div style="height: 1px; background: #fee2e2; margin: 4px 0;"></div>
 
-                    <!-- گزینه حذف حساب (Konto löschen) -->
+                    <!-- Konto löschen-Option -->
                     <a href="#" @click.prevent="if(confirm('{{ _("Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.") }}')) { window.location.href='{{ url_for("delete_account") }}'; }" 
                     style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; text-decoration: none; color: #dc2626; font-size: 14px;" 
                     onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='transparent'">
@@ -215,6 +215,12 @@
     </footer>
 
     <script>
+        /**
+         * :ark:
+         * Client-seitige JavaScript-Steuerung für Benutzeroberfläche und Animationen.
+         * - Steuert die Einblendung und das Ausblenden des Splash-Screens über die sessionStorage
+         * - Automatisches Ausblenden und Entfernen von Flash-Benachrichtigungen nach kurzer Zeit
+         */
         // Verwaltung der Splash-Screen-Anzeige mit sessionStorage
         window.addEventListener('DOMContentLoaded', function() {
             const splash = document.getElementById('splash-screen');

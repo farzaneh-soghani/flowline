@@ -1,6 +1,6 @@
-/* ==========================================
-    1. BASIS- & RESET-STYLES
-    ========================================== */
+/* ==========================================================================
+   Globale CSS-Variablen (Theming & Farbpalette)
+   ========================================================================== */
 :root {
     --primary-blue: #378ADD;
     --primary-hover: #1D9E75;
@@ -10,10 +10,16 @@
     --danger-color: #dc2626; 
 }
 
+/* ==========================================================================
+   Globaler Box-Sizing Reset
+   ========================================================================== */
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
+/* ==========================================================================
+   HTML-Grundkonfiguration
+   ========================================================================== */
 html {
     min-height: 100%;
     margin: 0;
@@ -22,8 +28,8 @@ html {
 }
 
 /* ==========================================
-Hauptcontainer zum Zentrieren und Begrenzen der Bildschirmbreite
-========================================== */
+   Hauptcontainer zum Zentrieren und Begrenzen der Bildschirmbreite
+   ========================================== */
 .container {
     width: 100%;
     max-width: 1000px; /* Gewünschte Seitenbreite */
@@ -31,6 +37,9 @@ Hauptcontainer zum Zentrieren und Begrenzen der Bildschirmbreite
     padding: 20px 15px;
 }
 
+/* ==========================================================================
+   Body-Layout und Hintergrundgestaltung
+   ========================================================================== */
 body {
     display: flex;
     flex-direction: column;
@@ -47,9 +56,10 @@ body {
     overflow-x: hidden;
 }
 
-/* ==========================================
-    1.1 SPLASH-SCREEN-STYLES
-    ========================================== */
+/* ==========================================================================
+   Splash-Screen (Eingangsanimation / Ladebildschirm)
+   - Vollflächiges Overlay mit Farbverlauf und zentriertem Layout
+   ========================================================================== */
 #splash-screen {
     position: fixed;
     top: 0;
@@ -64,6 +74,7 @@ body {
     transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
+/* Logo-Container im Splash-Screen */
 .splash-logo {
     display: flex;
     flex-direction: row;
@@ -79,6 +90,9 @@ body {
     width: max-content;
 }
 
+/* ==========================================================================
+   Splash-Screen Elemente und Animationen
+   ========================================================================== */
 .splash-icon {
     transform-origin: center center;
     animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -98,6 +112,10 @@ body {
     white-space: nowrap;
 }
 
+/* ==========================================================================
+   Keyframe-Animationen für den Splash-Screen
+   ========================================================================== */
+/* Pop-Effekt für das Icon */
 @keyframes iconPop {
     0% {
         opacity: 0;
@@ -109,6 +127,7 @@ body {
     }
 }
 
+/* Einblend- und Bewegungseffekt für den Titel */
 @keyframes slideInText {
     0% {
         opacity: 0;
@@ -120,6 +139,7 @@ body {
     }
 }
 
+/* Sanftes Einblenden für den Untertitel */
 @keyframes fadeInSub {
     0% {
         opacity: 0;
@@ -131,14 +151,18 @@ body {
     }
 }
 
+/* ==========================================================================
+   Ausblende-Zustand (Splash-Screen verstecken)
+   ========================================================================== */
 .splash-hidden {
     opacity: 0 !important;
     visibility: hidden !important;
 }
 
-/* ==========================================
-    2. HEADER & NAVBAR
-    ========================================== */
+/* ==========================================================================
+   Header-Layout und Navigation
+   - Grundlegendes Design, Innenabstände und Flexbox-Ausrichtung des Seitenkopfs
+   ========================================================================== */
 header {
     padding: 15px 20px;
     background-color: #ffffff;
@@ -160,6 +184,9 @@ header nav {
     gap: 12px;
 }
 
+/* ==========================================================================
+   Sprachauswahl (Dropdown)
+   ========================================================================== */
 .lang-select {
     height: 32px !important;
     padding: 0 8px !important;
@@ -179,6 +206,9 @@ header nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+/* ==========================================================================
+   Konto-Dropdown-Menü
+   ========================================================================== */
 .account-dropdown {
     position: relative;
 }
@@ -186,7 +216,7 @@ header nav {
 .dropdown-content {
     position: absolute;
     top: 100%;
-    right: 0;       
+    right: 0;      
     left: auto;
     background: #ffffff;
     border: 1.5px solid var(--border-color);
@@ -197,11 +227,15 @@ header nav {
     z-index: 1000;
 }
 
+/* Automatische Ausrichtung des Dropdowns für RTL-Sprachen (z. B. Persisch/Arabisch) */
 [dir="rtl"] .dropdown-content {
     right: auto !important;
     left: 0 !important;
 }
 
+/* ==========================================================================
+   Benutzerinformationen und Abmelde-Schaltfläche (Logout)
+   ========================================================================== */
 .user-email {
     font-size: 0.9em;
     color: var(--text-muted);
@@ -230,9 +264,10 @@ header nav {
     border-color: transparent;
 }
 
-/* ==========================================
-    3. FORMULAREINGABEN & BUTTONS
-    ========================================== */
+/* ==========================================================================
+   Formular-Layout und Steuerelemente (Inputs & Selects)
+   - Grundlegende Formatierung für Formularzeilen, Eingabefelder und Dropdown-Menüs
+   ========================================================================== */
 .form-row {
     display: flex;
     gap: 10px;
@@ -254,17 +289,20 @@ input, select {
     transition: all 0.2s ease;
 }
 
+/* Fokus-Effekte für Standard-Eingabefelder */
 input:focus, select:focus {
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(55, 138, 221, 0.15);
 }
 
+/* Spezielle Eingabefelder mit Innenschatten (Inset) */
 .inset-input {
     background: #f1f6f9;
     box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.06), 
                 inset -1px -1px 3px rgba(255, 255, 255, 0.8);
 }
 
+/* Fokus-Zustand für Inset-Eingabefelder und Textareas */
 .inset-input:focus, textarea.inset-input:focus {
     background: #ffffff !important;
     border-color: var(--primary-blue) !important;
@@ -272,6 +310,7 @@ input:focus, select:focus {
     outline: none !important;
 }
 
+/* Automatische Größenanpassung von Feldern innerhalb von Formularzeilen */
 .form-row .inset-input,
 .form-row input,
 .form-row select {
@@ -279,6 +318,7 @@ input:focus, select:focus {
     width: auto;
 }
 
+/* Kontrollkästchen (Checkboxes) */
 input[type="checkbox"] {
     width: 16px;
     height: 16px;
@@ -288,6 +328,9 @@ input[type="checkbox"] {
     accent-color: var(--primary-blue);
 }
 
+/* ==========================================================================
+   Primäre Schaltflächen und Absende-Buttons (Primary Buttons)
+   ========================================================================== */
 .btn-primary, button[type="submit"] {
     height: 42px !important;
     display: inline-flex;
@@ -309,6 +352,7 @@ input[type="checkbox"] {
     margin-right: 2px;
 }
 
+/* Plus-Symbol innerhalb von Primärschaltflächen */
 .btn-primary .plus-icon {
     font-size: 1.35em;
     font-weight: 700;
@@ -316,6 +360,7 @@ input[type="checkbox"] {
     margin-right: 2px;
 }
 
+/* Hover-Effekt für Primärschaltflächen (mit Farbverlauf) */
 .btn-primary:hover, button[type="submit"]:hover {
     background: linear-gradient(90deg, var(--primary-hover), var(--primary-blue));
     color: #ffffff;
@@ -323,6 +368,9 @@ input[type="checkbox"] {
     box-shadow: 0 4px 12px rgba(55, 138, 221, 0.25);
 }
 
+/* ==========================================================================
+   Sekundäre Schaltflächen (Secondary Buttons)
+   ========================================================================== */
 .btn-secondary {
     display: inline-flex;
     align-items: center;
@@ -340,6 +388,7 @@ input[type="checkbox"] {
     transition: all 0.2s ease-in-out;
 }
 
+/* Hover-Effekt für Sekundärschaltflächen */
 .btn-secondary:hover {
     background: #f8fafc;
     border-color: #94a3b8;
@@ -347,9 +396,10 @@ input[type="checkbox"] {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* ==========================================
-    4. CARDS & AKTIONSDAY-BUTTONS
-    ========================================== */
+/* ==========================================================================
+   Job-Karten (Layout & Design)
+   - Grundstil, Abstände, abgerundete Ecken und dezente Innenschatten für Job-Einträge
+   ========================================================================== */
 .job {
     background: #f1f6f9;
     border: 1.5px solid var(--border-color);
@@ -364,6 +414,10 @@ input[type="checkbox"] {
     transition: all 0.2s ease;
 }
 
+/* ----------------------------------------------------------------------
+   Hover-Effekt für Job-Karten
+   - Hebt die Karte beim Überfahren mit der Maus optisch hervor
+   ---------------------------------------------------------------------- */
 .job:hover {
     background: #ffffff;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
@@ -371,6 +425,9 @@ input[type="checkbox"] {
     transform: translateY(-1px);
 }
 
+/* ==========================================================================
+   Job-Inhalt und Informationsbereiche
+   ========================================================================== */
 .job-content {
     display: flex;
     flex-direction: column;
@@ -382,6 +439,9 @@ input[type="checkbox"] {
     font-size: 0.9em;
 }
 
+/* ==========================================================================
+   Fälligkeits-Indikatoren (Warnungen bei Fristüberschreitung)
+   ========================================================================== */
 .icon-due {
     stroke: var(--danger-color) !important;
     stroke-width: 2.5px !important;
@@ -395,6 +455,9 @@ input[type="checkbox"] {
     font-weight: 700 !important;
 }
 
+/* ==========================================================================
+   Aktionsschaltflächen (Job-Buttons: Notizen, Bearbeiten, Löschen)
+   ========================================================================== */
 .job-buttons {
     display: flex;
     align-items: center;
@@ -416,21 +479,25 @@ input[type="checkbox"] {
     transition: all 0.2s ease;
 }
 
+/* Hover-Effekte für Standard-Aktionsbuttons (Notizen, Bearbeiten) */
 .btn-notes:hover, .btn-edit:hover {
     background: #ffffff;
     border-color: var(--primary-blue);
     color: var(--primary-blue);
 }
 
+/* Hover-Effekt für den Löschen-Button (Sicherheitswarnung in Rot) */
 .btn-delete:hover {
     background: #fef2f2;
     border-color: #fca5a5;
     color: var(--danger-color);
 }
 
-/* ==========================================
-    5. FLASH-MESSAGES & FOOTER
-    ========================================== */
+/* ==========================================================================
+   Flash-Nachrichten (Benachrichtigungen)
+   - Stil für Erfolgs- oder Statusmeldungen 
+   (Hintergrund, Textfarbe, Abstände und Rahmen)
+   ========================================================================== */
 .flash {
     background: #d4edda;
     color: #155724;
@@ -440,6 +507,10 @@ input[type="checkbox"] {
     border: 1px solid #c3e6cb;
 }
 
+/* ==========================================================================
+   Footer-Stile und Layout
+   - Definiert das Erscheinungsbild, die Ausrichtung und Abstände des Seitenfuters
+   ========================================================================== */
 footer {
     margin-top: auto;
     background-color: #ffffff;
@@ -450,6 +521,10 @@ footer {
     padding: 20px 10px;
 }
 
+/* ==========================================================================
+   Footer-Link-Stile
+   - Steuert Farben, Abstände und Interaktionen (Hover-Effekte) für Links im Footer
+   ========================================================================== */
 footer a {
     color: var(--primary-blue);
     text-decoration: none;
@@ -462,7 +537,14 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* ==========================================================================
+   Responsive Media Query (Max-Width: 768px)
+   - Passt Container, Formularelemente und Abstände für mobile Geräte an
+   ========================================================================== */
 @media (max-width: 768px) {
+    /* ----------------------------------------------------------------------
+       1. Container- und Formular-Anpassungen
+       ---------------------------------------------------------------------- */
     .container {
         padding: 10px 10px 20px 10px !important;
         max-width: 100% !important;
@@ -485,6 +567,9 @@ footer a:hover {
         padding: 12px;
     }
 
+    /* ----------------------------------------------------------------------
+       2. Header-Optimierung für mobile Endgeräte
+       ---------------------------------------------------------------------- */
     /* Korrekte Header-Anpassung für Mobilgeräte */
     header {
         flex-direction: column !important;
@@ -548,6 +633,9 @@ footer a:hover {
         left: auto !important;
     }
 
+    /* ----------------------------------------------------------------------
+       3. Karten- und Layout-Anpassungen (Jobs)
+       ---------------------------------------------------------------------- */
     /* Allgemeine Kartenanpassung */
     .job {
         flex-direction: column !important;
@@ -582,7 +670,7 @@ footer a:hover {
         gap: 8px !important;
         margin-top: 8px !important;
         border-top: 1px solid rgba(0, 0, 0, 0.05);
-        padding-top: 10px;               
+        padding-top: 10px;              
     }
 
     .job-buttons .btn-notes, 

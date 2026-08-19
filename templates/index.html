@@ -2,12 +2,14 @@
 {% block content %}
 <div class="container"> 
 
-    <!-- Überschrift für den Bereich zum Hinzufügen neuer Bewerbungen -->
+    <!-- ========================================== -->
+    <!-- SECTION: Neue Bewerbung hinzufügen         -->
+    <!-- Zweck: Formular zum Erfassen neuer Jobs    -->
+    <!-- ========================================== -->
     <h2 style="font-size: 1.4em; font-weight: 600; color: #0f172a; margin-bottom: 15px;">
         {{ _('Neue Bewerbung') }}
     </h2>
 
-    <!-- Formular zum Hinzufügen einer neuen Bewerbung mit Standard-CSS-Klasse -->
     <form method="POST" class="form-row">
         <input name="firma" class="inset-input" placeholder="{{ _('Firmenname eingeben') }}" required>
         <input name="position" class="inset-input" placeholder="{{ _('Jobtitel eingeben') }}" required>
@@ -16,7 +18,10 @@
         </button>
     </form>
 
-    <!-- Bereich für die Überschrift der Liste und die Suchfunktion -->
+    <!-- ========================================== -->
+    <!-- SECTION: Such- und Filterleiste            -->
+    <!-- Zweck: GET-Request basierte Live-Suche     -->
+    <!-- ========================================== -->
     <div style="display: flex; align-items: center; gap: 16px; margin-top: 35px; margin-bottom: 15px;">
         <h3 style="font-size: 1.1em; font-weight: 600; color: #0f172a; margin: 0; white-space: nowrap;">
             {{ _('Bewerbungen') }}
@@ -36,7 +41,11 @@
         </form>
     </div>
 
-    <!-- Anzeige der Job-Liste oder Nachricht bei fehlenden Einträgen -->
+    <!-- ========================================== -->
+    <!-- SECTION: Bewerbungsliste & Status-Logik    -->
+    <!-- Zweck: Schleife über Jobs, Fälligkeiten    -->
+    <!--        und Nachfass-Erinnerungen           -->
+    <!-- ========================================== -->
     {% if jobs %}
         {% for job in jobs %}
             <div class="job">
@@ -149,7 +158,10 @@
         {% endif %}
     {% endif %}
 
-    <!-- Footer-Schaltflächen für Statistik und PDF-Export -->
+    <!-- ========================================== -->
+    <!-- SECTION: Aktionen und Export               -->
+    <!-- Zweck: Statistik-Ansicht und PDF-Export    -->
+    <!-- ========================================== -->
     <div style="display: flex; gap: 10px; margin-top: 25px;">
         <a href="{{ url_for('stats') }}" class="btn-secondary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

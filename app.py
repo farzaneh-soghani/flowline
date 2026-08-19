@@ -37,10 +37,17 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
-# --- KONFIGURATION DER ANWENDUNG ---
+# ==========================================================================
+# KONFIGURATION DER ANWENDUNG
+# ==========================================================================
+
 # Initialisierung der Flask-Anwendung
 app = Flask(__name__)
 
+# --------------------------------------------------------------------------
+# Unterstützte Sprachen (Localization / i18n)
+# - Definition der verfügbaren Sprachen mit Anzeigenamen und Länderkürzel für Flaggen
+# --------------------------------------------------------------------------
 LANGUAGES = {
     'de': {'name': 'Deutsch', 'flag': 'de'},
     'en': {'name': 'English', 'flag': 'gb'},
@@ -58,6 +65,10 @@ LANGUAGES = {
 
 @app.context_processor
 def inject_languages():
+    """:ark:
+    Context Processor zur Bereitstellung der Sprachen in allen Templates.
+    - Macht das 'LANGUAGES'-Dictionary global in Jinja2-Vorlagen verfügbar
+    """
     return dict(languages=LANGUAGES)
 
 # Sicherer Secret-Key für Session-Management und Tokens (wird aus .env geladen oder zufällig generiert)
@@ -99,8 +110,13 @@ login_manager.login_message = None
 
 
 # --- HELPER FUNCTIONS FOR PASSWORD RESET ---
+
 def generate_reset_token(user):
-    # Generiert ein sicheres, zeitlich begrenztes Token für die Passwortwiederherstellung
+    """:ark:
+    Generiert ein sicheres, zeitlich begrenztes Token für die Passwortwiederherstellung.
+    - Nutzt URLSafeTimedSerializer basierend auf dem Secret-Key der Anwendung
+    - Verknüpft E-Mail und aktuellen Passwort-Hash mit einem eindeutigen Salt
+    """
     serializer = URLSafeTimedSerializer(app.secret_key)
     return serializer.dumps(
         {"email": user.email, "hash": user.password_hash}, salt="password-reset-salt"
@@ -108,7 +124,12 @@ def generate_reset_token(user):
 
 
 def verify_reset_token(token, expiration=3600):
-    # Überprüft die Gültigkeit des Tokens und verifiziert den Benutzer anhand der gespeicherten Daten
+    """:ark:
+    Überprüft die Gültigkeit des Tokens und verifiziert den Benutzer.
+    - Dekodiert das Token und prüft das Ablaufdatum (Standard: 3600 Sekunden / 1 Stunde)
+    - Validiert, ob der Benutzer existiert und sich das Passwort seit der Anforderung nicht geändert hat
+    - Gibt das Benutzerobjekt bei Erfolg oder 'None' im Fehlerfall zurück
+    """
     serializer = URLSafeTimedSerializer(app.secret_key)
     try:
         # Dekodiert das Token und prüft das Ablaufdatum (Standard: 3600 Sekunden / 1 Stunde)
@@ -129,6 +150,12 @@ def verify_reset_token(token, expiration=3600):
 
 # --- BABEL LOCALE SELECTOR ---
 def get_locale():
+    """:ark:
+    Bestimmt die aktuelle Sprache für die Lokalisierung (i18n) der Anwendung.
+    - Prüft zuerst, ob eine Sprache in der Benutzersitzung (Session) gespeichert ist
+    - Fällt andernfalls auf die beste Übereinstimmung der Browsersprachen zurück
+    - Nutzt 'de' (Deutsch) als Standardsprache, falls keine Übereinstimmung gefunden wird
+    """
     # Überprüft, ob der Benutzer bereits eine Sprache in der Session ausgewählt hat
     if "lang" in session:
         return session["lang"]
@@ -139,14 +166,20 @@ def get_locale():
         )
         or "de"
     )
-
-
+# ==========================================================================
+# Flask-Babel Initialisierung (Lokalisierung)
+# ==========================================================================
 # Initialisierung von Flask-Babel mit der benutzerdefinierten Funktion zur Sprachauswahl
 babel = Babel(app, locale_selector=get_locale)
 
 
 # --- DATENBANK-MODELLE ---
 class User(UserMixin, db.Model):
+    """:ark:
+    Datenbankmodell für Benutzer (User).
+    - Verwaltet Authentifizierung, E-Mail-Adressen und sichere Passwort-Hashes
+    - Stellt eine 1:n-Beziehung zu den jeweiligen Job-Einträgen des Benutzers her
+    """
     # Eindeutige ID für jeden Benutzer (Primärschlüssel)
     id = db.Column(db.Integer, primary_key=True)
 
@@ -160,16 +193,29 @@ class User(UserMixin, db.Model):
     jobs = db.relationship("Job", backref="owner", lazy=True)
 
     def set_password(self, password):
+        """:ark:
+        Generiert und speichert einen sicheren Passwort-Hash.
+        - Verwendet die moderne und sichere 'scrypt'-Methode zum Hashen
+        """
         # Generiert einen sicheren Passwort-Hash mit der scrypt-Methode
         self.password_hash = generate_password_hash(password, method="scrypt")
 
     def check_password(self, password):
+        """:ark:
+        Überprüft die Gültigkeit des eingegebenen Passworts.
+        - Vergleicht den Hash des Eingabewerts mit dem in der Datenbank gespeicherten Hash
+        """
         # Überprüft, ob das eingegebene Passwort mit dem gespeicherten Hash übereinstimmt
         return check_password_hash(self.password_hash, password)
 
 
 # --- JOB MODEL ---
 class Job(db.Model):
+    """:ark:
+    Datenbankmodell für Stellenbewerbungen (Job).
+    - Speichert alle Details zu einer Bewerbung (Unternehmen, Position, Status, Daten und Notizen)
+    - Stellt über den Fremdschlüssel 'user_id' die Zuordnung zum jeweiligen Benutzer sicher
+    """
     # Eindeutige ID für jeden Bewerbungseintrag (Primärschlüssel)
     id = db.Column(db.Integer, primary_key=True)
 
@@ -201,11 +247,19 @@ class Job(db.Model):
 # --- USER LOADER & DATENBANK-INITIALISIERUNG ---
 @login_manager.user_loader
 def load_user(user_id):
+    """:ark:
+    Lädt ein Benutzerobjekt anhand seiner ID aus der Datenbank.
+    - Dient Flask-Login als Callback zur Wiederherstellung der Benutzersitzung bei Folgeanfragen
+    - Gibt das entsprechende Benutzerobjekt oder 'None' zurück
+    """
     # Lädt den Benutzer anhand der gespeicherten Session-ID aus der Datenbank
     return db.session.get(User, int(user_id))
 
 
-# Erstellt alle definierten Datenbanktabellen beim Anwendungsstart, falls sie noch nicht existieren
+# --------------------------------------------------------------------------
+# Datenbank-Tabellen beim Start initialisieren
+# - Erstellt alle definierten Tabellen, falls diese noch nicht in der Datenbank existieren
+# --------------------------------------------------------------------------
 with app.app_context():
     try:
         db.create_all()
@@ -216,6 +270,12 @@ with app.app_context():
 # --- JINJA FILTER FÜR DEUTSCHES DATUMSFORMAT ---
 @app.template_filter("german_date")
 def german_date_filter(date_str):
+    """:ark:
+    Benutzerdefinierter Jinja-Template-Filter zur Formatierung von Datumsangaben.
+    - Konvertiert ein ISO-Datum (YYYY-MM-DD) in das traditionelle Format (DD.MM.YYYY)
+    - Gibt bei fehlenden Werten einen mehrsprachigen Platzhalter ('k.A.') zurück
+    - Fängt Formatierungsfehler ab und gibt im Fehlerfall den Originalstring aus
+    """
     # Gibt 'k.A.' (keine Angabe) zurück, wenn kein Datum angegeben ist (unterstützt Mehrsprachigkeit)
     if not date_str:
         return _("k.A.")
@@ -229,10 +289,15 @@ def german_date_filter(date_str):
         # Falls das Format nicht übereinstimmt, wird der ursprüngliche String zurückgegeben
         return str(date_str)
 
-
 # --- AUTHENTIFIZIERUNG: REGISTRIERUNG ---
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """:ark:
+    Route für die Benutzerregistrierung.
+    - Verarbeitet Formulardaten (POST): E-Mail-Bereinigung, Validierung (Pflichtfelder, Passwortlänge, Duplikatsprüfung)
+    - Speichert den neuen Benutzer sicher mit gehashtem Passwort in der Datenbank
+    - Zeigt das Registrierungsformular an (GET)
+    """
     # Verarbeitet die Formulareingaben beim Absenden (POST-Anfrage)
     if request.method == "POST":
         # Erfasst E-Mail und Passwort aus dem Formular (E-Mail wird bereinigt und klein geschrieben)
@@ -274,6 +339,13 @@ def register():
 # --- AUTHENTIFIZIERUNG: LOGIN ---
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """:ark:
+    Route für die Benutzeranmeldung.
+    - Verarbeitet die Anmeldedaten (POST): E-Mail-Abfrage und Passwortprüfung
+    - Startet bei erfolgreicher Authentifizierung die Benutzersitzung (Login-Manager)
+    - Leitet zur Startseite weiter oder gibt bei Fehlern eine entsprechende Meldung aus
+    - Zeigt das Login-Formular an (GET)
+    """
     # Verarbeitet die Anmeldedaten beim Absenden des Formulars (POST-Anfrage)
     if request.method == "POST":
         # Liest E-Mail und Passwort aus dem Formular aus
@@ -300,6 +372,12 @@ def login():
 @app.route("/logout")
 @login_required
 def logout():
+    """:ark:
+    Route für die Benutzerabmeldung.
+    - Erfordert eine aktive Anmeldung (@login_required)
+    - Beendet die Benutzersitzung (Session) über Flask-Login
+    - Leitet den Benutzer zur Anmeldeseite weiter
+    """
     # Meldet den aktuell angemeldeten Benutzer ab und beendet die Sitzung
     logout_user()
 
@@ -310,6 +388,12 @@ def logout():
 @app.route('/delete-account', methods=['POST', 'GET'])
 @login_required
 def delete_account():
+    """:ark:
+    Route zum Löschen des aktuellen Benutzerkontos.
+    - Löscht den Benutzerdatensatz aus der Datenbank
+    - Beendet die aktive Sitzung (Logout)
+    - Zeigt eine Erfolgsmeldung an und leitet zur Startseite weiter
+    """
     db.session.delete(current_user)
     db.session.commit()
     logout_user()
@@ -320,6 +404,12 @@ def delete_account():
 # --- PASSWORT-WIEDERHERSTELLUNG: ANFRAGE ---
 @app.route("/reset_password_request", methods=["GET", "POST"])
 def reset_password_request():
+    """:ark:
+    Route für die Passwortwiederherstellung (Anforderungsphase).
+    - Verarbeitet das Formular (POST): Überprüft die E-Mail-Adresse, generiert ein sicheres Token und versendet die Wiederherstellungs-E-Mail
+    - Verwendet den Flask-Mail-Dienst zum Senden der Nachricht mit einem zeitlich begrenzten Link
+    - Zeigt das Anforderungsformular an (GET)
+    """
     # Verarbeitet die Anfrage zur Passwortwiederherstellung (POST-Anfrage)
     if request.method == "POST":
         # Erfasst die E-Mail-Adresse aus dem Formular
@@ -382,6 +472,12 @@ def reset_password_request():
 # --- PASSWORT-WIEDERHERSTELLUNG: PASSWORT ÄNDERN ---
 @app.route("/reset_password/<token>", methods=["GET", "POST"])
 def reset_password(token):
+    """:ark:
+    Route zur Vergabe eines neuen Passworts über ein Wiederherstellungs-Token.
+    - Überprüft die Gültigkeit des Tokens und leitet bei ungültigen/abgelaufenen Tokens zur Anforderung weiter
+    - Verarbeitet das Formular (POST): Validiert die Passwort-Mindestlänge und speichert das neue Passwort sicher als Hash
+    - Zeigt das Formular zur Passworteingabe an (GET)
+    """
     # Überprüft die Gültigkeit und das Ablaufdatum des gesendeten Tokens
     user = verify_reset_token(token)
     if not user:
@@ -418,6 +514,14 @@ def reset_password(token):
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
+    """:ark:
+    Zentrale Route für die Startseite und Job-Verwaltung (Dashboard).
+    - Erfordert eine aktive Anmeldung (@login_required)
+    - Verarbeitet das Hinzufügen neuer Bewerbungen mit Validierung und Standard-Follow-up (POST)
+    - Ermöglicht das Durchsuchen und Filtern von Bewerbungen nach Unternehmen, Position oder Status (GET)
+    - Prüft auf fällige Nachfassaktionen (Erinnerungen) und generiert entsprechende Benachrichtigungen
+    - Übergibt alle relevanten Daten an die Hauptvorlage (index.html)
+    """
     # Standardmäßiges Follow-up-Datum auf 14 Tage ab heute festlegen
     default_follow_up = (datetime.now() + timedelta(days=14)).strftime("%Y-%m-%d")
 
@@ -508,6 +612,13 @@ def index():
 @app.route("/toggle_nachgefasst/<int:job_id>")
 @login_required
 def toggle_nachgefasst(job_id):
+    """:ark:
+    Route zum Umschalten des Nachfass-Status ('nachgefasst') einer Bewerbung.
+    - Erfordert eine aktive Anmeldung (@login_required)
+    - Validiert, ob der Job existiert und dem aktuell angemeldeten Benutzer gehört (sonst 404)
+    - Kehrt den Boolean-Wert des Status um und speichert die Änderung in der Datenbank
+    - Leitet den Benutzer nahtlos zur vorherigen Seite (Referrer) oder zur Startseite zurück
+    """
     # Sucht den Job anhand der ID und stellt sicher, dass er dem aktuellen Benutzer gehört (404 falls nicht)
     job = Job.query.filter_by(id=job_id, user_id=current_user.id).first_or_404()
 
@@ -524,6 +635,11 @@ def toggle_nachgefasst(job_id):
 # --- GLOBAL CONTEXT PROCESSOR FÜR TEMPLATES ---
 @app.context_processor
 def inject_global_vars():
+    """:ark:
+    Globaler Context Processor für Flask-Templates (Jinja).
+    - Ermittelt die aktuell aktive Sprache über die Funktion 'get_locale()'
+    - Stellt 'current_lang' sowie die Übersetzungsfunktion '_' automatisch in allen HTML-Templates zur Verfügung
+    """
     # Ermittelt die aktuell gewählte Sprache für die Benutzeroberfläche
     lang = get_locale()
 
@@ -534,6 +650,12 @@ def inject_global_vars():
 # --- SPRACHSTEUERUNG UND LOKALISIERUNG ---
 @app.route("/set_language/<lang>")
 def set_language(lang):
+    """:ark:
+    Route zur manuellen Umschaltung der Anwendungssprache (Lokalisierung).
+    - Prüft, ob der angeforderte Sprachcode in der Liste der unterstützten Sprachen enthalten ist
+    - Speichert die gültige Sprachauswahl dauerhaft in der Benutzersitzung (Session)
+    - Leitet den Benutzer nahtlos zur vorherigen Ansicht (Referrer) oder zur Startseite zurück
+    """
     # Überprüft, ob die angeforderte Sprache unterstützt wird
     if lang in ["de", "en", "fa", "ru", "pl", "uk", "es", "fr", "ja", "zh", "tr", "ar"]:
         # Speichert die gewählte Sprache in der aktuellen Sitzung (Session)
@@ -547,6 +669,14 @@ def set_language(lang):
 @app.route("/export_pdf")
 @login_required
 def export_pdf():
+    """:ark:
+    Route zum Exportieren der Bewerbungsübersicht als PDF-Dokument.
+    - Erfordert eine aktive Anmeldung (@login_required)
+    - Filtert alle Bewerbungen des aktuellen Benutzers aus der Datenbank
+    - Generiert ein tabellarisches PDF-Dokument mit ReportLab (In-Memory-Stream)
+    - Formatiert Datumsangaben und Tabellen-Styling für eine professionelle Optik
+    - Sendet das erzeugte PDF als Datei-Download an den Benutzer
+    """
     # Ruft alle Bewerbungen des aktuell angemeldeten Benutzers ab
     jobs = Job.query.filter_by(user_id=current_user.id).all()
 
@@ -641,6 +771,13 @@ def export_pdf():
 @app.route("/stats")
 @login_required
 def stats():
+    """:ark:
+    Route zur Anzeige statistischer Auswertungen der Bewerbungsaktivitäten.
+    - Erfordert eine aktive Anmeldung (@login_required)
+    - Ermittelt die Gesamtzahl der Bewerbungen sowie den Status-Anteil der 'offenen' Bewerbungen
+    - Berechnet prozentuale Kennzahlen zur besseren Übersicht (unter Berücksichtigung von Division-durch-Null-Szenarien)
+    - Übergibt die berechneten Daten an das Template 'stats.html' zur Visualisierung
+    """
     # Ruft alle Bewerbungen des aktuell angemeldeten Benutzers ab
     jobs = Job.query.filter_by(user_id=current_user.id).all()
 
@@ -663,6 +800,14 @@ def stats():
 @app.route("/delete/<int:id>")
 @login_required
 def delete_job(id):
+    """:ark:
+    Route zum Löschen eines bestehenden Bewerbungseintrags.
+    - Erfordert eine aktive Anmeldung (@login_required)
+    - Validiert den Zugriff auf den spezifischen Job-Eintrag (Besitzprüfung durch 'user_id', sonst 404)
+    - Führt die Löschoperation in der Datenbank durch und bietet Fehlerbehandlung mittels Rollback
+    - Gibt eine Bestätigungs- oder Fehlermeldung via Flash-Nachricht aus
+    - Leitet den Benutzer nach Abschluss zur Hauptseite zurück
+    """
     # Sucht die Bewerbung anhand der ID und prüft, ob sie dem aktuellen Benutzer gehört (404 falls nicht)
     job = Job.query.filter_by(id=id, user_id=current_user.id).first_or_404()
 
@@ -684,6 +829,14 @@ def delete_job(id):
 @app.route("/edit/<int:id>", methods=["GET", "POST"])
 @login_required
 def edit_job(id):
+    """:ark:
+    Route zum Bearbeiten eines bestehenden Bewerbungseintrags.
+    - Erfordert eine aktive Anmeldung (@login_required)
+    - Validiert den Zugriff auf den Job-Eintrag (Besitzprüfung über 'user_id', sonst 404)
+    - Verarbeitet Formulardaten (POST): Validierung der Pflichtfelder und Aktualisierung in der Datenbank
+    - Bietet Fehlerbehandlung mit Rollback bei Datenbankfehlern
+    - Zeigt das Formular mit den aktuellen Job-Daten an (GET)
+    """
     # Sucht die Bewerbung anhand der ID und prüft, ob sie dem aktuellen Benutzer gehört (404 falls nicht)
     job = Job.query.filter_by(id=id, user_id=current_user.id).first_or_404()
 
@@ -720,6 +873,13 @@ def edit_job(id):
 @app.route("/notes/<int:id>", methods=["GET", "POST"])
 @login_required
 def notes(id):
+    """:ark:
+    Route zum Anzeigen und Bearbeiten von Notizen zu einer spezifischen Bewerbung.
+    - Erfordert eine aktive Anmeldung (@login_required)
+    - Validiert den Zugriff auf den Job-Eintrag (Besitzprüfung über 'user_id', sonst 404)
+    - Verarbeitet das Formular (POST): Speichert die aktualisierten Notizen in der Datenbank mit Rollback-Fehlerbehandlung
+    - Zeigt das Notizen-Formular mit den aktuellen Inhalten an (GET)
+    """
     # Sucht die Bewerbung anhand der ID und stellt sicher, dass sie dem aktuellen Benutzer gehört (404 falls nicht)
     job = Job.query.filter_by(id=id, user_id=current_user.id).first_or_404()
 
@@ -741,6 +901,11 @@ def notes(id):
 # --- RECHTLICHE HINWEISE: IMPRESSUM ---
 @app.route("/impressum")
 def impressum():
+    """:ark:
+    Route zur Anzeige der Impressums-Seite (rechtliche Pflichtangaben).
+    - Öffentlich zugängliche Ansicht ohne Authentifizierungspflicht
+    - Rendert und liefert das Template 'impressum.html' aus
+    """
     # Zeigt die Impressums-Seite (rechtliche Informationen) an
     return render_template("impressum.html")
 
@@ -748,12 +913,23 @@ def impressum():
 # --- RECHTLICHE HINWEISE: DATENSCHUTZERKLÄRUNG ---
 @app.route("/datenschutz")
 def datenschutz():
+    """:ark:
+    Route zur Anzeige der Datenschutzerklärung (DSGVO-konforme Pflichtangaben).
+    - Öffentlich zugängliche Ansicht ohne Authentifizierungspflicht
+    - Rendert und liefert das Template 'datenschutzerklaerung.html' aus
+    """
     # Zeigt die Datenschutzerklärung (DSGVO-Hinweise) an
     return render_template("datenschutzerklaerung.html")
 
 
 # --- ANWENDUNGSSTART (ENTRY POINT) ---
 if __name__ == "__main__":
+    """:ark:
+    Einstiegspunkt (Entry Point) zum Starten der Flask-Anwendung.
+    - Startet den lokalen Flask-Entwicklungsserver im Debug-Modus
+    - Ermöglicht automatisches Neuladen (Auto-Reloading) bei Codeänderungen und detaillierte Fehlerausgabe im Browser
+    - Ist von der Testabdeckung ausgeschlossen (# pragma: no cover)
+    """
     # Startet den Flask-Entwicklungsserver im Debug-Modus
     # Der Debug-Modus ermöglicht automatisches Neuladen bei Codeänderungen und detaillierte Fehlermeldungen
     app.run(debug=True)  # pragma: no cover
