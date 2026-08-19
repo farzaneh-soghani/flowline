@@ -20,7 +20,7 @@ Oder unten auf **"Live Deployed"** Button klicken
 - ✅ Vollständiges **CRUD** (Create, Read, Update, Delete)
 - 📝 **Notizen** pro Bewerbungen
 - 📱 **Responsive Design** (max-width: 1000px, @media 768px)
-- 💾 **Session + Browser-Fingerprint** Storage (365 Tage persistent)
+- 💾 **Session Storage** (365 Tage persistent)
 - 📈 **Live Statistics Dashboard** (`/stats`)
 - ⏱️ **Automatisches Bewerbungserstellungsdatum** (DD.MM.YYYY)
 - 🎨 **Clean Flexbox UI** + Mobile-First Design  
@@ -36,17 +36,30 @@ python app.py
 
 ## 📸 Screenshots  
 
-| Desktop Dashboard                 | Mobile Dashboard                | Statistics                    | Edit Form                   | Notizen                       |                  
-|-----------------------------------|---------------------------------|-------------------------------|-----------------------------|-------------------------------|
-|![Desktop](screenshots/desktop.png)|![Mobile](screenshots/mobile.png)|![Stats](screenshots/stats.png)|![Edit](screenshots/edit.png)|![Notes](screenshots/notes.png)|
+**Desktop Dashboard**  
+![Desktop](screenshots/desktop.png)
+  
+  **Mobile Dashboard**  
+![Mobile](screenshots/mobile.png)  
+  
+  **Statistics**  
+![Stats](screenshots/stats.png)
+  
+  **Edit Form**  
+![Edit](screenshots/edit.png)  
+  
+  **Notizen**  
+![Notes](screenshots/notes.png)
 
 ## 🛠️ Tech Stack  
 
-- Frontend: HTML5 + CSS3 Flexbox + Media Queries
-- Backend:   Backend: Python + Flask + Jinja2
-- Storage: Session + Browser-Fingerprint
-- Features: Flash-Messages + Live Stats + CRUD
-- Deployment: GitHub + Render ready
+**Fullstack Job Tracker App**  
+
+- **Frontend:** HTML5 + CSS3 Flexbox + Media Queries (responsive)
+- **Backend:** Python + Flask ( Jinja2 Templates )  
+- **Storage:** Session-based
+- **Features:** Flash-Messages + Live Stats + Vollständiges CRUD
+- **Deployment:** GitHub Actions → Render → **Cloudflare CDN** ✅
 
 ## 📁 Projektstruktur
 
@@ -58,7 +71,7 @@ C:.
 │
 ├── app.py # Flask Backend + Bewerbungslogik
 ├── requirements.txt # Flask 3.0.3 + pytest 7.4.0 + gunicorn
-├── Procfile # Render/Heroku Deployment
+├── Procfile # Render Deployment
 ├── pytest.ini # Test-Konfiguration
 ├── struktur.txt # Lokale Projektnotizen
 │
