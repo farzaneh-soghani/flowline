@@ -80,7 +80,7 @@ app.secret_key = os.getenv("SECRET_KEY") or os.urandom(24)
 db_url = os.getenv("DATABASE_URL", "sqlite:///flowline.db")
 if db_url.startswith("postgres://"):  # pragma: no cover
     db_url = db_url.replace("postgres://", "postgresql+psycopg://", 1)
-elif db_url.startswith("postgresql://"):  # pragma: no cover
+elif db_url.startswith("postgresql://") and "+psycopg" not in db_url:  # pragma: no cover
     db_url = db_url.replace("postgresql://", "postgresql+psycopg://", 1)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = db_url
