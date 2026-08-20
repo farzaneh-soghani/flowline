@@ -79,7 +79,9 @@ app.secret_key = os.getenv("SECRET_KEY") or os.urandom(24)
 # Datenbank-URL Konfiguration (Unterstützung für PostgreSQL auf Render und SQLite lokal)
 db_url = os.getenv("DATABASE_URL", "sqlite:///flowline.db")
 if db_url.startswith("postgres://"):  # pragma: no cover
-    db_url = db_url.replace("postgres://", "postgresql://", 1)
+    db_url = db_url.replace("postgres://", "postgresql+psycopg://", 1)
+elif db_url.startswith("postgresql://"):  # pragma: no cover
+    db_url = db_url.replace("postgresql://", "postgresql+psycopg://", 1)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = db_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
