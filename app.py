@@ -1,15 +1,12 @@
 import os
+import io
 from dotenv import load_dotenv
-import sys
-from flask import Flask, render_template, request, redirect, url_for, flash, session
 from datetime import timedelta, datetime
 import requests
 
 # Lade Umgebungsvariablen aus der .env-Datei
 load_dotenv()
 
-import io
-from datetime import datetime, timedelta
 from flask import (
     Flask,
     render_template,
@@ -19,7 +16,6 @@ from flask import (
     flash,
     send_file,
     session,
-    current_app,
 )
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import (
@@ -32,7 +28,6 @@ from flask_login import (
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import URLSafeTimedSerializer
-from flask_mail import Mail, Message
 from flask_babel import Babel, gettext as _
 
 # Imports für die PDF-Generierung
