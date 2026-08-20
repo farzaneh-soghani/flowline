@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import sys
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from datetime import timedelta, datetime
+import requests
 
 # Lade Umgebungsvariablen aus der .env-Datei
 load_dotenv()
@@ -86,19 +87,10 @@ elif db_url.startswith("postgresql://") and "+psycopg" not in db_url:  # pragma:
 app.config["SQLALCHEMY_DATABASE_URI"] = db_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# --- MAIL-KONFIGURATION (SICHER) ---
-# Konfiguration des E-Mail-Servers (Laden von Umgebungswerten für maximale Sicherheit)
-app.config["MAIL_SERVER"] = os.getenv("MAIL_SERVER", "smtp-relay.brevo.com")
-app.config["MAIL_PORT"] = int(os.getenv("MAIL_PORT", 587))
-# Umwandlung des String-Wertes ('True'/'False') in einen booleschen Wert
-app.config["MAIL_USE_TLS"] = os.getenv("MAIL_USE_TLS", "True") == "True"
-app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
-app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")
-# Definition des Standard-Absenders mit Anzeigenamen und Haupt-E-Mail
-app.config["MAIL_DEFAULT_SENDER"] = ("FlowLine Support", os.getenv("MAIL_USERNAME"))
+# Nur noch die Absender-E-Mail aus der Umgebung laden
+MAIL_USERNAME = os.getenv("MAIL_USERNAME")
 
-# Initialisierung der Mail- und Datenbank-Erweiterungen für die Anwendung
-mail = Mail(app)
+# Initialisierung der Datenbank-Erweiterung für die Anwendung (Flask-Mail entfernt)
 db = SQLAlchemy(app)
 
 # --- LOGIN MANAGER ---
@@ -110,7 +102,8 @@ login_manager.init_app(app)
 login_manager.login_view = "login"
 
 # Deaktiviert die Standard-Flash-Nachricht bei nicht autorisiertem Zugriff
-login_manager.login_message = None
+login_manager.login_message = None#
+
 
 
 # --- HELPER FUNCTIONS FOR PASSWORD RESET ---
@@ -411,23 +404,16 @@ def delete_account():
 def reset_password_request():
     """:ark:
     Route für die Passwortwiederherstellung (Anforderungsphase).
-    - Verarbeitet das Formular (POST): Überprüft die E-Mail-Adresse, generiert ein sicheres Token und versendet die Wiederherstellungs-E-Mail
-    - Verwendet den Flask-Mail-Dienst zum Senden der Nachricht mit einem zeitlich begrenzten Link
-    - Zeigt das Anforderungsformular an (GET)
+    - Verarbeitet das Formular (POST): Überprüft die E-Mail-Adresse, generiert ein sicheres Token und versendet die Wiederherstellungs-E-Mail über die Brevo API.
     """
-    # Verarbeitet die Anfrage zur Passwortwiederherstellung (POST-Anfrage)
     if request.method == "POST":
-        # Erfasst die E-Mail-Adresse aus dem Formular
         email = request.form.get("email", "").strip().lower()
         user = User.query.filter_by(email=email).first()
 
-        # Überprüft, ob der Benutzer in der Datenbank existiert
         if user:
-            # Generiert ein sicheres Token für den Wiederherstellungs-Link
             token = generate_reset_token(user)
             reset_url = url_for("reset_password", token=token, _external=True)
 
-            # Übersetzbarer Betreff und E-Mail-Text
             subject_text = _("Passwort zurücksetzen - FlowLine")
             body_text = _(
                 "Hallo,\n\n"
@@ -441,28 +427,40 @@ def reset_password_request():
                 "Ihr FlowLine Team"
             ) % {"url": reset_url}
 
-            # Erstellt die E-Mail-Nachricht
-            msg = Message(
-                subject=subject_text,
-                recipients=[user.email],
-                sender=("FlowLine Support", "flowline.support@gmail.com")
-            )
-            msg.body = body_text
+            # --- VERSAND ÜBER BREVO API (HTTP/HTTPS - Port 443) ---
+            api_key = os.getenv("BREVO_API_KEY")
+            sender_email = os.getenv("MAIL_USERNAME", "flowline.support@gmail.com")
 
-            # Versuch, die E-Mail über den Flask-Mail-Dienst zu versenden
+            url = "https://api.brevo.com/v3/smtp/email"
+            headers = {
+                "accept": "application/json",
+                "api-key": api_key,
+                "content-type": "application/json"
+            }
+            payload = {
+                "sender": {"name": "FlowLine Support", "email": sender_email},
+                "to": [{"email": user.email}],
+                "subject": subject_text,
+                "textContent": body_text
+            }
+
             try:
-                mail.send(msg)
-                flash(
-                    _(
-                        "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
+                response = requests.post(url, json=payload, headers=headers, timeout=15)
+                if response.status_code in [200, 201, 202]:
+                    flash(
+                        _(
+                            "Ein Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet."
+                        )
                     )
-                )
-            except Exception as e:  # pragma: no cover
-                # Falls wir uns in einer Testumgebung befinden, poste Fehler, damit wir ihn verstehen können.
-                if current_app.config.get("TESTING"):
-                    raise e
-
-                print(f"Fehler beim E-Mail-Versand: {e}")
+                else:
+                    print(f"Brevo API Fehler: {response.text}")
+                    flash(
+                        _(
+                            "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
+                        )
+                    )
+            except Exception as e:
+                print(f"Fehler beim API-Aufruf: {e}")
                 flash(
                     _(
                         "❌ Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut."
@@ -471,10 +469,8 @@ def reset_password_request():
 
             return redirect(url_for("login"))
         else:
-            # Fehlermeldung, wenn die E-Mail-Adresse nicht gefunden wurde
             flash(_("Falls die E-Mail-Adresse registriert ist, wurde ein Link gesendet."))
 
-    # Zeigt das Formular zur Anforderung des Passwort-Resets an
     return render_template("reset_request.html")
 
 
