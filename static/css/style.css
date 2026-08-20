@@ -25,6 +25,7 @@ html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
 }
 
 /* ==========================================================================
@@ -555,8 +556,8 @@ footer a:hover {
     header small {
         font-size: 6.5px !important;
         letter-spacing: 0.8px !important;
-        display: block !important;
-        width: 100% !important;
+        display: inline-block !important;
+        width: auto !important;
     }
 
     header nav, header .user-nav, header .header-right {

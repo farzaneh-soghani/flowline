@@ -88,7 +88,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # --- MAIL-KONFIGURATION (SICHER) ---
 # Konfiguration des E-Mail-Servers (Laden von Umgebungswerten für maximale Sicherheit)
-app.config["MAIL_SERVER"] = os.getenv("MAIL_SERVER", "smtp.gmail.com")
+app.config["MAIL_SERVER"] = os.getenv("MAIL_SERVER", "smtp-relay.brevo.com")
 app.config["MAIL_PORT"] = int(os.getenv("MAIL_PORT", 587))
 # Umwandlung des String-Wertes ('True'/'False') in einen booleschen Wert
 app.config["MAIL_USE_TLS"] = os.getenv("MAIL_USE_TLS", "True") == "True"
@@ -442,7 +442,11 @@ def reset_password_request():
             ) % {"url": reset_url}
 
             # Erstellt die E-Mail-Nachricht
-            msg = Message(subject_text, recipients=[user.email])
+            msg = Message(
+                subject=subject_text,
+                recipients=[user.email],
+                sender=("FlowLine Support", "flowline.support@gmail.com")
+            )
             msg.body = body_text
 
             # Versuch, die E-Mail über den Flask-Mail-Dienst zu versenden
@@ -468,7 +472,7 @@ def reset_password_request():
             return redirect(url_for("login"))
         else:
             # Fehlermeldung, wenn die E-Mail-Adresse nicht gefunden wurde
-            flash(_("❌ Diese E-Mail-Adresse wurde nicht gefunden."))
+            flash(_("Falls die E-Mail-Adresse registriert ist, wurde ein Link gesendet."))
 
     # Zeigt das Formular zur Anforderung des Passwort-Resets an
     return render_template("reset_request.html")
