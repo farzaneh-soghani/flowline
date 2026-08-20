@@ -933,6 +933,6 @@ if __name__ == "__main__":
     - Ermöglicht automatisches Neuladen (Auto-Reloading) bei Codeänderungen und detaillierte Fehlerausgabe im Browser
     - Ist von der Testabdeckung ausgeschlossen (# pragma: no cover)
     """
-    # Startet den Flask-Entwicklungsserver im Debug-Modus
-    # Der Debug-Modus ermöglicht automatisches Neuladen bei Codeänderungen und detaillierte Fehlermeldungen
-    app.run(debug=True)  # pragma: no cover
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)  # pragma: no cover
