@@ -690,6 +690,23 @@ def export_pdf():
     title_style = ParagraphStyle(
         "TitleStyle", parent=styles["Heading1"], fontSize=18, spaceAfter=20
     )
+    
+    # استایل برای سلول‌های جدول (با قابلیت شکستن خودکار متن‌های طولانی)
+    cell_style = ParagraphStyle(
+        "CellStyle",
+        parent=styles["Normal"],
+        fontSize=9,
+        leading=11,
+    )
+
+    # استایل برای هدر جدول
+    header_style = ParagraphStyle(
+        "HeaderStyle",
+        parent=styles["Normal"],
+        fontName="Helvetica-Bold",
+        fontSize=10,
+        textColor=colors.whitesmoke,
+    )
 
     # Titel mit der E-Mail-Adresse des Benutzers zum PDF hinzufügen
     elements.append(
@@ -697,8 +714,15 @@ def export_pdf():
     )
     elements.append(Spacer(1, 10))
 
-    # Kopfzeile der Tabelle festlegen
-    data = [[_("Firma"), _("Position"), _("Datum"), _("Erinnerung"), _("Status")]]
+    # Kopfzeile der Tabelle festlegen (با Paragraph برای هدرها)
+    data = [[
+        Paragraph(_("Firma"), header_style),
+        Paragraph(_("Position"), header_style),
+        Paragraph(_("Datum"), header_style),
+        Paragraph(_("Erinnerung"), header_style),
+        Paragraph(_("Status"), header_style)
+    ]]
+
     for j in jobs:
         # Erstellungsdatum im deutschen Format (TT.MM.JJJJ) formatieren
         datum_formatted = (
@@ -718,14 +742,14 @@ def export_pdf():
                 else "-"
             )
 
-        # Tabellenzeile hinzufügen
+        # Tabellenzeile hinzufügen (استفاده از Paragraph برای جلوگیری از سرریز شدن متن‌های طولانی)
         data.append(
             [
-                j.firma,
-                j.position,
-                datum_formatted,
-                follow_up_formatted,
-                j.status.capitalize(),
+                Paragraph(j.firma or "", cell_style),
+                Paragraph(j.position or "", cell_style),
+                Paragraph(datum_formatted, cell_style),
+                Paragraph(follow_up_formatted, cell_style),
+                Paragraph(j.status.capitalize() if j.status else "", cell_style),
             ]
         )
 
@@ -734,11 +758,10 @@ def export_pdf():
     pdf_table.setStyle(
         TableStyle(
             [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#0d6efd")),
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#029cc7")),
                 ("TEXTCOLOR", (0, 0), (-1, 0), colors.whitesmoke),
                 ("ALIGN", (0, 0), (-1, -1), "LEFT"),
-                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-                ("FONTSIZE", (0, 0), (-1, 0), 11),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
                 ("BOTTOMPADDING", (0, 0), (-1, 0), 8),
                 ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
                 (

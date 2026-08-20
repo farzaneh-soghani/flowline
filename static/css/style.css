@@ -36,6 +36,9 @@ html {
     max-width: 1000px;
     margin: 0 auto;    
     padding: 20px 15px;
+    flex: 1;           
+    overflow-y: auto;        
+    -webkit-overflow-scrolling: touch; 
 }
 
 /* ==========================================================================
@@ -44,7 +47,7 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    height: 100vh;
     background: linear-gradient(135deg, #a1d4ce 0%, #a3ddfc 100%);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -54,7 +57,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden; 
 }
 
 /* ==========================================================================
@@ -415,6 +418,8 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .job-info {
