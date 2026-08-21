@@ -47,7 +47,7 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #a1d4ce 0%, #a3ddfc 100%);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -57,7 +57,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow: hidden; 
+    overflow-x: hidden; 
 }
 
 /* ==========================================================================
@@ -173,6 +173,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 a.logo-link {

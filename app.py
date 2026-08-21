@@ -691,7 +691,7 @@ def export_pdf():
         "TitleStyle", parent=styles["Heading1"], fontSize=18, spaceAfter=20
     )
     
-    # استایل برای سلول‌های جدول (با قابلیت شکستن خودکار متن‌های طولانی)
+    # Formatierung der Tabellenzellen definieren
     cell_style = ParagraphStyle(
         "CellStyle",
         parent=styles["Normal"],
@@ -699,7 +699,7 @@ def export_pdf():
         leading=11,
     )
 
-    # استایل برای هدر جدول
+    # Formatierung der Kopfzeile der Tabelle definieren
     header_style = ParagraphStyle(
         "HeaderStyle",
         parent=styles["Normal"],
@@ -714,7 +714,7 @@ def export_pdf():
     )
     elements.append(Spacer(1, 10))
 
-    # Kopfzeile der Tabelle festlegen (با Paragraph برای هدرها)
+    # Kopfzeile der Tabelle festlegen (Spalten: Firma, Position, Datum, Erinnerung, Status)
     data = [[
         Paragraph(_("Firma"), header_style),
         Paragraph(_("Position"), header_style),
@@ -742,7 +742,7 @@ def export_pdf():
                 else "-"
             )
 
-        # Tabellenzeile hinzufügen (استفاده از Paragraph برای جلوگیری از سرریز شدن متن‌های طولانی)
+        # Tabellenzeile hinzufügen (Paragraphs ermöglichen Zeilenumbrüche in langen Texten)
         data.append(
             [
                 Paragraph(j.firma or "", cell_style),
