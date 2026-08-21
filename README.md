@@ -1,13 +1,17 @@
-# 💼 **FlowLine** - Bewerbungs-Tracker 📊
+# <p align="left">
+  <img src="static/img/FlowLine_icon.svg" width="45" height="45" align="left" style="margin-right: 20px; margin-top: 4px;" alt="FlowLine Logo">
+  <span style="font-size: 26px; font-weight: bold;">FlowLine</span><br>
+  <span style="font-size: 10px; color: #8b949e;">Applications in Flow</span>
+  </p>
 
-## 🎯 Bewerbungen im Überblick  
+## Bewerbungsverwaltung im Überblick  
 
 **Flask Web-App für Bewerbungs-Management (Single-File Architektur)**  
 > **Speichere Firmen, Positionen, Status & Deadlines.**  
 > **Bringe Ordnung in deine Jobsuche** - filtere, sortiere, tracke **alles auf einem Bildschirm!**
 
 📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
-> **Im Handy oder Desktop direkt im Browser eingeben: [https://farzanehsoghani-jobtracker.onrender.com](https://farzaneh-soghani-flowline.onrender.com)**
+> **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**
 
 Oder unten auf **"Live Deployed"** Button klicken  
 
@@ -53,7 +57,7 @@ python app.py
 
 ## 🛠️ Tech Stack  
 
-**Fullstack Job Tracker App**  
+**Fullstack FlowLine Web Application**  
 
 - **Frontend:** HTML5 + CSS3 Flexbox + Media Queries (responsive)
 - **Backend:** Python + Flask ( Jinja2 Templates )  
