@@ -1,4 +1,4 @@
-# 💼 **JobTracker** - Bewerbungs-Tracker 📊
+# 💼 **FlowLine** - Bewerbungs-Tracker 📊
 
 ## 🎯 Bewerbungen im Überblick  
 
@@ -7,13 +7,13 @@
 > **Bringe Ordnung in deine Jobsuche** - filtere, sortiere, tracke **alles auf einem Bildschirm!**
 
 📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
-> **Im Handy oder Desktop direkt im Browser eingeben: [https://farzanehsoghani-jobtracker.onrender.com](https://farzanehsoghani-jobtracker.onrender.com)**
+> **Im Handy oder Desktop direkt im Browser eingeben: [https://farzanehsoghani-jobtracker.onrender.com](https://farzaneh-soghani-flowline.onrender.com)**
 
 Oder unten auf **"Live Deployed"** Button klicken  
 
 ## 🌐 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Live-Deployed-brightgreen?logo=render)](https://farzanehsoghani-jobtracker.onrender.com)  
+[![Live Demo](https://img.shields.io/badge/Live-Deployed-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)  
 
 ## 🚀 Features
 
