@@ -45,8 +45,6 @@ html {
    Body-Layout und Hintergrundgestaltung
    ========================================================================== */
 body {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     background: linear-gradient(135deg, #a1d4ce 0%, #a3ddfc 100%);
     background-attachment: fixed;
