@@ -36,15 +36,15 @@ html {
     max-width: 1000px;
     margin: 0 auto;    
     padding: 20px 15px;
-    flex: 1;           
-    overflow-y: auto;        
-    -webkit-overflow-scrolling: touch; 
+    flex: 1; 
 }
 
 /* ==========================================================================
    Body-Layout und Hintergrundgestaltung
    ========================================================================== */
 body {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     background: linear-gradient(135deg, #a1d4ce 0%, #a3ddfc 100%);
     background-attachment: fixed;
@@ -561,7 +561,7 @@ footer a:hover {
     header .subtitle, 
     header small {
         font-size: 6.5px !important;
-        letter-spacing: 0.8px !important;
+        letter-spacing: 0.3px !important;
         display: inline-block !important;
         width: auto !important;
     }
