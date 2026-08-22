@@ -29,6 +29,7 @@
   * Das Erstellungsdatum wird automatisch erfasst.
   * Das Nachfass-Datum (Follow-up) wird standardmäßig automatisch auf **genau 2 Wochen (14 Tage)** in die Zukunft gesetzt, kann aber in der Bearbeitungsansicht individuell angepasst werden.
 * **Intelligentes Erinnerungssystem:** Automatische Markierung von anstehenden Follow-ups und Nachfass-Aktionen für aktive Bewerbungen (`offen`, `einladung`).
+* **Echtzeit-Suche:** Suchfunktion für das schnelle Finden von Einträgen.
 * **Echtzeit-Statistiken:** Eine dedizierte Statistik-Ansicht (`/stats`) zeigt die Gesamtanzahl sowie den prozentualen Anteil der noch offenen Bewerbungen.
 * **PDF-Export:** Generierung von professionellen Bewerbungsübersichten als PDF direkt im Arbeitsspeicher (mit ReportLab).
 * **Mehrsprachigkeit (i18n):** Unterstützt mehrere Sprachen (Deutsch, Englisch, Persisch, Arabisch, Türkisch, etc.) dank Flask-Babel.
