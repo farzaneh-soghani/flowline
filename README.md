@@ -139,4 +139,8 @@ flowline/
 * **🚀 Aktuelle Version (FlowLine_v2.0):** Cloud-Hosting auf Render, PostgreSQL und erweiterte Features.
 * **📂 Erste Version (Job-Tracker_v1.0):** Den ursprünglichen Code und den ersten Prototypen finden Sie im Branch [`v1-Job-Tracker`](https://github.com/farzaneh-soghani/flowline/tree/v1-Job-Tracker).
 
-**💼 Made with ❤️ in Hamburg | [🔗 LinkedIn](https://www.linkedin.com/in/farzaneh-soghani/)**
+---
+<p align="center">
+  <b>Mit Leidenschaft entwickelt in Hamburg</b> • 
+  <a href="https://www.linkedin.com/in/farzaneh-soghani/">LinkedIn</a>
+</p>
