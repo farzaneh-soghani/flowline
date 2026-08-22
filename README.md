@@ -63,7 +63,7 @@ FlowLine folgt einer **modularen und geschichteten Web-Architektur (Layered & Mo
 * **Backend:** Python, Flask, Flask-SQLAlchemy, Flask-Login, Flask-Mail, Flask-Babel, Itsdangerous, Werkzeug (Passwort-Hashing mit `scrypt`)
 * **E-Mail-Dienst:** 
   * *Entwicklung:* Gmail SMTP (TLS/SSL)
-  * *Production:* Brevo API / SMTP (für zuverlässigen Transaktions-E-Mail-Versand)
+  * *Production:* Brevo API  (E-Mail-Versand HTTP-basiert, um blockierte SMTP-Ports in Cloud-Umgebungen zu umgehen)
 * **Frontend:** HTML5, CSS3, (Responsive Design), Jinja2 Templates
 * **Datenbank:** SQLite / PostgreSQL
 * **PDF-Generierung:** ReportLab (`io.BytesIO`)
@@ -131,6 +131,10 @@ C:.
 │
 └── tests/
 └── test_app.py # pytest Unit-Tests
-```  
+```
+## 📈 Projekthistorie & Evolution
+
+* **🚀 Aktuelle Version (FlowLine_v2.0):** Cloud-Hosting auf Render, PostgreSQL und erweiterte Features.
+* **📂 Erste Version (Job-Tracker_v1.0):** Den ursprünglichen Code und den ersten Prototypen finden Sie im Branch [`v1-Job-Tracker`](https://github.com/farzaneh-soghani/flowline/tree/v1-Job-Tracker).
 
 **💼 Made with ❤️ in Hamburg | [🔗 LinkedIn](https://www.linkedin.com/in/farzaneh-soghani/)**
