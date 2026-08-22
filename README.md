@@ -13,9 +13,6 @@
 📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
 > **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**   
 
-📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
-> **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**
-
 # FlowLine – Job Application Tracker
 
 **FlowLine** ist eine moderne, sichere Full-Stack-Webanwendung, die entwickelt wurde, um den Prozess von Jobbewerbungen effizient zu verwalten, Nachfasstermine im Blick zu behalten und Statistiken übersichtlich darzustellen.
@@ -93,6 +90,21 @@ Hier sind einige Einblicke in die FlowLine-Anwendung:
 
 * **Anmeldeseite (Login):**
   ![Login](screenshots/login.png)
+
+* **Haupt-Dashboard (Übersicht):**
+  ![Dashboard](screenshots/dashboard.png)
+
+* **Bewerbung bearbeiten (Edit):**
+  ![Edit](screenshots/edit.png)
+
+* **Notizen-Bereich (Notizen):**
+  ![Notizen](screenshots/notes.png)
+
+* **Mobile Ansicht (Responsive):**
+  ![Mobile Ansicht](screenshots/mobile.png)
+
+* **Visuelle Statistiken:**
+  ![Statistiken](screenshots/stats.png)
 
 
 ## 📁 Projektstruktur
