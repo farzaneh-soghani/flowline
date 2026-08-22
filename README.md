@@ -110,27 +110,28 @@ Hinweis: Öffnen Sie anschließend Ihren Browser unter http://127.0.0.1:5000
 **Auflistung der Ordnerpfade**  
 *(Automatisch generiert mit `tree /f` command)*  
 
-```txt
-C:.
+## 📁 Projektstruktur
+
+```text
+flowline/
 │
-├── app.py # Flask Backend + Bewerbungslogik
-├── requirements.txt # Flask 3.0.3 + pytest 7.4.0 + gunicorn
-├── Procfile # Render Deployment
-├── pytest.ini # Test-Konfiguration
-├── struktur.txt # Lokale Projektnotizen
+├── app.py                  # Flask Backend & Hauptanwendung
+├── requirements.txt        # Python-Abhängigkeiten
+├── Procfile                # Render Deployment Konfiguration
 │
 ├── .github/
-│ └── workflows/
-│ └── ci.yml # GitHub Actions CI/CD
+│   └── workflows/
+│       └── ci.yml          # GitHub Actions CI/CD Pipeline
 │
-├── templates/ # HTML/Jinja2 Templates
-│ ├── index.html
-│ ├── stats.html
-│ ├── edit.html
-│ └── notes.html
+├── static/                 # Statische Dateien (CSS, JS, Bilder)
+├── templates/              # HTML / Jinja2 Templates (inkl. i18n, Impressum, Login)
+├── translations/           # Mehrsprachigkeits-Dateien (i18n)
+├── instance/               # Lokale Datenbank (SQLite)
+├── screenshots/            # Anwendungs-Vorschaubilder
+├── tests/                  # Automatisierte Pytest-Tests
+│   └── test_app.py
 │
-└── tests/
-└── test_app.py # pytest Unit-Tests
+└── .env                    # Umgebungsvariablen (lokal)
 ```
 ## 📈 Projekthistorie & Evolution
 
