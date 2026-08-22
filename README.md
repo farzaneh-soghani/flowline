@@ -8,14 +8,13 @@
 
 ## 🌐 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Live-Deployed-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)
-
-📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
-> **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**   
+[![Live Demo](https://img.shields.io/badge/Live-Deployed-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)  
 
 ## Bewerbungsverwaltung im Überblick
 
-**FlowLine** ist eine moderne, sichere Full-Stack-Webanwendung, die entwickelt wurde, um den Prozess von Jobbewerbungen effizient zu verwalten, Nachfasstermine im Blick zu behalten und Statistiken übersichtlich darzustellen.
+**FlowLine** ist eine moderne, sichere Full-Stack-Webanwendung, die entwickelt wurde, um den Prozess von Jobbewerbungen effizient zu verwalten, Nachfasstermine im Blick zu behalten und Statistiken übersichtlich darzustellen.  
+📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
+> **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**
 
 ---
 
