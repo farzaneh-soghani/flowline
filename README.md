@@ -71,14 +71,18 @@ FlowLine folgt einer **modularen und geschichteten Web-Architektur (Layered & Mo
 
 ---
 
-## ⚙️ Installation & Lokale Ausführung
+## 📥 Installation & Lokale Ausführung
 
-Falls Sie das Projekt lokal testen möchten, folgen Sie diesen Schritten:
-
-1. **Repository klonen:**
-   ```bash
-   git clone [https://github.com/farzaneh-soghani/flowline.git](https://github.com/farzaneh-soghani/flowline.git)
-   cd flowline
+Sie können das Repository direkt klonen: [https://github.com/farzaneh-soghani/flowline.git](https://github.com/farzaneh-soghani/flowline.git)  
+Führen Sie die folgenden Befehle nacheinander in Ihrem Terminal (Windows) aus:  
+```bash
+cd flowline
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+```
+Hinweis: Öffnen Sie anschließend Ihren Browser unter http://127.0.0.1:5000
 
 
 
