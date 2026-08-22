@@ -21,7 +21,7 @@
 
 ## 📌 Features & Funktionen
 * **Sichere Benutzerauthentifizierung:** Registrierung, Login und Passwort-Wiederherstellung (über sichere Token und E-Mail-Versand).
-* **Stылischer Splash Screen:** Ein ansprechender Startbildschirm beim Öffnen der Anwendung für ein professionelles Nutzererlebnis.
+* **Eigener Startbildschirm (Splash Screen):** Ein ansprechender Startbildschirm beim Öffnen der Anwendung für ein professionelles Nutzererlebnis.
 * **Erweiterte Bewerbungsverwaltung (CRUD):** 
   * Flexibles Hinzufügen, Bearbeiten, Löschen von Bewerbungen (Firma, Position, Status, Datum, Follow-up).
   * Hinzufügen und Verwalten von persönlichen Notizen zu jeder Bewerbung.
