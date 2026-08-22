@@ -4,20 +4,14 @@
   <span style="font-size: 10px; color: #8b949e;">Applications in Flow</span>
   </p>
 
-## Bewerbungsverwaltung im Überblick  
-
-**Flask Web-App für Bewerbungs-Management (Single-File Architektur)**  
-> **Speichere Firmen, Positionen, Status & Deadlines.**  
-> **Bringe Ordnung in deine Jobsuche** - filtere, sortiere, tracke **alles auf einem Bildschirm!**
-
-📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
-> **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**
-
-Oder unten auf **"Live Deployed"** Button klicken  
+## Bewerbungsverwaltung im Überblick
 
 ## 🌐 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Live-Deployed-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)  
+[![Live Demo](https://img.shields.io/badge/Live-Deployed-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)
+
+📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
+> **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**   
 
 ## 🚀 Features
 
@@ -55,15 +49,6 @@ python app.py
   **Notizen**  
 ![Notes](screenshots/notes.png)
 
-## 🛠️ Tech Stack  
-
-**Fullstack FlowLine Web Application**  
-
-- **Frontend:** HTML5 + CSS3 Flexbox + Media Queries (responsive)
-- **Backend:** Python + Flask ( Jinja2 Templates )  
-- **Storage:** Session-based
-- **Features:** Flash-Messages + Live Stats + Vollständiges CRUD
-- **Deployment:** GitHub Actions → Render → **Cloudflare CDN** ✅
 
 ## 📁 Projektstruktur
 
