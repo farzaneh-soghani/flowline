@@ -4,7 +4,7 @@
   <span style="font-size: 10px; color: #8b949e;">Applications in Flow</span>
   </p>
 
-## Bewerbungsverwaltung im Überblick
+# FlowLine – Job Application Tracker
 
 ## 🌐 Live Demo
 
@@ -13,7 +13,7 @@
 📱 **Unterwegs? KEIN Problem!** Responsiv für **Handy + Desktop** - deine Bewerbungen immer dabei! 🚀  
 > **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**   
 
-# FlowLine – Job Application Tracker
+## Bewerbungsverwaltung im Überblick
 
 **FlowLine** ist eine moderne, sichere Full-Stack-Webanwendung, die entwickelt wurde, um den Prozess von Jobbewerbungen effizient zu verwalten, Nachfasstermine im Blick zu behalten und Statistiken übersichtlich darzustellen.
 
