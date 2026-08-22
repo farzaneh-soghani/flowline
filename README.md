@@ -40,7 +40,7 @@
 ## 🔒 Sicherheit, Datenschutz & Benutzerfreundlichkeit
 * **Datenschutz & Transparenz:** Die Anwendung respektiert die Privatsphäre der Nutzer. Alle Datenschutzbestimmungen und rechtlichen Hinweise sind transparent in der App hinterlegt (`/datenschutz` und `/impressum`).
 * **Selbstverwaltung des Kontos:** Benutzer haben die volle Kontrolle über ihre Daten und können ihren Account sowie ihre Einträge jederzeit sicher verwalten.
-* **Sichere Passwort-Wiederherstellung via Brevo:** Falls ein Nutzer sein Passwort vergisst, wird über einen sicheren, zeitlich begrenzten Token (`itsdangerous`) und die professionelle **Brevo-E-Mail-API / SMTP** zuverlässig ein Wiederherstellungslink versendet.
+* **Sichere Passwort-Wiederherstellung via Brevo:** Falls ein Nutzer sein Passwort vergisst, wird über einen sicheren, zeitlich begrenzten Token (`itsdangerous`) und die professionelle **Brevo-E-Mail-API ** zuverlässig ein Wiederherstellungslink versendet.
 
 ---
 
@@ -65,7 +65,7 @@ FlowLine folgt einer **modularen und geschichteten Web-Architektur (Layered & Mo
 * **E-Mail-Dienst:** 
   * *Entwicklung:* Gmail SMTP (TLS/SSL)
   * *Production:* Brevo API  (E-Mail-Versand HTTP-basiert, um blockierte SMTP-Ports in Cloud-Umgebungen zu umgehen)
-* **Frontend:** HTML5, CSS3, (Responsive Design), Jinja2 Templates
+* **Frontend:** HTML5, CSS3, Jinja2 Templates, Alpine.js (interaktive UI & Sprachumschalter mit Flaggen), SVG-Grafiken & Splash-Screen.
 * **Datenbank:** SQLite / PostgreSQL
 * **PDF-Generierung:** ReportLab (`io.BytesIO`)
 * **Testing & DevOps:** Render (Cloud-Hosting), GitHub Actions (CI/CD), Pytest
