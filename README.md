@@ -82,28 +82,29 @@ python -m venv .venv
 pip install -r requirements.txt
 python app.py
 ```
-Hinweis: Öffnen Sie anschließend Ihren Browser unter http://127.0.0.1:5000
+Hinweis: Öffnen Sie anschließend Ihren Browser unter http://127.0.0.1:5000  
 
+## 📸 Screenshots
 
+Hier sind einige Einblicke in die FlowLine-Anwendung:
 
+* **Anmeldeseite (Login):**
+  ![Login](screenshots/login.png)
 
-## 📸 Screenshots  
+* **Haupt-Dashboard (Übersicht):**
+  ![Dashboard](screenshots/dashboard.png)
 
-**Desktop Dashboard**  
-![Desktop](screenshots/desktop.png)
-  
-  **Mobile Dashboard**  
-![Mobile](screenshots/mobile.png)  
-  
-  **Statistics**  
-![Stats](screenshots/stats.png)
-  
-  **Edit Form**  
-![Edit](screenshots/edit.png)  
-  
-  **Notizen**  
-![Notes](screenshots/notes.png)  
+* **Bewerbung bearbeiten (Edit):**
+  ![Edit](screenshots/edit.png)
 
+* **Notizen-Bereich (Notizen):**
+  ![Notizen](screenshots/notes.png)
+
+* **Mobile Ansicht (Responsive):**
+  ![Mobile Ansicht](screenshots/mobile.png)
+
+* **Visuelle Statistiken:**
+  ![Statistiken](screenshots/stats.png)
 
 ## 📁 Projektstruktur
 
