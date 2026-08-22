@@ -112,8 +112,6 @@ Hier sind einige Einblicke in die FlowLine-Anwendung:
 **Auflistung der Ordnerpfade**  
 *(Automatisch generiert mit `tree /f` command)*  
 
-## 📁 Projektstruktur
-
 ```text
 flowline/
 │
