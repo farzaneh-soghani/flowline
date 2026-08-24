@@ -8,7 +8,7 @@
 
 ## 🌐 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Live-Deployed-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)  
+[![Live Demo](https://img.shields.io/badge/Live-FlowLine-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)  
 
 ## Bewerbungsverwaltung im Überblick
 
