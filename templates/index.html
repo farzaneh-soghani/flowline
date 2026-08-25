@@ -104,14 +104,14 @@
                                     <strong style="color: #2281e1; font-weight: 600;">
                                         {% if job.follow_up_datum %}
                                             {% set val = job.follow_up_datum | string %}
-                                            {# استخراج سال، ماه و روز از رشته YYYY-MM-DD و ساخت فرمت آلمانی DD.MM.YYYY #}
+                                            {# Jahr, Monat und Tag aus dem YYYY-MM-DD-String extrahieren und das deutsche Format DD.MM.YYYY erstellen #}
                                             {% if val | length >= 10 %}
                                                 {{ val[8:10] }}.{{ val[5:7] }}.{{ val[0:4] }}
                                             {% else %}
                                                 {{ val }}
                                             {% endif %}
                                             
-                                            {# اگر ساعت هم وجود داشت (طول رشته بیشتر از 10 بود)، خط و ساعت را نشان بده #}
+                                            {# Wenn auch eine Uhrzeit vorhanden war (die String-Länge größer als 10 war), zeige Datum und Uhrzeit an #}
                                             {% if val | length > 10 %}
                                                 <span style="color: #64748b; font-weight: normal; margin: 0 4px;">|</span>
                                                 {{ val[11:16] }}
