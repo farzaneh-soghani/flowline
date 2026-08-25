@@ -303,8 +303,8 @@ msgid "Absage"
 msgstr "Odrzucona"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "Data kontaktu"
+msgid "Datum / Uhrzeit"
+msgstr "Data / Godzina"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"

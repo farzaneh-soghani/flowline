@@ -302,8 +302,8 @@ msgid "Absage"
 msgstr "Reddedildi"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "Takip Tarihi"
+msgid "Datum / Uhrzeit"
+msgstr "Tarih / Saat"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"

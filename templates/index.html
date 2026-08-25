@@ -46,7 +46,7 @@
     <!-- Zweck: Schleife über Jobs, Fälligkeiten    -->
     <!--        und Nachfass-Erinnerungen           -->
     <!-- ========================================== -->
-    {% if jobs %}
+{% if jobs %}
         {% for job in jobs %}
             <div class="job">
                 <div class="job-content">
@@ -57,16 +57,16 @@
                     <!-- Job-Details: Status und Datum -->
                     <div class="job-info" style="display: flex; gap: 12px; align-items: center; font-size: 0.88em; color: #64748b; margin-top: 4px;">
                         <span>
-                            {{ _('Status') }}: <span style="color: #1e293b; font-weight: 500;">{{ _(job.status.capitalize()) }}</span>
+                            {{ _('Status') }}: <strong style="color: #2281e1; font-weight: 600;">{{ _(job.status.capitalize()) }}</strong>
                         </span>
-                        <span>&bull;</span>
+                        <span style="color: #64748b;">&bull;</span>
                         <span>
-                            {{ _('Datum') }}: <span style="color: #1e293b; font-weight: 500;">{{ job.datum | german_date }}</span></span>
+                            {{ _('Datum') }}: <strong style="color: #2281e1; font-weight: 600;">{{ job.datum | german_date }}</strong>
                         </span>
 
                         <!-- Logik zur Erinnerung (Nachfassen) -->
                         {% if job.status.lower() not in ['zusage', 'absage'] %}
-                            <span>&bull;</span>
+                            <span style="color: #64748b;">&bull;</span>
                             <span style="display: inline-flex; align-items: center; gap: 6px;">
                                 
                                 <!-- Link zur Umschaltung des Erinnerungsstatus -->
@@ -101,9 +101,23 @@
                                 <!-- Beschriftung für Nachfassdatum -->
                                 <span class="{{ 'text-due' if (job.is_due and not job.nachgefasst) }}">
                                     {{ _('Nachfassen') }}: 
-                                    <span style="color: #1e293b; font-weight: 500;">
-                                        {{ job.follow_up_datum | german_date }}
-                                    </span>
+                                    <strong style="color: #2281e1; font-weight: 600;">
+                                        {% if job.follow_up_datum %}
+                                            {% set val = job.follow_up_datum | string %}
+                                            {# استخراج سال، ماه و روز از رشته YYYY-MM-DD و ساخت فرمت آلمانی DD.MM.YYYY #}
+                                            {% if val | length >= 10 %}
+                                                {{ val[8:10] }}.{{ val[5:7] }}.{{ val[0:4] }}
+                                            {% else %}
+                                                {{ val }}
+                                            {% endif %}
+                                            
+                                            {# اگر ساعت هم وجود داشت (طول رشته بیشتر از 10 بود)، خط و ساعت را نشان بده #}
+                                            {% if val | length > 10 %}
+                                                <span style="color: #64748b; font-weight: normal; margin: 0 4px;">|</span>
+                                                {{ val[11:16] }}
+                                            {% endif %}
+                                        {% endif %}
+                                    </strong>
                                 </span>
                             </span>
                         {% endif %}
@@ -157,7 +171,6 @@
             </div>
         {% endif %}
     {% endif %}
-
     <!-- ========================================== -->
     <!-- SECTION: Aktionen und Export               -->
     <!-- Zweck: Statistik-Ansicht und PDF-Export    -->

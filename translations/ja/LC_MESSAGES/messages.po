@@ -301,8 +301,8 @@ msgid "Absage"
 msgstr "不採用"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "フォローアップ予定日"
+msgid "Datum / Uhrzeit"
+msgstr "日付 / 時間"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"

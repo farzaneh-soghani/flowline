@@ -310,8 +310,8 @@ msgid "Absage"
 msgstr "رد شده"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "تاریخ پیگیری"
+msgid "Datum / Uhrzeit"
+msgstr "تاریخ / ساعت"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"

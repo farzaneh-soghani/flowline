@@ -303,8 +303,8 @@ msgid "Absage"
 msgstr "Rejected"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "Follow-up Date"
+msgid "Datum / Uhrzeit"
+msgstr "Date / Time"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"

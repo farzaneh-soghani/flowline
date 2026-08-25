@@ -42,13 +42,13 @@
 
             <!-- Bereich für das Wiedervorlage- oder Nachfassdatum -->
             <div>
-                <!-- Beschriftung des Datumsfeldes inklusive Kalender-Symbol -->
+                <!-- Datum- und Uhrzeitfeld -->
                 <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85em; color: #475569; margin-bottom: 6px; font-weight: 500;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
-                    {{ _('Termin für Nachfassen') }}
+                    {{ _('Datum & Uhrzeit') }}
                 </label>
                 
                 <!-- Textfeld, das durch das Flatpickr-Skript zu einem interaktiven Kalender wird -->
@@ -64,14 +64,16 @@
     </form>
 </div>
 
-<!-- JavaScript-Logik zur Initialisierung und Konfiguration des Datumswählers -->
+<!-- JavaScript-Logik zur Initialisierung und Konfiguration des Datums- und Uhrzeitwählers -->
 <script>
     flatpickr("#datepicker", {
-        locale: "de",                // Aktivierung der deutschen Sprachunterstützung
-        dateFormat: "Y-m-d",         // Standard-Datumsformat für die Übermittlung an das Backend/Datenbank
-        altInput: true,              // Erstellung eines benutzerfreundlichen Ersatzfeldes
-        altFormat: "d.m.Y",          // Anzeigeformat für den Anwender (Tag.Monat.Jahr)
-        allowInput: false            // Unterbindung direkter, fehlerhafter Tastatureingaben
+        locale: "de",                   // Aktivierung der deutschen Sprachunterstützung
+        enableTime: true,               // Aktivierung der Uhrzeit-Auswahl
+        time_24hr: true,                // Verwendung des 24-Stunden-Formats
+        dateFormat: "Y-m-d H:i",        // Standard-Datums- und Zeitformat für die Übermittlung an das Backend/Datenbank
+        altInput: true,                 // Erstellung eines benutzerfreundlichen Ersatzfeldes
+        altFormat: "d.m.Y H:i",         // Anzeigeformat für den Anwender (Tag.Monat.Jahr Stunde:Minute)
+        allowInput: false               // Unterbindung direkter, fehlerhafter Tastatureingaben
     });
 </script>
 

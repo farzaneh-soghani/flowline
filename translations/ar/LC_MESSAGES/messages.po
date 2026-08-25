@@ -298,8 +298,8 @@ msgid "Absage"
 msgstr "مرفوض"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "تاريخ المتابعة"
+msgid "Datum / Uhrzeit"
+msgstr "التاريخ / الوقت"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"

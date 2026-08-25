@@ -301,8 +301,8 @@ msgid "Absage"
 msgstr "Відмова"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "Дата для зв'язку"
+msgid "Datum / Uhrzeit"
+msgstr "Дата / Час"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"

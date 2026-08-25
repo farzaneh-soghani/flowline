@@ -300,8 +300,8 @@ msgid "Absage"
 msgstr "拒绝"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "跟进日期"
+msgid "Datum / Uhrzeit"
+msgstr "日期 / 时间"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"

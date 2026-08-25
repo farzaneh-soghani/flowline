@@ -306,8 +306,8 @@ msgid "Absage"
 msgstr "Rechazado"
 
 #: templates/edit.html:51
-msgid "Termin für Nachfassen"
-msgstr "Fecha de seguimiento"
+msgid "Datum / Uhrzeit"
+msgstr "Fecha / Hora"
 
 #: templates/edit.html:60 templates/notes.html:25
 msgid "Speichern"
