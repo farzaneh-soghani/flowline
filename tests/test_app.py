@@ -17,12 +17,16 @@ from app import (
     inject_global_vars,
 )
 
-# --- Fixtures ---
-
+# =====================================================================
+# TEST-FIXTURES
+# =====================================================================
 
 @pytest.fixture
 def app_instance():
-    # ۱. فعال‌سازی حالت تست
+    """
+    Stellt eine Flask-Anwendungsinstanz im Testmodus bereit.
+    Erstellt vor jedem Test die Datenbanktabellen und räumt danach auf.
+    """
     flask_app.config["TESTING"] = True
 
     with flask_app.app_context():
@@ -34,29 +38,38 @@ def app_instance():
 
 @pytest.fixture
 def client(app_instance):
+    """
+    Ermöglicht das Senden von HTTP-Anfragen (Test-Client) an die Anwendung.
+    """
     return app_instance.test_client()
 
 
-# --- Tests ---
+# =====================================================================
+# UNIT- & INTEGRATIONSTESTS
+# =====================================================================
 
 
 def test_startseite(client):
+    """Prüft, ob die Startseite den Benutzer korrekt weiterleitet (Status 302)."""
     rv = client.get("/")
     assert rv.status_code == 302
 
 
 def test_login_redirect(client):
+    """Stellt sicher, dass geschützte Routen (z. B. /stats) nicht authentifizierte Benutzer zum Login umleiten."""
     response = client.get("/stats", follow_redirects=False)
     assert response.status_code == 302
     assert "/login" in response.headers["Location"]
 
 
 def test_login_message_is_none(client):
+    """Überprüft, ob zu Beginn keine unerwarteten Flash-Nachrichten in der Session existieren."""
     with client.session_transaction() as sess:
         assert "_flashes" not in sess
 
 
 def test_password_reset_token(app_instance):
+    """Testet die erfolgreiche Generierung und Validierung eines Passwort-Reset-Tokens."""
     user = User(email="test_token@example.com", password_hash="dummy_hash")
     db.session.add(user)
     db.session.commit()
@@ -67,13 +80,14 @@ def test_password_reset_token(app_instance):
 
 
 def test_expired_reset_token(app_instance):
+    """Prüft, ob ein abgelaufenes Reset-Token korrekt als ungültig (None) erkannt wird."""
     user = User(email="expired_test@example.com", password_hash="dummy_hash")
     db.session.add(user)
     db.session.commit()
 
     token = generate_reset_token(user)
 
-    # افزایش تاخیر به ۲ ثانیه برای اطمینان از انقضای کامل توکن
+    # 2 Sekunden warten, um die Token-Gültigkeit ab laufen zu lassen
     time.sleep(2)
 
     verified_user = verify_reset_token(token, expiration=1)
@@ -81,7 +95,7 @@ def test_expired_reset_token(app_instance):
 
 
 def test_reset_password_mail_error(client):
-    # شبیه‌سازی خطا در ارسال درخواست API (به جای mail.send قدیمی)
+    """Simuliert einen externen API-Fehler (z. B. Netzwerk-/Verbindungsfehler) beim Anfordern des Passwort-Resets."""
     with patch("app.requests.post", side_effect=Exception("API connection error")):
         response = client.post(
             "/reset_password_request",
@@ -92,7 +106,7 @@ def test_reset_password_mail_error(client):
 
 
 def test_register_database_error(client):
-    # شبیه‌سازی خطای پایگاه داده هنگام commit کردن
+    """Simuliert einen unerwarteten Datenbankfehler (Commit-Exception) während des Registrierungsprozesses."""
     with patch("app.db.session.commit", side_effect=Exception("Database error")):
         response = client.post(
             "/register",
@@ -105,6 +119,7 @@ def test_register_database_error(client):
 
 
 def test_get_locale_from_session(app_instance):
+    """Überprüft, ob die Spracheinstellung korrekt aus der Benutzersession geladen wird (z. B. 'fa')."""
     with app_instance.test_request_context("/"):
         from flask import session
 
@@ -115,6 +130,7 @@ def test_get_locale_from_session(app_instance):
 
 
 def test_get_locale_default(client):
+    """Prüft, ob bei fehlender Session auf die Standardsprache ('de') zurückgegriffen wird."""
     with client.application.test_request_context(headers=[("Accept-Language", "xx")]):
         from app import get_locale
 
@@ -122,6 +138,7 @@ def test_get_locale_default(client):
 
 
 def test_user_password_hashing(client):
+    """Stellt sicher, dass Passwörter sicher gehasht gespeichert und korrekt verifiziert werden."""
     user = User(email="testuser@example.com")
     user.set_password("geheim123")
     assert user.password_hash != "geheim123"
@@ -130,6 +147,7 @@ def test_user_password_hashing(client):
 
 
 def test_register_empty_fields(client):
+    """Prüft die Validierung bei der Registrierung, wenn Pflichtfelder (E-Mail/Passwort) leer sind."""
     response = client.post(
         "/register", data={"email": "", "password": ""}, follow_redirects=True
     )
@@ -139,6 +157,7 @@ def test_register_empty_fields(client):
 
 
 def test_user_unique_email(client):
+    """Testet die Eindeutigkeitsprüfung (Unique Constraint) für E-Mail-Adresses in der Datenbank."""
     user1 = User(email="doppelt@example.com")
     user1.set_password("pass1")
     db.session.add(user1)
@@ -154,6 +173,7 @@ def test_user_unique_email(client):
     db.session.rollback()
 
 def test_job_creation_and_defaults(client):
+    """Überprüft die erfolgreiche Erstellung eines Job-Eintrags mit korrekten Standardwerten."""
     user = User(email="jobtest@example.com", password_hash="dummy")
     db.session.add(user)
     db.session.commit()
@@ -170,6 +190,7 @@ def test_job_creation_and_defaults(client):
 
 
 def test_load_user_success(client):
+    """Testet das erfolgreiche Laden eines Benutzers über den Login-Manager (load_user)."""
     user = User(email="loader_test@example.com")
     user.set_password("pass123")
     db.session.add(user)
@@ -181,10 +202,12 @@ def test_load_user_success(client):
 
 
 def test_load_user_invalid_id(client):
+    """Prüft, ob load_user bei einer nicht existierenden Benutzer-ID None zurückgibt."""
     assert load_user(99999) is None
 
 
 def test_german_date_filter(app_instance):
+    """Validiert den benutzerdefinierten Jinja2-Filter für die deutsche Datumsformatierung."""
     with app_instance.test_request_context("/"):
         assert german_date_filter("2026-08-14") == "14.08.2026"
         assert german_date_filter("") == "k.A."
@@ -193,6 +216,7 @@ def test_german_date_filter(app_instance):
 
 
 def test_register_success(client):
+    """Testet den erfolgreichen Registrierungsprozess eines neuen Benutzers."""
     response = client.post(
         "/register",
         data={"email": "neuer_user@example.com", "password": "SicheresPasswort123"},
@@ -205,6 +229,7 @@ def test_register_success(client):
 
 
 def test_register_short_password(client):
+    """Stellt sicher, dass die Registrierung bei Passwörtern, die zu kurz sind, fehlschlägt."""
     client.post(
         "/register",
         data={"email": "shortpass@example.com", "password": "123"},
@@ -216,6 +241,7 @@ def test_register_short_password(client):
 
 
 def test_register_duplicate_email(client):
+    """Prüft, ob eine Registrierung mit einer bereits vergebenen E-Mail-Adresse blockiert wird."""
     existing_user = User(email="existiert@example.com")
     existing_user.set_password("SicheresPasswort123")
     db.session.add(existing_user)
@@ -232,6 +258,7 @@ def test_register_duplicate_email(client):
 
 
 def test_login_success(client):
+    """Testet den erfolgreichen Login-Vorgang mit korrekten Anmeldedaten."""
     user = User(email="login_success@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -247,6 +274,7 @@ def test_login_success(client):
 
 
 def test_login_wrong_password(client):
+    """Prüft das Verhalten des Systems bei Eingabe eines falschen Passworts."""
     user = User(email="login_fail@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -262,6 +290,7 @@ def test_login_wrong_password(client):
 
 
 def test_logout_success(client):
+    """Testet den erfolgreichen Abmeldevorgang (Logout) eines authentifizierten Benutzers."""
     user = User(email="logout_test@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -276,44 +305,40 @@ def test_logout_success(client):
 
 
 def test_logout_unauthorized(client):
+    """Prüft den Logout-Aufruf, wenn kein Benutzer angemeldet ist."""
     response = client.get("/logout", follow_redirects=True)
     assert response.status_code == 200
 
 
 def test_delete_account(app_instance, client):
-    """Testet das Löschen des Benutzerkontos."""
+    """Testet das vollständige Löschen des eigenen Benutzerkontos durch den Nutzer."""
     with app_instance.app_context():
-        # 1. Test-Benutzer in der Datenbank erstellen
         user = User(email="delete_test@example.com")
         user.set_password("password123")
         db.session.add(user)
         db.session.commit()
 
-    # 2. Mit dem erstellten Benutzer einloggen
     client.post('/login', data=dict(email="delete_test@example.com", password="password123"), follow_redirects=True)
 
-    # 3. Anfrage zum Löschen des Kontos senden
     response = client.post('/delete-account', follow_redirects=True)
     assert response.status_code == 200
     assert "Dein Konto wurde erfolgreich gelöscht." in response.get_data(as_text=True)
 
 
 def test_reset_password_database_error(app_instance, client):
+    """Simuliert einen Datenbankfehler während des Zurücksetzens des Passworts."""
     with app_instance.app_context():
-        # ۱. ساختن یک کاربر تستی
         user = User(email="dberror@example.com")
         user.set_password("oldpassword")
         db.session.add(user)
         db.session.commit()
 
-        # ۲. ساختن توکن معتبر
         serializer = URLSafeTimedSerializer(app_instance.secret_key)
         token = serializer.dumps(
             {"email": user.email, "hash": user.password_hash},
             salt="password-reset-salt",
         )
 
-        # ۳. شبیه‌سازی خطا در commit پایگاه داده
         with patch("app.db.session.commit", side_effect=Exception("Database error")):
             response = client.post(
                 f"/reset_password/{token}",
@@ -321,18 +346,17 @@ def test_reset_password_database_error(app_instance, client):
                 follow_redirects=True,
             )
 
-            # ۴. بررسی اینکه خطا به درستی مدیریت شده و پیام خطا داده شده است
             assert response.status_code == 200
             assert b"Fehler beim Speichern des Passworts." in response.data
 
 
 def test_reset_password_request_success(client):
+    """Testet das erfolgreiche Versenden der Anfrage zum Zurücksetzen des Passworts (API-Mocking)."""
     user = User(email="reset_user@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
     db.session.commit()
 
-    # شبیه‌سازی موفقیت‌آمیز بودن پاسخ Brevo API (کد وضعیت 200)
     class MockResponse:
         status_code = 200
         text = "OK"
@@ -348,7 +372,7 @@ def test_reset_password_request_success(client):
 
 
 def test_reset_password_request_user_not_found(client):
-    # حتی اگر کاربر وجود نداشته باشد، به دلایل امنیتی پیام موفقیت‌آمیز ظاهر می‌شود
+    """Stellt sicher, dass aus Sicherheitsgründen auch bei nicht existierenden E-Mails eine neutrale Erfolgsmeldung ausgegeben wird."""
     class MockResponse:
         status_code = 200
         text = "OK"
@@ -363,6 +387,7 @@ def test_reset_password_request_user_not_found(client):
 
 
 def test_reset_password_invalid_token(client):
+    """Prüft das Verhalten beim Aufrufen eines ungültigen Passwort-Reset-Tokens."""
     response = client.get(
         "/reset_password/ungueltiger_token_123", follow_redirects=True
     )
@@ -370,6 +395,7 @@ def test_reset_password_invalid_token(client):
 
 
 def test_reset_password_success(client):
+    """Testet den erfolgreichen Abschluss des Passwort-Zurücksetzens mit gültigem Token."""
     user = User(email="token_test@example.com")
     user.set_password("OldPassword123")
     db.session.add(user)
@@ -390,21 +416,19 @@ def test_reset_password_success(client):
 
 
 def test_reset_password_short_password(app_instance, client):
+    """Prüft, ob das neue Passwort beim Reset die Mindestlänge einhalten muss."""
     with app_instance.app_context():
-        # ۱. ساختن یک کاربر تستی جدید در دیتابیس
         user = User(email="testuser@example.com")
         user.set_password("longpassword")
         db.session.add(user)
         db.session.commit()
 
-        # ۲. ساختن توکن برای همین کاربر
         serializer = URLSafeTimedSerializer(app_instance.secret_key)
         token = serializer.dumps(
             {"email": user.email, "hash": user.password_hash},
             salt="password-reset-salt",
         )
 
-        # ۳. ارسال درخواست با پسورد کوتاه
         response = client.post(
             f"/reset_password/{token}", data={"password": "123"}, follow_redirects=True
         )
@@ -414,20 +438,20 @@ def test_reset_password_short_password(app_instance, client):
 
 
 def test_verify_reset_token_invalid_user_or_password(app_instance):
+    """Überprüft, ob Token mit veränderten Benutzerdaten oder nicht existierenden E-Mails abgewiesen werden."""
     with app_instance.app_context():
-        # ۱. ساختن یک توکن برای کاربری که وجود ندارد یا پسوردش تغییر کرده
         serializer = URLSafeTimedSerializer(app_instance.secret_key)
         token = serializer.dumps(
             {"email": "nonexistent@example.com", "hash": "wronghash"},
             salt="password-reset-salt",
         )
 
-        # ۲. بررسی اینکه تابع به درستی None برمی‌گرداند
         result = verify_reset_token(token)
         assert result is None
 
 
 def test_add_job_success(client):
+    """Testet das erfolgreiche Hinzufügen einer neuen Bewerbung durch einen authentifizierten Benutzer."""
     user = User(email="job_owner@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -438,7 +462,7 @@ def test_add_job_success(client):
     )
 
     response = client.post(
-        "/",
+        "/", 
         data={
             "firma": "Test GmbH",
             "position": "Backend Entwickler",
@@ -454,19 +478,17 @@ def test_add_job_success(client):
 
 
 def test_add_job_database_error(client, app_instance):
+    """Simuliert einen Datenbankfehler beim Speichern einer neuen Bewerbung."""
     with app_instance.app_context():
-        # ۱. ساخت و ثبت یک کاربر برای تست
         user = User(email="joberror@example.com")
         user.set_password("password123")
         db.session.add(user)
         db.session.commit()
 
-    # ۲. لاگین کردن به سیستم با کلاینت
     client.post(
         "/login", data={"email": "joberror@example.com", "password": "password123"}
     )
 
-    # ۳. شبیه‌سازی خطای دیتابیس هنگام ثبت شغل جدید
     with patch("app.db.session.commit", side_effect=Exception("Database error")):
         response = client.post(
             "/",
@@ -479,23 +501,20 @@ def test_add_job_database_error(client, app_instance):
 
 
 def test_job_due_reminder(client, app_instance):
+    """Prüft, ob Wiedervorlage- oder Fälligkeitserinnerungen bei überschrittenem Datum korrekt ausgelöst werden."""
     with app_instance.app_context():
-        # ۱. ساختن یک کاربر و ذخیره در دیتابیس
         user = User(email="reminder@example.com")
         user.set_password("password123")
         db.session.add(user)
         db.session.commit()
 
-        # ذخیره id کاربر تا بعد از بسته شدن سشن هم در دسترس باشد
         user_id = user.id
 
-    # ۲. لاگین کردن به سیستم با کلاینت
     client.post(
         "/login", data={"email": "reminder@example.com", "password": "password123"}
     )
 
     with app_instance.app_context():
-        # ۳. ساختن یک شغل با تاریخ پیگیری در گذشته
         past_date = (datetime.now() - timedelta(days=5)).strftime("%Y-%m-%d")
         job = Job(
             firma="TestFirma",
@@ -508,7 +527,6 @@ def test_job_due_reminder(client, app_instance):
         db.session.add(job)
         db.session.commit()
 
-    # ۴. باز کردن صفحه اصلی برای بررسی یادآوری‌ها
     response = client.get("/", follow_redirects=True)
 
     assert response.status_code == 200
@@ -516,6 +534,7 @@ def test_job_due_reminder(client, app_instance):
 
 
 def test_add_job_missing_required_fields(client):
+    """Prüft die Validierung beim Hinzufügen von Jobs, wenn Pflichtfelder fehlen."""
     user = User(email="job_missing@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -535,6 +554,7 @@ def test_add_job_missing_required_fields(client):
 
 
 def test_job_search(client):
+    """Testet die Such- und Filterfunktion für bestehende Bewerbungen."""
     user = User(email="search_user@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -555,8 +575,8 @@ def test_job_search(client):
 
 
 def test_delete_job_database_error(client, app_instance):
+    """Simuliert einen Datenbankfehler während des Löschens eines Job-Eintrags."""
     with app_instance.app_context():
-        # ۱. ساخت کاربر و یک شغل تستی با status مشخص
         user = User(email="delerror@example.com")
         user.set_password("password123")
         db.session.add(user)
@@ -567,23 +587,20 @@ def test_delete_job_database_error(client, app_instance):
         db.session.commit()
         job_id = job.id
 
-    # ۲. لاگین کردن به سیستم
     client.post(
         "/login", data={"email": "delerror@example.com", "password": "password123"}
     )
 
-    # ۳. شبیه‌سازی خطای دیتابیس هنگام commit در عملیات حذف
     with patch("app.db.session.commit", side_effect=Exception("Database error")):
         response = client.get(f"/delete/{job_id}", follow_redirects=True)
 
-        # ۴. بررسی اینکه رول‌بک انجام شده و پیام خطا نمایش داده شده است
         assert response.status_code == 200
         assert "Fehler beim Löschen!" in response.get_data(as_text=True)
 
 
 def test_edit_job_database_error(client, app_instance):
+    """Simuliert einen Datenbankfehler während der Aktualisierung (Bearbeitung) eines Jobs."""
     with app_instance.app_context():
-        # ۱. ساختن کاربر و شغل تستی
         user = User(email="editerror@example.com")
         user.set_password("password123")
         db.session.add(user)
@@ -594,12 +611,10 @@ def test_edit_job_database_error(client, app_instance):
         db.session.commit()
         job_id = job.id
 
-    # ۲. لاگین کردن به سیستم
     client.post(
         "/login", data={"email": "editerror@example.com", "password": "password123"}
     )
 
-    # ۳. شبیه‌سازی خطای دیتابیس هنگام commit در عملیات ویرایش
     with patch("app.db.session.commit", side_effect=Exception("Database error")):
         response = client.post(
             f"/edit/{job_id}",
@@ -607,12 +622,12 @@ def test_edit_job_database_error(client, app_instance):
             follow_redirects=True,
         )
 
-        # ۴. بررسی اینکه رول‌بک انجام شده و پیام خطا نمایش داده شده است
         assert response.status_code == 200
         assert "Fehler beim Aktualisieren!" in response.get_data(as_text=True)
 
 
 def test_notes_get_page(client, app_instance):
+    """Testet das erfolgreiche Aufrufen der Notizen-Seite für einen spezifischen Job."""
     with app_instance.app_context():
         user = User(email="notesget@example.com")
         user.set_password("password123")
@@ -633,8 +648,8 @@ def test_notes_get_page(client, app_instance):
     assert "NotesCorp" in response.get_data(as_text=True)
 
 
-# ۲. تستِ شبیه‌سازی خطای دیتابیس هنگام ذخیره یادداشت (برای پوشش except و رول‌بک)
 def test_notes_database_error(client, app_instance):
+    """Simuliert einen Datenbankfehler beim Speichern von Notizen zu einer Bewerbung."""
     with app_instance.app_context():
         user = User(email="noteserror@example.com")
         user.set_password("password123")
@@ -660,6 +675,7 @@ def test_notes_database_error(client, app_instance):
 
 
 def test_toggle_nachgefasst_success(client):
+    """Testet das Umschalten des Status für 'Nachgefasst' (True/False) bei einem Job."""
     user = User(email="toggle_owner@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -687,6 +703,7 @@ def test_toggle_nachgefasst_success(client):
 
 
 def test_toggle_nachgefasst_other_user(client):
+    """Stellt sicher, dass Benutzer den Nachgefasst-Status fremder Jobs nicht manipulieren können (Autorisierungsprüfung)."""
     user1 = User(email="user1_toggle@example.com")
     user1.set_password("Passwort123")
     user2 = User(email="user2_toggle@example.com")
@@ -707,6 +724,7 @@ def test_toggle_nachgefasst_other_user(client):
 
 
 def test_inject_global_vars(app_instance):
+    """Prüft, ob globale Variablen und Übersetzungsfunktionen korrekt in den Template-Kontext injiziert werden."""
     with app_instance.test_request_context("/"):
         context_vars = inject_global_vars()
         assert "current_lang" in context_vars
@@ -715,6 +733,7 @@ def test_inject_global_vars(app_instance):
 
 
 def test_set_language_valid(client):
+    """Testet das erfolgreiche Umschalten der Anwendungssprache auf eine gültige Sprache (z. B. Englisch)."""
     response = client.get("/set_language/en", follow_redirects=True)
     assert response.status_code == 200
 
@@ -723,6 +742,7 @@ def test_set_language_valid(client):
 
 
 def test_set_language_invalid(client):
+    """Prüft das Verhalten bei der Auswahl einer ungültigen Sprache."""
     response = client.get("/set_language/xyz", follow_redirects=True)
     assert response.status_code == 200
 
@@ -731,6 +751,7 @@ def test_set_language_invalid(client):
 
 
 def test_export_pdf_success(client):
+    """Testet die erfolgreiche Generierung und den Download des PDF-Exports aller Bewerbungen."""
     user = User(email="pdf_user@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -767,6 +788,7 @@ def test_export_pdf_success(client):
 
 
 def test_stats_route_empty(client):
+    """Überprüft den Aufruf der Statistik-Route bei einem Benutzer ohne vorhandene Bewerbungen."""
     user = User(email="stats_empty@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -781,6 +803,7 @@ def test_stats_route_empty(client):
 
 
 def test_stats_route_calculation(client):
+    """Prüft die korrekte Auswertung und Berechnung von Statistiken basierend auf verschiedenen Job-Status."""
     user = User(email="stats_calc@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -802,6 +825,7 @@ def test_stats_route_calculation(client):
 
 
 def test_delete_job_success(client):
+    """Testet das erfolgreiche Löschen einer spezifischen Bewerbung."""
     user = User(email="delete_owner@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -823,6 +847,7 @@ def test_delete_job_success(client):
 
 
 def test_delete_job_unauthorized(client):
+    """Stellt sicher, dass Benutzer keine fremden Bewerbungen löschen können."""
     user1 = User(email="user1_delete@example.com")
     user1.set_password("Passwort123")
     user2 = User(email="user2_delete@example.com")
@@ -843,6 +868,7 @@ def test_delete_job_unauthorized(client):
 
 
 def test_edit_job_success(client):
+    """Testet das erfolgreiche Bearbeiten und Aktualisieren von Job-Eintragsdetails."""
     user = User(email="edit_owner@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -878,6 +904,7 @@ def test_edit_job_success(client):
 
 
 def test_edit_job_missing_fields(client):
+    """Prüft die Validierung bei der Job-Bearbeitung, wenn Pflichtfelder unvollständig sind."""
     user = User(email="edit_validation@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -905,6 +932,7 @@ def test_edit_job_missing_fields(client):
 
 
 def test_edit_job_unauthorized(client):
+    """Stellt sicher, dass das Bearbeiten fremder Bewerbungen durch unbefugte Benutzer verhindert wird."""
     user1 = User(email="user1_edit@example.com")
     user1.set_password("Passwort123")
     user2 = User(email="user2_edit@example.com")
@@ -927,6 +955,7 @@ def test_edit_job_unauthorized(client):
 
 
 def test_update_notes_success(client):
+    """Testet das erfolgreiche Aktualisieren von Notizen zu einer spezifischen Bewerbung."""
     user = User(email="notes_owner@example.com")
     user.set_password("Passwort123")
     db.session.add(user)
@@ -959,6 +988,7 @@ def test_update_notes_success(client):
 
 
 def test_update_notes_unauthorized(client):
+    """Prüft, ob das Hinzufügen/Ändern von Notizen bei fremden Bewerbungen blockiert wird."""
     user1 = User(email="user1_notes@example.com")
     user1.set_password("Passwort123")
     user2 = User(email="user2_notes@example.com")
@@ -979,10 +1009,12 @@ def test_update_notes_unauthorized(client):
 
 
 def test_impressum_route(client):
+    """Überprüft die Erreichbarkeit der Impressum-Seite."""
     response = client.get("/impressum")
     assert response.status_code == 200
 
 
 def test_datenschutz_route(client):
+    """Überprüft die Erreichbarkeit der Datenschutz-Seite."""
     response = client.get("/datenschutz")
     assert response.status_code == 200

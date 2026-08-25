@@ -248,10 +248,7 @@ def load_user(user_id):
     return db.session.get(User, int(user_id))
 
 
-# --------------------------------------------------------------------------
-# Datenbank-Tabellen beim Start initialisieren
-# - Erstellt alle definierten Tabellen, falls diese noch nicht in der Datenbank existieren
-# --------------------------------------------------------------------------
+# Erstellt alle noch nicht existierenden Datenbank-Tabellen beim Start.
 with app.app_context():
     try:
         db.create_all()
@@ -953,6 +950,5 @@ if __name__ == "__main__":
     - Ermöglicht automatisches Neuladen (Auto-Reloading) bei Codeänderungen und detaillierte Fehlerausgabe im Browser
     - Ist von der Testabdeckung ausgeschlossen (# pragma: no cover)
     """
-    import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)  # pragma: no cover
