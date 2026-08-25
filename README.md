@@ -32,7 +32,7 @@
 * **Echtzeit-Statistiken:** Eine dedizierte Statistik-Ansicht (`/stats`) zeigt die Gesamtanzahl sowie den prozentualen Anteil der noch offenen Bewerbungen.
 * **PDF-Export:** Generierung von professionellen Bewerbungsübersichten als PDF direkt im Arbeitsspeicher (mit ReportLab).
 * **Mehrsprachigkeit (i18n):** Unterstützt mehrere Sprachen (Deutsch, Englisch, Persisch, Arabisch, Türkisch, etc.) dank Flask-Babel.
-* **Vollständig Responsive:** Optimiertes Layout für alle Endgeräte (Desktop, Tablets und Smartphones) dank modernem Bootstrap-Design.
+* **Vollständig Responsive: Optimiertes Layout für alle Endgeräte (Desktop, Tablets und Smartphones) dank modernem Custom CSS und Flexbox.
 * **Automatisierte CI/CD-Pipelines & Hosting:** Automatische Ausführung aller Tests über GitHub Actions und nahtloses Hosting auf **Render**.
 
 ---
