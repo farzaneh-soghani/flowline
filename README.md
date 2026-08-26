@@ -66,7 +66,7 @@ FlowLine folgt einer **modularen und geschichteten Web-Architektur (Layered & Mo
 * **Datenbank:** SQLite (für die lokale Entwicklung) / PostgreSQL über **Neon (Serverless Cloud für die Production-Umgebung)**
 * **E-Mail-Dienst:** 
   * *Entwicklung:* Gmail SMTP (TLS/SSL)
-  * *Production:* Brevo API  (E-Mail-Versand HTTP-basiert, um blockierte SMTP-Ports in Cloud-Umgebungen zu umgehen)
+  * *Production:* Brevo API  (E-Mail-Versand HTTP-basiert, um blockierte SMTP-Ports in der Render-Service-Umgebung zu umgehen)
 * **Frontend:** HTML5, CSS3, Jinja2 Templates, Alpine.js (interaktive UI & Sprachumschalter mit Flaggen), SVG-Grafiken & Splash-Screen.
 * **Datenbank:** SQLite / PostgreSQL
 * **PDF-Generierung:** ReportLab (`io.BytesIO`)
