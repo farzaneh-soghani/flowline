@@ -47,7 +47,8 @@
 ## 🗄️ Datenbank-Architektur & Flexibilität
 * **Umgebungsspezifische Datenbanken:** 
   * **Lokale Entwicklung:** Verwendet leichtgewichtige und unkomplizierte **SQLite**-Datenbanken (`sqlite:///flowline.db`).
-  * **Production (Render):** Nutzt ein robustes **PostgreSQL**-Backend. Die Anwendung erkennt automatisch die Umgebungsvariable `DATABASE_URL` und passt die Verbindung nahtlos an.
+  * **Production (Neon Serverless PostgreSQL):** Nutzt ein robustes, Cloud-basiertes PostgreSQL-Backend. Die Anwendung erkennt automatisch die Umgebungsvariable `DATABASE_URL` und passt die Verbindung nahtlos an.
+  * *Warum Neon?* Im Gegensatz zu klassischen kostenlosen Cloud-Speichern (die oft Daten löschen oder strikte Limits haben) setzt Neon auf eine **Serverless-Architektur mit "Scale-to-Zero" (Auto-Suspend)**. Das bedeutet: Wenn die Datenbank nicht genutzt wird, geht sie in den Ruhe-Modus (schläft ein), um Ressourcen zu sparen, behält aber alle Daten dauerhaft bei. Bei der ersten neuen Anfrage (Request) wacht sie automatisch innerhalb von Sekunden wieder auf (`Wake-up`). Das garantiert dauerhafte Datensፔیشی (Persistenz) und volle Transparenz für den Betrieb.
 
 ---
 
@@ -62,6 +63,7 @@ FlowLine folgt einer **modularen und geschichteten Web-Architektur (Layered & Mo
 
 ## 🛠️ Verwendete Technologien (Tech Stack)
 * **Backend:** Python, Flask, Flask-SQLAlchemy, Flask-Login, Flask-Mail, Flask-Babel, Itsdangerous, Werkzeug (Passwort-Hashing mit `scrypt`)
+* **Datenbank:** SQLite (für die lokale Entwicklung) / PostgreSQL über **Neon (Serverless Cloud für die Production-Umgebung)**
 * **E-Mail-Dienst:** 
   * *Entwicklung:* Gmail SMTP (TLS/SSL)
   * *Production:* Brevo API  (E-Mail-Versand HTTP-basiert, um blockierte SMTP-Ports in Cloud-Umgebungen zu umgehen)
