@@ -50,23 +50,23 @@
         {% for job in jobs %}
             <div class="job">
                 <div class="job-content">
-                    <div style="font-size: 1.05em; color: #0f172a; font-weight: 500;">
+                    <div style="font-size: 1.05em; color: #51616f; font-weight: 500;">
                         {{ job.firma }} <span style="color: #94a3b8; margin: 0 4px;">|</span> {{ job.position }}
                     </div>
                     
                     <!-- Job-Details: Status und Datum -->
-                    <div class="job-info" style="display: flex; gap: 12px; align-items: center; font-size: 0.88em; color: #64748b; margin-top: 4px;">
+                    <div class="job-info" style="display: flex; gap: 12px; align-items: center; font-size: 0.88em; color: #5c6c82; margin-top: 4px;">
                         <span>
                             {{ _('Status') }}: <strong style="color: #2281e1; font-weight: 600;">{{ _(job.status.capitalize()) }}</strong>
                         </span>
-                        <span style="color: #64748b;">&bull;</span>
+                        <span style="color: #5c6c82;">&bull;</span>
                         <span>
                             {{ _('Datum') }}: <strong style="color: #2281e1; font-weight: 600;">{{ job.datum | german_date }}</strong>
                         </span>
 
                         <!-- Logik zur Erinnerung (Nachfassen) -->
                         {% if job.status.lower() not in ['zusage', 'absage'] %}
-                            <span style="color: #64748b;">&bull;</span>
+                            <span style="color: #5c6c82;">&bull;</span>
                             <span style="display: inline-flex; align-items: center; gap: 6px;">
                                 
                                 <!-- Link zur Umschaltung des Erinnerungsstatus -->
@@ -90,7 +90,7 @@
                                         {% else %}
                                             <!-- Standard-Glocke -->
                                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                style="color: #64748b;">
+                                                style="color: #5c6c82;">
                                                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                                 <path d="M13.73 21 a2 2 0 0 1-3.46 0"></path>
                                             </svg>
