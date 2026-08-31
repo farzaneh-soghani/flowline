@@ -734,7 +734,7 @@ def export_pdf():
             follow_up_formatted = "-"
         else:
             follow_up_formatted = (
-                datetime.strptime(j.follow_up_datum, "%Y-%m-%d").strftime("%d.%m.%Y")
+                datetime.strptime(j.follow_up_datum[:10], "%Y-%m-%d").strftime("%d.%m.%Y")
                 if j.follow_up_datum
                 else "-"
             )
