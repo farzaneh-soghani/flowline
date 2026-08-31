@@ -138,8 +138,8 @@ flowline/
 ```
 ## 📈 Projekthistorie & Evolution
 
-* **🚀 Aktuelle Version (FlowLine_v2.0):** Cloud-Hosting auf Render, PostgreSQL und erweiterte Features.
-* **📂 Erste Version (Job-Tracker_v1.0):** Den ursprünglichen Code und den ersten Prototypen finden Sie im Branch [`v1-Job-Tracker`](https://github.com/farzaneh-soghani/flowline/tree/v1-Job-Tracker).
+* **🚀 FlowLine(v1.0):** Cloud-Hosting auf Render, PostgreSQL und erweiterte Features.
+* **📂 Job-Tracker(MVP):** Den ursprünglichen Code und den ersten Prototypen finden Sie im Branch [`v1-Job-Tracker`](https://github.com/farzaneh-soghani/flowline/tree/v1-Job-Tracker).
 
 ---
 <p align="center">
