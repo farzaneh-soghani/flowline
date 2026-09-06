@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: flowline_db
+    restart: always
+    environment:
+      POSTGRES_USER: flowline_user
+      POSTGRES_PASSWORD: flowline_password
+      POSTGRES_DB: flowline_local_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: flowline_web
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql+psycopg://flowline_user:flowline_password@db:5432/flowline_local_db
+      - SECRET_KEY=your_development_secret_key_here
+    depends_on:
+      - db
+
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:latest
+    container_name: flowline_cloudbeaver
+    restart: always
+    ports:
+      - "8978:8978"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
