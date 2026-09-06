@@ -6,9 +6,9 @@ services:
     container_name: flowline_db
     restart: always
     environment:
-      POSTGRES_USER: flowline_user
-      POSTGRES_PASSWORD: flowline_password
-      POSTGRES_DB: flowline_local_db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
@@ -23,8 +23,8 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - DATABASE_URL=postgresql+psycopg://flowline_user:flowline_password@db:5432/flowline_local_db
-      - SECRET_KEY=your_development_secret_key_here
+      - DATABASE_URL=${DATABASE_URL}
+      - SECRET_KEY=${SECRET_KEY}
     depends_on:
       - db
     networks:
