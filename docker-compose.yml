@@ -13,6 +13,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - flowline-net
 
   web:
     build: .
@@ -25,6 +27,8 @@ services:
       - SECRET_KEY=your_development_secret_key_here
     depends_on:
       - db
+    networks:
+      - flowline-net
 
   cloudbeaver:
     image: dbeaver/cloudbeaver:latest
@@ -34,6 +38,12 @@ services:
       - "8978:8978"
     depends_on:
       - db
+    networks:
+      - flowline-net
 
 volumes:
   postgres_data:
+
+networks:
+  flowline-net:
+    driver: bridge
