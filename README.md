@@ -53,11 +53,13 @@
 ---
 
 ## 📐 Architektur & Design-Pattern
-FlowLine folgt einer **modularen und geschichteten Web-Architektur (Layered & Modular Architecture)**, die optimal auf die Anforderungen moderner Full-Stack-Anwendungen abgestimmt ist:
+
+FlowLine folgt einer **monolithischen Full-Stack-Architektur mit Server-Side Rendering (SSR)** und einer strukturierten, geschichteten Web-Architektur (Layered & Modular Architecture):
+
 * **Routing & Controller:** Strukturierte Flask-Routen zur Verarbeitung von Benutzeranfragen und Steuerung der Logik.
-* **Model & ORM:** Verwendung von **SQLAlchemy** für die objektorientierte und sichere Datenbank-Anbindung.
-* **View & UI:** Dynamische Darstellung über **Jinja2** Templates und **Bootstrap** (Responsive Design).
-* **Service-Integrationen:** Entkoppelte Dienste wie die **Brevo API** für den E-Mail-Versand und **ReportLab** für die PDF-Erstellung im Arbeitsspeicher.
+* **Model & ORM:** Verwendung von SQLAlchemy für die objektorientierte und sichere Datenbank-Anbindung (`db.Model`).
+* **View & UI:** Dynamische Darstellung über Jinja2 Templates und CSS.
+* **Service-Integrationen:** Entkoppelte Dienste wie die Brevo API für den E-Mail-Versand und ReportLab für die PDF-Erstellung im Arbeitsspeicher.
 
 ---
 
