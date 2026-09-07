@@ -1,23 +1,28 @@
-# استفاده از ایمیج رسمی و سبک پایتون
-FROM python:3.10-slim
+# --- Erste Stufe: Pakete bauen und installieren ---
+FROM python:3.10-slim AS builder
 
-# تعیین پوشه کاری داخل کانتینر
 WORKDIR /app
 
-# نصب ابزارهای پایه‌ای سیستم‌عامل در صورت نیاز
+# Notwendige System-Tools für den Build installieren
 RUN apt-get update && apt-get install -y --no-install-recommends gcc libpq-dev && rm -rf /var/lib/apt/lists/*
 
-# کپی کردن فایل نیازمندی‌ها به داخل کانتینر
 COPY requirements.txt .
 
-# نصب پکیج‌های پایتون
-RUN pip install --no-cache-dir -r requirements.txt
+# Pakete in ein separates Verzeichnis für die Übertragung in die nächste Stufe installieren
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
-# کپی کردن بقیه فایل‌های پروژه به داخل کانتینر
+# --- Zweite Stufe: Finales und leichtes Image für die Ausführung ---
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Nur die installierten Pakete aus der vorherigen Stufe kopieren
+COPY --from=builder /install /usr/local
+
 COPY . .
 
-# تعیین پورت پیش‌فرض اپلیکیشن
+# Standard-Port der Anwendung festlegen
 EXPOSE 5000
 
-# دستور نهایی برای اجرای اپلیکیشن (با استفاده از Gunicorn یا Flask run)
+# Befehl zum Ausführen der Anwendung
 CMD ["python", "app.py"]
