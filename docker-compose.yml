@@ -22,6 +22,8 @@ services:
     restart: always
     ports:
       - "5000:5000"
+    volumes:
+      - .:/app
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - SECRET_KEY=${SECRET_KEY}
