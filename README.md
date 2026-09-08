@@ -77,7 +77,8 @@ FlowLine folgt einer **modularen und geschichteten Web-Architektur (Layered & Mo
 ## 📥 Installation & Lokale Ausführung
 
 Sie können das Repository direkt klonen: [https://github.com/farzaneh-soghani/flowline.git](https://github.com/farzaneh-soghani/flowline.git)  
-Führen Sie die folgenden Befehle nacheinander in Ihrem Terminal (Windows) aus:  
+### Option 1: Klassische Ausführung (Manuell mit Python)
+Führen Sie die folgenden Befehle nacheinander in Ihrem Terminal aus:  
 ```bash
 cd flowline
 python -m venv .venv
@@ -86,6 +87,31 @@ pip install -r requirements.txt
 python app.py
 ```
 Hinweis: Öffnen Sie anschließend Ihren Browser unter http://127.0.0.1:5000  
+
+### Option 2: Containerisierte Ausführung (Empfohlen mit Docker)  
+Das Projekt ist vollständig containerisiert und kann unkompliziert mit Docker und Docker Compose ausgeführt werden.  
+
+1. **Umgebungsvariablen konfigurieren (.env):**
+Erstellen Sie eine .env-Datei im Hauptverzeichnis basierend auf der .env.example und tragen Sie die erforderlichen Konfigurationswerte ein.
+
+2. **Container starten:**
+Führen Sie den folgenden Befehl aus:  
+```bash
+docker compose up --build  
+```  
+
+### 🚀 Docker Hub Image
+Das fertige Docker-Image wurde erfolgreich auf Docker Hub veröffentlicht und kann direkt bezogen werden:
+```bash
+docker pull farzaneh0101/flowline:latest  
+```  
+
+### Enthaltene Dienste bei Docker:  
+* **Web-Applikation:** Läuft im Container und stellt die Flask-Anwendung bereit.
+
+* **Datenbank:** Eine isolierte PostgreSQL-Instanz für die Datenspeicherung.
+
+* **CloudBeaver:** Ein Web-Datenbankmanager, der über Port 8978 erreichbar ist, um die Datenbank bequem grafisch zu verwalten.
 
 ## 📸 Screenshots
 
