@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: flowline_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - flowline-net
+
+  web:
+    build: .
+    container_name: flowline_web
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - SECRET_KEY=${SECRET_KEY}
+    depends_on:
+      - db
+    networks:
+      - flowline-net
+
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:latest
+    container_name: flowline_cloudbeaver
+    restart: always
+    ports:
+      - "8978:8978"
+    depends_on:
+      - db
+    networks:
+      - flowline-net
+
+volumes:
+  postgres_data:
+
+networks:
+  flowline-net:
+    driver: bridge
