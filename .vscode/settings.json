@@ -1,6 +1,0 @@
-{
-    "githubPullRequests.ignoredPullRequestBranches": [
-        "main"
-    ],
-    "python-envs.defaultEnvManager": "ms-python.python:venv"
-}
