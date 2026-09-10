@@ -115,6 +115,8 @@ docker pull farzaneh0101/flowline:latest
 
 * **CloudBeaver:** Ein Web-Datenbankmanager, der über Port 8978 erreichbar ist, um die Datenbank bequem grafisch zu verwalten.
 
+---
+
 ## 📸 Screenshots
 
 Hier sind einige Einblicke in die FlowLine-Anwendung:
@@ -137,6 +139,7 @@ Hier sind einige Einblicke in die FlowLine-Anwendung:
 * **Visuelle Statistiken:**
   ![Statistiken](screenshots/stats.png)
 
+---
 
 ## 📁 Projektstruktur
 
@@ -164,6 +167,9 @@ flowline/
 │
 └── .env                    # Umgebungsvariablen (lokal)
 ```
+
+---
+
 ## 📈 Projekthistorie & Evolution
 
 * **🚀 FlowLine(v1.0):** Cloud-Hosting auf Render, PostgreSQL und erweiterte Features.
