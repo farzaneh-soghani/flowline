@@ -36,16 +36,10 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
-# ==========================================================================
-# KONFIGURATION DER ANWENDUNG
-# ==========================================================================
-
 # Initialisierung der Flask-Anwendung
 app = Flask(__name__)
-# --------------------------------------------------------------------------
-# Unterstützte Sprachen (Localization / i18n)
-# - Definition der verfügbaren Sprachen mit Anzeigenamen und Länderkürzel für Flaggen
-# --------------------------------------------------------------------------
+
+# Unterstützte Sprachen (Localization / i18n - Definition der verfügbaren Sprachen und Länderkürzel für Flaggen
 LANGUAGES = {
     'de': {'name': 'Deutsch', 'flag': 'de'},
     'en': {'name': 'English', 'flag': 'gb'},
@@ -79,8 +73,15 @@ if db_url.startswith("postgres://"):  # pragma: no cover
 elif db_url.startswith("postgresql://") and "+psycopg" not in db_url:  # pragma: no cover
     db_url = db_url.replace("postgresql://", "postgresql+psycopg://", 1)
 
+# Setzt die Datenbank-URI und deaktiviert das Modification-Tracking von SQLAlchemy
 app.config["SQLALCHEMY_DATABASE_URI"] = db_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+# Verbindungseinstellungen zur Vermeidung von 'AdminShutdown'-Fehlern auf Render hinzufügen
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_pre_ping": True,
+    "pool_recycle": 300,
+}
 
 # Nur noch die Absender-E-Mail aus der Umgebung laden
 MAIL_USERNAME = os.getenv("MAIL_USERNAME")
@@ -102,7 +103,6 @@ login_manager.login_message = None#
 
 
 # --- HELPER FUNCTIONS FOR PASSWORD RESET ---
-
 def generate_reset_token(user):
     """:ark:
     Generiert ein sicheres, zeitlich begrenztes Token für die Passwortwiederherstellung.
@@ -114,7 +114,7 @@ def generate_reset_token(user):
         {"email": user.email, "hash": user.password_hash}, salt="password-reset-salt"
     )
 
-
+# Überprüft das Token und validiert den Benutzer für die Passwortzurücksetzung
 def verify_reset_token(token, expiration=3600):
     """:ark:
     Überprüft die Gültigkeit des Tokens und verifiziert den Benutzer.
