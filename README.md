@@ -8,7 +8,7 @@
 
 ## 🌐 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Live-FlowLine-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)  
+[![Live Demo](https://img.shields.io/badge/Live_Render-FlowLine-brightgreen?logo=render)](https://farzaneh-soghani-flowline.onrender.com)  
 
 ## Bewerbungsverwaltung im Überblick
 
@@ -17,23 +17,20 @@
 > **Im Handy oder Desktop direkt im Browser eingeben: [(https://farzaneh-soghani-flowline.onrender.com)](https://farzaneh-soghani-flowline.onrender.com)**
 
 ---
+## 🌟 Features & Funktionen
 
-## 📌 Features & Funktionen
-* **Sichere Benutzerauthentifizierung:** Registrierung, Login und Passwort-Wiederherstellung (über sichere Token und E-Mail-Versand).
-* **Eigener Startbildschirm (Splash Screen):** Ein ansprechender Startbildschirm beim Öffnen der Anwendung für ein professionelles Nutzererlebnis.
-* **Erweiterte Bewerbungsverwaltung (CRUD):** 
-  * Flexibles Hinzufügen, Bearbeiten, Löschen von Bewerbungen (Firma, Position, Status, Datum, Follow-up).
-  * Hinzufügen und Verwalten von persönlichen Notizen zu jeder Bewerbung.
-* **Smart Defaults & Automatische Datumserfassung:** 
-  * Das Erstellungsdatum wird automatisch erfasst.
-  * Das Nachfass-Datum (Follow-up) wird standardmäßig automatisch auf **genau 2 Wochen (14 Tage)** in die Zukunft gesetzt, kann aber in der Bearbeitungsansicht individuell angepasst werden.
-* **Intelligentes Erinnerungssystem:** Automatische Markierung von anstehenden Follow-ups und Nachfass-Aktionen für aktive Bewerbungen (`offen`, `einladung`).
-* **Echtzeit-Suche:** Suchfunktion für das schnelle Finden von Einträgen.
-* **Echtzeit-Statistiken:** Eine dedizierte Statistik-Ansicht (`/stats`) zeigt die Gesamtanzahl sowie den prozentualen Anteil der noch offenen Bewerbungen.
-* **PDF-Export:** Generierung von professionellen Bewerbungsübersichten als PDF direkt im Arbeitsspeicher (mit ReportLab).
-* **Mehrsprachigkeit (i18n):** Unterstützt mehrere Sprachen (Deutsch, Englisch, Persisch, Arabisch, Türkisch, etc.) dank Flask-Babel.
-* **Vollständig Responsive: Optimiertes Layout für alle Endgeräte (Desktop, Tablets und Smartphones) dank modernem Custom CSS und Flexbox.
-* **Automatisierte CI/CD-Pipelines & Hosting:** Automatische Ausführung aller Tests über GitHub Actions und nahtloses Hosting auf **Render**.
+- **Authentifizierung & Sicherheit:** Sichere Registrierung, Login und Token-basierte Passwort-Wiederherstellung.
+- **Bewerbungsverwaltung (CRUD):** 
+  - Flexibles Verwalten von Bewerbungen (Firma, Position, Status, Datum) inklusive persönlicher Notizen.
+  - **Smart Defaults:** Automatische Erfassung des Datums und intelligente 14-Tage-Voreinstellung für Follow-ups (in der Bearbeitungsansicht jedoch jederzeit **manuell und individuell anpassbar**).
+- **Übersicht & Statistiken:** 
+  - Echtzeit-Suche zum schnellen Finden von Einträgen.
+  - Dedizierte Statistik-Ansicht (`/stats`) für offene Bewerbungen und Quoten.
+- **Export & Mehrsprachigkeit:** 
+  - Direkter PDF-Export (mit ReportLab) im Arbeitsspeicher.
+  - Volle Mehrsprachigkeit (i18n) dank Flask-Babel.
+- **Design:** 
+  - Responsive Layout (Custom CSS & Flexbox) für alle Endgeräte.
 
 ---
 
@@ -48,7 +45,7 @@
 * **Umgebungsspezifische Datenbanken:** 
   * **Lokale Entwicklung:** Verwendet leichtgewichtige und unkomplizierte **SQLite**-Datenbanken (`sqlite:///flowline.db`).
   * **Production (Neon Serverless PostgreSQL):** Nutzt ein robustes, Cloud-basiertes PostgreSQL-Backend. Die Anwendung erkennt automatisch die Umgebungsvariable `DATABASE_URL` und passt die Verbindung nahtlos an.
-  * *Warum Neon?* Im Gegensatz zu klassischen kostenlosen Cloud-Speichern (die oft Daten löschen oder strikte Limits haben) setzt Neon auf eine **Serverless-Architektur mit "Scale-to-Zero" (Auto-Suspend)**. Das bedeutet: Wenn die Datenbank nicht genutzt wird, geht sie in den Ruhe-Modus (schläft ein), um Ressourcen zu sparen, behält aber alle Daten dauerhaft bei. Bei der ersten neuen Anfrage (Request) wacht sie automatisch innerhalb von Sekunden wieder auf (`Wake-up`). Das garantiert dauerhafte Datensፔیشی (Persistenz) und volle Transparenz für den Betrieb.
+  * *Warum Neon?* Im Gegensatz zu klassischen kostenlosen Cloud-Speichern (die oft Daten löschen oder strikte Limits haben) setzt Neon auf eine **Serverless-Architektur mit "Scale-to-Zero" (Auto-Suspend)**. Das bedeutet: Wenn die Datenbank nicht genutzt wird, geht sie in den Ruhe-Modus (schläft ein), um Ressourcen zu sparen, behält aber alle Daten dauerhaft bei. Bei der ersten neuen Anfrage (Request) wacht sie automatisch innerhalb von Sekunden wieder auf (`Wake-up`). Das garantiert dauerhafte **Persistenz** und volle Transparenz für den Betrieb.
 
 ---
 
@@ -103,10 +100,13 @@ docker compose up --build
 ```  
 
 ### 🚀 Docker Hub Image
+
 Das fertige Docker-Image wurde erfolgreich auf Docker Hub veröffentlicht und kann direkt bezogen werden:
+
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-farzaneh0101%2Fflowline-blue?logo=docker)](https://hub.docker.com/r/farzaneh0101/flowline)  
 ```bash
-docker pull farzaneh0101/flowline:latest  
-```  
+docker pull farzaneh0101/flowline:latest
+```
 
 ### Enthaltene Dienste bei Docker:  
 * **Web-Applikation:** Läuft im Container und stellt die Flask-Anwendung bereit.
