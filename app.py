@@ -100,8 +100,6 @@ login_manager.login_view = "login"
 # Deaktiviert die Standard-Flash-Nachricht bei nicht autorisiertem Zugriff
 login_manager.login_message = None#
 
-
-
 # --- HELPER FUNCTIONS FOR PASSWORD RESET ---
 def generate_reset_token(user):
     """:ark:
@@ -139,7 +137,6 @@ def verify_reset_token(token, expiration=3600):
         # Fängt Fehler ab (z. B. abgelaufenes oder manipuliertes Token) und gibt None zurück
         return None
 
-
 # --- BABEL LOCALE SELECTOR ---
 def get_locale():
     """:ark:
@@ -158,12 +155,9 @@ def get_locale():
         )
         or "de"
     )
-# ==========================================================================
-# Flask-Babel Initialisierung (Lokalisierung)
-# ==========================================================================
+
 # Initialisierung von Flask-Babel mit der benutzerdefinierten Funktion zur Sprachauswahl
 babel = Babel(app, locale_selector=get_locale)
-
 
 # --- DATENBANK-MODELLE ---
 class User(UserMixin, db.Model):
